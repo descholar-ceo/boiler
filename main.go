@@ -65,7 +65,6 @@ func main() {
 
 	// will you use github?
 	fmt.Println("Will you use github as a collaboration tool? Enter y for yes or any other key for no")
-	// var isGithub string
 	fmt.Scan(&isGithub)
 
 	fmt.Println("\n\n\nThe following are your preferences, we will setup your project depending on your preferences.")
