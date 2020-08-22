@@ -99,6 +99,9 @@ func main() {
 	copy("./lib/.ruby/.github/workflows/linters.yml", projectName+"/.github/workflows/linters.yml")
 	copy("./lib/.ruby/.github/workflows/tests.yml", projectName+"/.github/workflows/tests.yml")
 
+	// initialize git
+	fmt.Printf("Initializing git in %s directory...\n", projectName)
+
 }
 
 func copy(src, dst string) (int64, error) {
