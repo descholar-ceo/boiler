@@ -79,21 +79,11 @@ func main() {
 	fmt.Printf("Creating %s directory...\n", projectName)
 	os.Mkdir(projectName, 0755)
 
-	// initialize gemfile
-	fmt.Printf("Initializing gem in %s directory...\n", projectName)
-	copy("./lib/.ruby/Gemfile", projectName+"/Gemfile")
-
 	// initialize rubocop
 	fmt.Printf("Initializing rubocop in %s directory...\n", projectName)
 	copy("./lib/.ruby/.rubocop.yml", projectName+"/.rubocop.yml")
 
-	// initialize rspec
-	fmt.Printf("Initializing rspec in %s directory...\n", projectName)
-	os.Mkdir(projectName+"/spec", 0755)
-	copy("./lib/.ruby/spec/spec_helper.rb", projectName+"/spec/spec_helper.rb")
-	copy("./lib/.ruby/.rspec", projectName+"/.rspec")
-
-	// initialize rspec
+	// initialize github actions
 	fmt.Printf("Initializing github actions in %s directory...\n", projectName)
 	os.Mkdir(projectName+"/.github", 0755)
 	os.Mkdir(projectName+"/.github/workflows", 0755)
@@ -104,10 +94,31 @@ func main() {
 	fmt.Printf("Creating README file in %s directory...\n", projectName)
 	copy("./lib/.ruby/README.md", projectName+"/README.md")
 
+	// change working dir
+	os.Chdir(projectName)
+
+	// initialize gemfile
+	fmt.Printf("Initializing gem in %s directory...\n", projectName)
+	defer exec.Command("bundle", "init").Run()
+
+	// initialize rspec
+	fmt.Printf("Initializing rspec in %s directory...\n", projectName)
+	defer exec.Command("rspec", "--init").Run()
+
 	// initialize git
 	fmt.Printf("Initializing git in %s directory...\n", projectName)
-	os.Chdir(projectName)
 	defer exec.Command("git", "init").Run()
+
+	// Displaying last commands
+	fmt.Println("\n\nYour project has been initialized successfully")
+	fmt.Println("The remaining task is to go on github and create a repository and copy its url")
+	fmt.Printf("Come back in the root directory of %s\n", projectName)
+	fmt.Println("\nRun the following commands respectifuly")
+	fmt.Println("1. git remote add .")
+	fmt.Println("2. git commit -m \"Initial commit\"")
+	fmt.Println("3. git remote add origin [Paste the url you copied from github]")
+	fmt.Println("4. git push -u origin master")
+	fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
 }
 
 func copy(src, dst string) (int64, error) {
