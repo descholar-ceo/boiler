@@ -82,9 +82,14 @@ func main() {
 	fmt.Printf("Initializing gem in %s directory...\n", projectName)
 	copy("./lib/.ruby/Gemfile", projectName+"/Gemfile")
 
-	// initialize gemfile
+	// initialize rubocop
 	fmt.Printf("Initializing rubocop in %s directory...\n", projectName)
 	copy("./lib/.ruby/.rubocop.yml", projectName+"/.rubocop.yml")
+
+	// initialize rspec
+	fmt.Printf("Initializing rspec in %s directory...\n", projectName)
+	os.Mkdir(projectName+"/spec", 0755)
+
 }
 
 func copy(src, dst string) (int64, error) {
