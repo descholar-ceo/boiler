@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
 )
 
 var (
@@ -76,4 +77,9 @@ func main() {
 	// create a project directory
 	fmt.Printf("Creating %s directory...\n", projectName)
 	os.Mkdir(projectName, 0755)
+
+	// create a project directory
+	fmt.Printf("Initializing gem in %s directory...\n", projectName)
+	exec.Command("cd", projectName).Run()
+	exec.Command("bundle", "init").Run()
 }
