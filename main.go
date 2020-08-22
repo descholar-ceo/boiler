@@ -41,13 +41,13 @@ func main() {
 		fmt.Scan(&testFramework)
 		if testFramework != 1 {
 			for i := 0; i < 5; i++ {
-				fmt.Println("Choose a number which correspond to the language you will be using:\n1.Ruby")
-				fmt.Scan(&language)
-				if language == 1 {
+				fmt.Println("Choose a number which corresponds to the testing framework you will be using:\n1.RSpec")
+				fmt.Scan(&testFramework)
+				if testFramework == 1 {
 					break
 				}
 			}
-			fmt.Println("The language you chose is not supported")
+			fmt.Println("The the testing framework you chose is not supported")
 		}
 	}
 }
