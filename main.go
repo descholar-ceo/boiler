@@ -94,6 +94,8 @@ func main() {
 
 	// initialize rspec
 	fmt.Printf("Initializing github actions in %s directory...\n", projectName)
+	os.Mkdir(projectName+"/.github", 0755)
+	os.Mkdir(projectName+"/.github/workflows", 0755)
 
 }
 
