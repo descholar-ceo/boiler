@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os/exec"
+)
 
 func main() {
 	fmt.Println("Welcome to the Bo!ler cli utility, We will initialize your basic project, \nbut to do so, you will help us with few answers to the following questions.")
@@ -8,7 +11,10 @@ func main() {
 	var language string
 	fmt.Scan(&language)
 	if language == "ruby" {
-		fmt.Println("We are going to process ruby now")
+		var projectName string
+		fmt.Println("Enter the name of your project: ")
+		fmt.Scan(&projectName)
+		exec.Command("mkdir", projectName).Run()
 	} else {
 		fmt.Println("Currently we support ruby")
 	}
