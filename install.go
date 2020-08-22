@@ -7,5 +7,9 @@ func main() {
 	fmt.Println("\n\nWhich language would you like to initialize?")
 	var language string
 	fmt.Scan(&language)
-	fmt.Printf("You enetered %v", language)
+	if language == "ruby" {
+		fmt.Println("We are going to process ruby now")
+	} else {
+		fmt.Println("Currently we support ruby")
+	}
 }
