@@ -100,13 +100,15 @@ func main() {
 	copy("./lib/.ruby/.github/workflows/linters.yml", projectName+"/.github/workflows/linters.yml")
 	copy("./lib/.ruby/.github/workflows/tests.yml", projectName+"/.github/workflows/tests.yml")
 
+	// create a readme file
+	fmt.Printf("Creating README file in %s directory...\n", projectName)
+	copied, err := copy("../lib/.ruby/README.md", projectName+"/README.md")
+	fmt.Printf("Copied: %v and error occured: %v\n", copied, err)
+
 	// initialize git
 	fmt.Printf("Initializing git in %s directory...\n", projectName)
 	os.Chdir(projectName)
 	defer exec.Command("git", "init").Run()
-
-	// create a readme file
-	copy("./lib/.ruby/README.md", projectName+"/README.md")
 }
 
 func copy(src, dst string) (int64, error) {
