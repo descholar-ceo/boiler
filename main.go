@@ -21,5 +21,10 @@ func main() {
 			}
 		}
 		fmt.Println("The language you chose is not supported")
+	} else {
+		fmt.Println("Will you use Rubocop as a linter? Enter y for yes or any other key for no")
+		var rubocop string
+		fmt.Scan(&rubocop)
 	}
+
 }
