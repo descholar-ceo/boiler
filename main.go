@@ -76,6 +76,8 @@ func main() {
 	fmt.Printf("Will you use github? : %v\n\n", isGithub)
 
 	// changing working dir
+	fmt.Printf("Changing %s directory to ...\n", workingDir)
+	os.Chdir("~" + workingDir)
 
 	// create a project directory
 	fmt.Printf("Creating %s directory...\n", projectName)
