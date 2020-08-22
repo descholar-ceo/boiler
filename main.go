@@ -92,6 +92,9 @@ func main() {
 	copy("./lib/.ruby/spec/spec_helper.rb", projectName+"/spec/spec_helper.rb")
 	copy("./lib/.ruby/.rspec", projectName+"/.rspec")
 
+	// initialize rspec
+	fmt.Printf("Initializing github actions in %s directory...\n", projectName)
+
 }
 
 func copy(src, dst string) (int64, error) {
