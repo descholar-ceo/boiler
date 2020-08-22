@@ -106,6 +106,7 @@ func main() {
 	defer exec.Command("git", "init").Run()
 
 	// create a readme file
+	copy("./lib/.ruby/README.md", projectName+"/README.md")
 }
 
 func copy(src, dst string) (int64, error) {
