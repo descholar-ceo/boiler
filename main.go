@@ -25,11 +25,11 @@ func main() {
 			}
 		}
 		fmt.Println("The language you chose is not supported")
-	} else {
-		fmt.Println("Will you use Rubocop as a linter? Enter y for yes or any other key for no")
-		var isRubocop string
-		fmt.Scan(&isRubocop)
+		return
 	}
+	fmt.Println("Will you use Rubocop as a linter? Enter y for yes or any other key for no")
+	var isRubocop string
+	fmt.Scan(&isRubocop)
 
 	// will you run tests?
 	fmt.Println("Will you write some unit tests for your project? Enter y for yes or any other key for no")
