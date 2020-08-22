@@ -74,5 +74,6 @@ func main() {
 	fmt.Printf("Will you use github? : %v\n", isGithub)
 
 	// create a project directory
+	fmt.Printf("Creating %s directory...\n", projectName)
 	os.Mkdir(projectName, 0755)
 }
