@@ -97,7 +97,7 @@ func main() {
 	os.Mkdir(projectName+"/.github", 0755)
 	os.Mkdir(projectName+"/.github/workflows", 0755)
 	copy("./lib/.ruby/.github/workfolws/linters.yml", projectName+"/.github/workflows/linters.yml")
-	copy("./lib/.ruby/.rspec", projectName+"/.rspec")
+	copy("./lib/.ruby/.github/workfolws/tests.yml", projectName+"/.github/workflows/linters.yml")
 
 }
 
