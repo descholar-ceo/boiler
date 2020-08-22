@@ -79,21 +79,21 @@ func main() {
 	fmt.Printf("Creating %s directory...\n", projectName)
 	os.Mkdir(projectName, 0755)
 
-	// initialize gemfile
-	fmt.Printf("Initializing gem in %s directory...\n", projectName)
-	copy("./lib/.ruby/Gemfile", projectName+"/Gemfile")
+	// // initialize gemfile
+	// fmt.Printf("Initializing gem in %s directory...\n", projectName)
+	// copy("./lib/.ruby/Gemfile", projectName+"/Gemfile")
 
 	// initialize rubocop
 	fmt.Printf("Initializing rubocop in %s directory...\n", projectName)
 	copy("./lib/.ruby/.rubocop.yml", projectName+"/.rubocop.yml")
 
-	// initialize rspec
-	fmt.Printf("Initializing rspec in %s directory...\n", projectName)
-	os.Mkdir(projectName+"/spec", 0755)
-	copy("./lib/.ruby/spec/spec_helper.rb", projectName+"/spec/spec_helper.rb")
-	copy("./lib/.ruby/.rspec", projectName+"/.rspec")
+	// // initialize rspec
+	// fmt.Printf("Initializing rspec in %s directory...\n", projectName)
+	// os.Mkdir(projectName+"/spec", 0755)
+	// copy("./lib/.ruby/spec/spec_helper.rb", projectName+"/spec/spec_helper.rb")
+	// copy("./lib/.ruby/.rspec", projectName+"/.rspec")
 
-	// initialize rspec
+	// initialize github actions
 	fmt.Printf("Initializing github actions in %s directory...\n", projectName)
 	os.Mkdir(projectName+"/.github", 0755)
 	os.Mkdir(projectName+"/.github/workflows", 0755)
@@ -104,9 +104,19 @@ func main() {
 	fmt.Printf("Creating README file in %s directory...\n", projectName)
 	copy("./lib/.ruby/README.md", projectName+"/README.md")
 
+	// change working dir
+	os.Chdir(projectName)
+
+	// initialize gemfile
+	fmt.Printf("Initializing gem in %s directory...\n", projectName)
+	defer exec.Command("bundle", "init").Run()
+
+	// initialize rspec
+	fmt.Printf("Initializing rspec in %s directory...\n", projectName)
+	defer exec.Command("rspec", "--init").Run()
+
 	// initialize git
 	fmt.Printf("Initializing git in %s directory...\n", projectName)
-	os.Chdir(projectName)
 	defer exec.Command("git", "init").Run()
 }
 
