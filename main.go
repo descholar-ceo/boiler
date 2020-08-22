@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
-	"os/exec"
+
+	"github.com/mitchellh/go-homedir"
 )
 
 var (
@@ -76,53 +78,57 @@ func main() {
 	fmt.Printf("Will you use github? : %v\n\n", isGithub)
 
 	// changing working dir
-	fmt.Printf("Changing %s directory to ...\n", workingDir)
-	os.Chdir("~/" + workingDir)
+	fmt.Printf("Getting your home directory")
+	homeDirectory, err := homedir.Dir()
+	if err != nil {
+		log.Fatal(err)
+	}
+	wrkDr := homeDirectory + "/" + workingDir + "/" + projectName
 
 	// create a project directory
-	defer fmt.Printf("Creating %s directory...\n", projectName)
-	defer os.Mkdir(projectName, 0755)
+	fmt.Printf("Creating directory to %s...\n", projectName)
+	os.Mkdir(wrkDr, 0755)
 
 	// initialize rubocop
-	defer fmt.Printf("Initializing rubocop in %s directory...\n", projectName)
-	defer copy("./lib/.ruby/.rubocop.yml", projectName+"/.rubocop.yml")
+	fmt.Printf("Initializing rubocop in %s directory...\n", projectName)
+	copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
 
-	// initialize github actions
-	defer fmt.Printf("Initializing github actions in %s directory...\n", projectName)
-	defer os.Mkdir(projectName+"/.github", 0755)
-	defer os.Mkdir(projectName+"/.github/workflows", 0755)
-	defer copy("./lib/.ruby/.github/workflows/linters.yml", projectName+"/.github/workflows/linters.yml")
-	defer copy("./lib/.ruby/.github/workflows/tests.yml", projectName+"/.github/workflows/tests.yml")
+	// // initialize github actions
+	// defer fmt.Printf("Initializing github actions in %s directory...\n", projectName)
+	// defer os.Mkdir(projectName+"/.github", 0755)
+	// defer os.Mkdir(projectName+"/.github/workflows", 0755)
+	// defer copy("./lib/.ruby/.github/workflows/linters.yml", projectName+"/.github/workflows/linters.yml")
+	// defer copy("./lib/.ruby/.github/workflows/tests.yml", projectName+"/.github/workflows/tests.yml")
 
-	// create a readme file
-	defer fmt.Printf("Creating README file in %s directory...\n", projectName)
-	defer copy("./lib/.ruby/README.md", projectName+"/README.md")
+	// // create a readme file
+	// defer fmt.Printf("Creating README file in %s directory...\n", projectName)
+	// defer copy("./lib/.ruby/README.md", projectName+"/README.md")
 
-	// change working dir
-	defer os.Chdir(projectName)
+	// // change working dir
+	// defer os.Chdir(projectName)
 
-	// initialize gemfile
-	defer fmt.Printf("Initializing gem in %s directory...\n", projectName)
-	defer exec.Command("bundle", "init").Run()
+	// // initialize gemfile
+	// defer fmt.Printf("Initializing gem in %s directory...\n", projectName)
+	// defer exec.Command("bundle", "init").Run()
 
-	// initialize rspec
-	defer fmt.Printf("Initializing rspec in %s directory...\n", projectName)
-	defer exec.Command("rspec", "--init").Run()
+	// // initialize rspec
+	// defer fmt.Printf("Initializing rspec in %s directory...\n", projectName)
+	// defer exec.Command("rspec", "--init").Run()
 
-	// initialize git
-	defer fmt.Printf("Initializing git in %s directory...\n", projectName)
-	defer exec.Command("git", "init").Run()
+	// // initialize git
+	// defer fmt.Printf("Initializing git in %s directory...\n", projectName)
+	// defer exec.Command("git", "init").Run()
 
-	// Displaying last commands
-	fmt.Println("\n\nYour project has been initialized successfully")
-	fmt.Println("The remaining task is to go on github and create a repository and copy its url")
-	fmt.Printf("Come back in the root directory of %s\n", projectName)
-	fmt.Println("\nRun the following commands respectifuly")
-	fmt.Println("1. git remote add .")
-	fmt.Println("2. git commit -m \"Initial commit\"")
-	fmt.Println("3. git remote add origin [Paste the url you copied from github]")
-	fmt.Println("4. git push -u origin master")
-	fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
+	// // Displaying last commands
+	// fmt.Println("\n\nYour project has been initialized successfully")
+	// fmt.Println("The remaining task is to go on github and create a repository and copy its url")
+	// fmt.Printf("Come back in the root directory of %s\n", projectName)
+	// fmt.Println("\nRun the following commands respectifuly")
+	// fmt.Println("1. git remote add .")
+	// fmt.Println("2. git commit -m \"Initial commit\"")
+	// fmt.Println("3. git remote add origin [Paste the url you copied from github]")
+	// fmt.Println("4. git push -u origin master")
+	// fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
 }
 
 func copy(src, dst string) (int64, error) {
