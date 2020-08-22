@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"os/exec"
+	"os"
 )
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 		var projectName string
 		fmt.Println("Enter the name of your project: ")
 		fmt.Scan(&projectName)
-		exec.Command("mkdir", projectName).Run()
+		os.Mkdir(projectName, 0755)
 	} else {
 		fmt.Println("Currently we support ruby")
 	}
