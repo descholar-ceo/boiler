@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 var (
@@ -72,4 +73,6 @@ func main() {
 	fmt.Printf("Testing framework : %v\n", testFramework)
 	fmt.Printf("Will you use github? : %v\n", isGithub)
 
+	// create a project directory
+	os.Mkdir(projectName, 0755)
 }
