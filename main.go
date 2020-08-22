@@ -3,7 +3,9 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
+	"os/exec"
 )
 
 var (
@@ -72,7 +74,7 @@ func main() {
 	fmt.Printf("Language name : %v\n", language)
 	fmt.Printf("Will you write unit test? : %v\n", isTests)
 	fmt.Printf("Testing framework : %v\n", testFramework)
-	fmt.Printf("Will you use github? : %v\n", isGithub)
+	fmt.Printf("Will you use github? : %v\n\n", isGithub)
 
 	// create a project directory
 	fmt.Printf("Creating %s directory...\n", projectName)
@@ -101,6 +103,9 @@ func main() {
 
 	// initialize git
 	fmt.Printf("Initializing git in %s directory...\n", projectName)
+	if err := exec.Command(projectName+"/git", "init"); err != nil {
+		log.Fatal(err)
+	}
 
 }
 
