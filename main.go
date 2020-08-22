@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
-	"os/exec"
 )
 
 var (
@@ -78,8 +78,32 @@ func main() {
 	fmt.Printf("Creating %s directory...\n", projectName)
 	os.Mkdir(projectName, 0755)
 
-	// create a project directory
+	// initialize gemfile
 	fmt.Printf("Initializing gem in %s directory...\n", projectName)
-	exec.Command("cd", projectName).Run()
-	exec.Command("bundle", "init").Run()
+
+}
+
+func copy(src, dst string) (int64, error) {
+	sourceFileStat, err := os.Stat(src)
+	if err != nil {
+		return 0, err
+	}
+
+	if !sourceFileStat.Mode().IsRegular() {
+		return 0, fmt.Errorf("%s is not a regular file", src)
+	}
+
+	source, err := os.Open(src)
+	if err != nil {
+		return 0, err
+	}
+	defer source.Close()
+
+	destination, err := os.Create(dst)
+	if err != nil {
+		return 0, err
+	}
+	defer destination.Close()
+	nBytes, err := io.Copy(destination, source)
+	return nBytes, err
 }
