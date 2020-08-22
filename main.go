@@ -8,6 +8,7 @@ import (
 )
 
 var (
+	workingDir    string
 	projectName   string
 	language      int
 	isRubocop     string
