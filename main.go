@@ -22,6 +22,7 @@ func main() {
 
 	// working directory
 	fmt.Println("Enter the working directory:")
+	fmt.Scan(&workingDir)
 
 	// project name
 	fmt.Println("\n\nWhat is the project name you want to use?")
