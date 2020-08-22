@@ -89,6 +89,8 @@ func main() {
 	// initialize rspec
 	fmt.Printf("Initializing rspec in %s directory...\n", projectName)
 	os.Mkdir(projectName+"/spec", 0755)
+	copy("./lib/.ruby/spec", projectName+"/spec/spec_helper.rb")
+	copy("./lib/.ruby/.rspec", projectName+"/.rspec")
 
 }
 
