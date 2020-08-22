@@ -120,16 +120,16 @@ func main() {
 	defer fmt.Printf("Initializing git in %s directory...\n", projectName)
 	defer exec.Command("git", "init").Run()
 
-	// Displaying last commands
-	defer fmt.Println("\n\nYour project has been initialized successfully")
-	defer fmt.Println("The remaining task is to go on github and create a repository and copy its url")
-	defer fmt.Printf("Come back in the root directory of %s\n", projectName)
-	defer fmt.Println("\nRun the following commands respectifuly")
-	defer fmt.Println("1. git remote add .")
-	defer fmt.Println("2. git commit -m \"Initial commit\"")
-	defer fmt.Println("3. git remote add origin [Paste the url you copied from github]")
-	defer fmt.Println("4. git push -u origin master")
-	defer fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
+	// // Displaying last commands
+	// defer fmt.Println("\n\nYour project has been initialized successfully")
+	// defer fmt.Println("The remaining task is to go on github and create a repository and copy its url")
+	// defer fmt.Printf("Come back in the root directory of %s\n", projectName)
+	// defer fmt.Println("\nRun the following commands respectifuly")
+	// defer fmt.Println("1. git remote add .")
+	// defer fmt.Println("2. git commit -m \"Initial commit\"")
+	// defer fmt.Println("3. git remote add origin [Paste the url you copied from github]")
+	// defer fmt.Println("4. git push -u origin master")
+	// defer fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
 }
 
 func copy(src, dst string) (int64, error) {
