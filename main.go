@@ -3,9 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
-	"log"
 	"os"
-	"os/exec"
 )
 
 var (
@@ -103,9 +101,7 @@ func main() {
 
 	// initialize git
 	fmt.Printf("Initializing git in %s directory...\n", projectName)
-	if err := exec.Command(projectName+"/git", "init"); err != nil {
-		log.Fatal(err)
-	}
+	os.Chdir(projectName)
 
 }
 
