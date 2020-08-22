@@ -96,8 +96,8 @@ func main() {
 	fmt.Printf("Initializing github actions in %s directory...\n", projectName)
 	os.Mkdir(projectName+"/.github", 0755)
 	os.Mkdir(projectName+"/.github/workflows", 0755)
-	copy("./lib/.ruby/.github/workfolws/linters.yml", projectName+"/.github/workflows/linters.yml")
-	copy("./lib/.ruby/.github/workfolws/tests.yml", projectName+"/.github/workflows/linters.yml")
+	copy("./lib/.ruby/.github/workflows/linters.yml", projectName+"/.github/workflows/linters.yml")
+	copy("./lib/.ruby/.github/workflows/tests.yml", projectName+"/.github/workflows/tests.yml")
 
 }
 
