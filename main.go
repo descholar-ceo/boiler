@@ -79,19 +79,9 @@ func main() {
 	fmt.Printf("Creating %s directory...\n", projectName)
 	os.Mkdir(projectName, 0755)
 
-	// // initialize gemfile
-	// fmt.Printf("Initializing gem in %s directory...\n", projectName)
-	// copy("./lib/.ruby/Gemfile", projectName+"/Gemfile")
-
 	// initialize rubocop
 	fmt.Printf("Initializing rubocop in %s directory...\n", projectName)
 	copy("./lib/.ruby/.rubocop.yml", projectName+"/.rubocop.yml")
-
-	// // initialize rspec
-	// fmt.Printf("Initializing rspec in %s directory...\n", projectName)
-	// os.Mkdir(projectName+"/spec", 0755)
-	// copy("./lib/.ruby/spec/spec_helper.rb", projectName+"/spec/spec_helper.rb")
-	// copy("./lib/.ruby/.rspec", projectName+"/.rspec")
 
 	// initialize github actions
 	fmt.Printf("Initializing github actions in %s directory...\n", projectName)
