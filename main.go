@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"os/exec"
 
 	"github.com/mitchellh/go-homedir"
 )
@@ -93,31 +94,31 @@ func main() {
 	fmt.Printf("Initializing rubocop in %s directory...\n", projectName)
 	copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
 
-	// // initialize github actions
-	// defer fmt.Printf("Initializing github actions in %s directory...\n", projectName)
-	// defer os.Mkdir(projectName+"/.github", 0755)
-	// defer os.Mkdir(projectName+"/.github/workflows", 0755)
-	// defer copy("./lib/.ruby/.github/workflows/linters.yml", projectName+"/.github/workflows/linters.yml")
-	// defer copy("./lib/.ruby/.github/workflows/tests.yml", projectName+"/.github/workflows/tests.yml")
+	// initialize github actions
+	fmt.Printf("Initializing github actions in %s directory...\n", projectName)
+	os.Mkdir(wrkDr+"/.github", 0755)
+	os.Mkdir(wrkDr+"/.github/workflows", 0755)
+	copy("./lib/.ruby/.github/workflows/linters.yml", wrkDr+"/.github/workflows/linters.yml")
+	copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
 
-	// // create a readme file
-	// defer fmt.Printf("Creating README file in %s directory...\n", projectName)
-	// defer copy("./lib/.ruby/README.md", projectName+"/README.md")
+	// create a readme file
+	fmt.Printf("Creating README file in %s directory...\n", projectName)
+	copy("./lib/.ruby/README.md", wrkDr+"/README.md")
 
-	// // change working dir
-	// defer os.Chdir(projectName)
+	// change working dir
+	os.Chdir(wrkDr)
 
-	// // initialize gemfile
-	// defer fmt.Printf("Initializing gem in %s directory...\n", projectName)
-	// defer exec.Command("bundle", "init").Run()
+	// initialize gemfile
+	defer fmt.Printf("Initializing gem in %s directory...\n", projectName)
+	defer exec.Command("bundle", "init").Run()
 
-	// // initialize rspec
-	// defer fmt.Printf("Initializing rspec in %s directory...\n", projectName)
-	// defer exec.Command("rspec", "--init").Run()
+	// initialize rspec
+	defer fmt.Printf("Initializing rspec in %s directory...\n", projectName)
+	defer exec.Command("rspec", "--init").Run()
 
-	// // initialize git
-	// defer fmt.Printf("Initializing git in %s directory...\n", projectName)
-	// defer exec.Command("git", "init").Run()
+	// initialize git
+	defer fmt.Printf("Initializing git in %s directory...\n", projectName)
+	defer exec.Command("git", "init").Run()
 
 	// // Displaying last commands
 	// fmt.Println("\n\nYour project has been initialized successfully")
