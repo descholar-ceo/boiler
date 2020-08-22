@@ -80,7 +80,11 @@ func main() {
 
 	// initialize gemfile
 	fmt.Printf("Initializing gem in %s directory...\n", projectName)
+	copy("./lib/.ruby/Gemfile", projectName+"/Gemfile")
 
+	// initialize gemfile
+	fmt.Printf("Initializing rubocop in %s directory...\n", projectName)
+	copy("./lib/.ruby/.rubocop.yml", projectName+"/.rubocop.yml")
 }
 
 func copy(src, dst string) (int64, error) {
