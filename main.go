@@ -3,11 +3,15 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"os/exec"
+
+	"github.com/mitchellh/go-homedir"
 )
 
 var (
+	workingDir    string
 	projectName   string
 	language      int
 	isRubocop     string
@@ -19,14 +23,16 @@ var (
 func main() {
 	fmt.Println("Welcome to the Bo!ler cli utility, We will initialize your basic project, \nbut to do so, you will help us with few answers to the following questions.")
 
+	// working directory
+	fmt.Println("Enter the working directory:")
+	fmt.Scan(&workingDir)
+
 	// project name
 	fmt.Println("\n\nWhat is the project name you want to use?")
-	// var projectName string
 	fmt.Scan(&projectName)
 
 	// choose a language
 	fmt.Println("Choose a number which correspond to the language you will be using:\n1.Ruby")
-	// var language int
 	fmt.Scan(&language)
 	if language != 1 {
 		for i := 0; i < 5; i++ {
@@ -40,16 +46,13 @@ func main() {
 		return
 	}
 	fmt.Println("Will you use Rubocop as a linter? Enter y for yes or any other key for no")
-	// var isRubocop string
 	fmt.Scan(&isRubocop)
 
 	// will you run tests?
 	fmt.Println("Will you write some unit tests for your project? Enter y for yes or any other key for no")
-	// var isTests string
 	fmt.Scan(&isTests)
 	if isTests == "y" || isTests == "Y" {
 		fmt.Println("Choose a number which corresponds to the testing framework you will be using:\n1.RSpec")
-		// var testFramework int
 		fmt.Scan(&testFramework)
 		if testFramework != 1 {
 			for i := 0; i < 5; i++ {
@@ -65,48 +68,56 @@ func main() {
 
 	// will you use github?
 	fmt.Println("Will you use github as a collaboration tool? Enter y for yes or any other key for no")
-	// var isGithub string
 	fmt.Scan(&isGithub)
 
 	fmt.Println("\n\n\nThe following are your preferences, we will setup your project depending on your preferences.")
+	fmt.Printf("Working dir : %v\n", workingDir)
 	fmt.Printf("Project name : %v\n", projectName)
 	fmt.Printf("Language name : %v\n", language)
 	fmt.Printf("Will you write unit test? : %v\n", isTests)
 	fmt.Printf("Testing framework : %v\n", testFramework)
 	fmt.Printf("Will you use github? : %v\n\n", isGithub)
 
+	// changing working dir
+	fmt.Printf("Getting your home directory")
+	homeDirectory, err := homedir.Dir()
+	if err != nil {
+		log.Fatal(err)
+	}
+	wrkDr := homeDirectory + "/" + workingDir + "/" + projectName
+
 	// create a project directory
-	fmt.Printf("Creating %s directory...\n", projectName)
-	os.Mkdir(projectName, 0755)
+	fmt.Printf("Creating directory to %s...\n", projectName)
+	os.Mkdir(wrkDr, 0755)
 
 	// initialize rubocop
 	fmt.Printf("Initializing rubocop in %s directory...\n", projectName)
-	copy("./lib/.ruby/.rubocop.yml", projectName+"/.rubocop.yml")
+	copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
 
 	// initialize github actions
 	fmt.Printf("Initializing github actions in %s directory...\n", projectName)
-	os.Mkdir(projectName+"/.github", 0755)
-	os.Mkdir(projectName+"/.github/workflows", 0755)
-	copy("./lib/.ruby/.github/workflows/linters.yml", projectName+"/.github/workflows/linters.yml")
-	copy("./lib/.ruby/.github/workflows/tests.yml", projectName+"/.github/workflows/tests.yml")
+	os.Mkdir(wrkDr+"/.github", 0755)
+	os.Mkdir(wrkDr+"/.github/workflows", 0755)
+	copy("./lib/.ruby/.github/workflows/linters.yml", wrkDr+"/.github/workflows/linters.yml")
+	copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
 
 	// create a readme file
 	fmt.Printf("Creating README file in %s directory...\n", projectName)
-	copy("./lib/.ruby/README.md", projectName+"/README.md")
+	copy("./lib/.ruby/README.md", wrkDr+"/README.md")
 
 	// change working dir
-	os.Chdir(projectName)
+	os.Chdir(wrkDr)
 
 	// initialize gemfile
-	fmt.Printf("Initializing gem in %s directory...\n", projectName)
+	defer fmt.Printf("Initializing gem in %s directory...\n", projectName)
 	defer exec.Command("bundle", "init").Run()
 
 	// initialize rspec
-	fmt.Printf("Initializing rspec in %s directory...\n", projectName)
+	defer fmt.Printf("Initializing rspec in %s directory...\n", projectName)
 	defer exec.Command("rspec", "--init").Run()
 
 	// initialize git
-	fmt.Printf("Initializing git in %s directory...\n", projectName)
+	defer fmt.Printf("Initializing git in %s directory...\n", projectName)
 	defer exec.Command("git", "init").Run()
 
 	// Displaying last commands
