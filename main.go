@@ -103,7 +103,6 @@ func main() {
 	// create a readme file
 	fmt.Printf("Creating README file in %s directory...\n", projectName)
 	copied, err := copy("./lib/.ruby/README.md", projectName+"/README.md")
-	fmt.Printf("Copied: %v and error occured: %v\n", copied, err)
 
 	// initialize git
 	fmt.Printf("Initializing git in %s directory...\n", projectName)
