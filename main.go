@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"os/exec"
 )
 
 var (
@@ -102,6 +103,7 @@ func main() {
 	// initialize git
 	fmt.Printf("Initializing git in %s directory...\n", projectName)
 	os.Chdir(projectName)
+	defer exec.Command("git", "init")
 
 }
 
