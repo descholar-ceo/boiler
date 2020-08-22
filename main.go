@@ -65,7 +65,7 @@ func main() {
 	// var isGithub string
 	fmt.Scan(&isGithub)
 
-	fmt.Println("The following are your preferences, we will setup your project depending on your preferences.")
+	fmt.Println("\n\n\nThe following are your preferences, we will setup your project depending on your preferences.")
 	fmt.Printf("Project name : %v\n", projectName)
 	fmt.Printf("Language name : %v\n", language)
 	fmt.Printf("Will you write unit test? : %v\n", isTests)
