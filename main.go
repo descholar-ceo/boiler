@@ -50,4 +50,7 @@ func main() {
 			fmt.Println("The the testing framework you chose is not supported")
 		}
 	}
+
+	// will you use github?
+	fmt.Println("Will you use github as a collaboration tool? Enter y for yes or any other key for no")
 }
