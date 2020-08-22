@@ -104,7 +104,6 @@ func main() {
 	fmt.Printf("Initializing git in %s directory...\n", projectName)
 	os.Chdir(projectName)
 	defer exec.Command("git", "init").Run()
-
 }
 
 func copy(src, dst string) (int64, error) {
