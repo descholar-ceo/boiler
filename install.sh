@@ -7,6 +7,6 @@ mkdir $HOME/.boiler && cd $HOME/.boiler && git clone https://github.com/deschola
 
 make build
 
-sudo echo PATH=$PATH:$HOME/boiler/boiler/bin>>$HOME/.bashrc
+sudo echo PATH=$PATH:$HOME/.boiler/boiler/bin>>$HOME/.bashrc
 
 echo "Everything is set now"
