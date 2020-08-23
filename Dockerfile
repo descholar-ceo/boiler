@@ -1,6 +1,7 @@
 # getting base image
-FROM linuxmintd/mint20-amd64
+FROM golang
 
 WORKDIR /boiler
 COPY . /boiler
+RUN go get "github.com/mitchellh/go-homedir"
 CMD ["bin/main"]
