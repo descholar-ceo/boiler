@@ -105,6 +105,10 @@ func main() {
 	fmt.Printf("Creating README file in %s directory...\n", projectName)
 	copy("./lib/.ruby/README.md", wrkDr+"/README.md")
 
+	// create a PR template file
+	fmt.Printf("Creating PR template file in %s directory...\n", projectName)
+	copy("./lib/.ruby/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
+
 	// change working dir
 	os.Chdir(wrkDr)
 
