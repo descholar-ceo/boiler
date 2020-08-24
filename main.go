@@ -142,6 +142,11 @@ func rubyBoiler() {
 		copy("./lib/.ruby/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
 	}
 
+	os.Mkdir(wrkDr+"/lib", 0755)
+	os.Mkdir(wrkDr+"/bin", 0755)
+	os.Create(wrkDr + "/lib/.gitkeep")
+	os.Create(wrkDr + "/bin/main.rb")
+
 	// change working dir
 	os.Chdir(wrkDr)
 
@@ -161,11 +166,6 @@ func rubyBoiler() {
 		defer fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
 		defer exec.Command("bundle", "add", "rubocop").Run()
 	}
-
-	defer os.Mkdir("lib", 0755)
-	defer os.Mkdir("bin", 0755)
-	// defer os.Create("lib/.gitkeep")
-	// defer os.Create("bin/main.rb")
 
 	// initialize git
 	defer fmt.Printf("\nInitializing git in %s directory...\n", projectName)
