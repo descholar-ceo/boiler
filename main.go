@@ -91,7 +91,7 @@ func rubyBoiler() {
 	fmt.Scan(&isGithub)
 
 	fmt.Println("\n\n\nThe following are your preferences, we will setup your project depending on your preferences.")
-	fmt.Printf("Working dir : %v\n", workingDir)
+	fmt.Printf("\n\nWorking dir : %v\n", workingDir)
 	fmt.Printf("Project name : %v\n", projectName)
 	fmt.Printf("Language name : %v\n", language)
 	fmt.Printf("Will you write unit test? : %v\n", isTests)
