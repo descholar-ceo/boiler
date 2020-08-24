@@ -13,6 +13,7 @@ import (
 var (
 	workingDir    string
 	wrkDr         string
+	err           error
 	projectName   string
 	language      int
 	isRubocop     string
@@ -99,13 +100,20 @@ func rubyBoiler() {
 	fmt.Printf("Testing framework : %v\n", testFramework)
 	fmt.Printf("Will you use github? : %v\n\n", isGithub)
 
-	// changing working dir
-	fmt.Printf("\nGetting your home directory")
-	homeDirectory, err := homedir.Dir()
-	if err != nil {
-		log.Fatal(err)
+	if workingDir == "." {
+		// create project in current directory
+		wrkDr, _ = os.Getwd()
+	} else {
+		// checking if a directory exists
+
+		// getting working dir
+		fmt.Printf("\nGetting your home directory")
+		homeDirectory, err := homedir.Dir()
+		if err != nil {
+			log.Fatal(err)
+		}
+		wrkDr = homeDirectory + "/" + workingDir + "/" + projectName
 	}
-	wrkDr = homeDirectory + "/" + workingDir + "/" + projectName
 
 	// create a project directory
 	fmt.Printf("\nCreating directory to %s...\n", projectName)
@@ -145,6 +153,8 @@ func rubyBoiler() {
 	defer fmt.Printf("\nInitializing git in %s directory...\n", projectName)
 	defer exec.Command("git", "init").Run()
 }
+
+func isDirectoryExists(directory string) bool {}
 
 func copy(src, dst string) (int64, error) {
 	sourceFileStat, err := os.Stat(src)
