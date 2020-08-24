@@ -34,7 +34,12 @@ func main() {
 	// choose a language
 	fmt.Println("Choose a number which correspond to the language you will be using:\n1.Ruby")
 	fmt.Scan(&language)
-	if language != 1 {
+	if language == 1 {
+		// language is ruby
+		initializeRuby()
+	} else {
+
+		// language is not ruby
 		for i := 0; i < 5; i++ {
 			fmt.Println("Choose a number which correspond to the language you will be using:\n1.Ruby")
 			fmt.Scan(&language)
@@ -45,6 +50,21 @@ func main() {
 		fmt.Println("The language you chose is not supported")
 		return
 	}
+
+	// // Displaying last commands
+	// defer fmt.Println("\n\nYour project has been initialized successfully")
+	// defer fmt.Println("The remaining task is to go on github and create a repository and copy its url")
+	// defer fmt.Printf("Come back in the root directory of %s\n", projectName)
+	// defer fmt.Println("\nRun the following commands respectifuly")
+	// defer fmt.Println("1. git remote add .")
+	// defer fmt.Println("2. git commit -m \"Initial commit\"")
+	// defer fmt.Println("3. git remote add origin [Paste the url you copied from github]")
+	// defer fmt.Println("4. git push -u origin master")
+	// defer fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
+}
+
+func initializeRuby() {
+
 	fmt.Println("Will you use Rubocop as a linter? Enter y for yes or any other key for no")
 	fmt.Scan(&isRubocop)
 
@@ -123,17 +143,6 @@ func main() {
 	// initialize git
 	defer fmt.Printf("Initializing git in %s directory...\n", projectName)
 	defer exec.Command("git", "init").Run()
-
-	// // Displaying last commands
-	// defer fmt.Println("\n\nYour project has been initialized successfully")
-	// defer fmt.Println("The remaining task is to go on github and create a repository and copy its url")
-	// defer fmt.Printf("Come back in the root directory of %s\n", projectName)
-	// defer fmt.Println("\nRun the following commands respectifuly")
-	// defer fmt.Println("1. git remote add .")
-	// defer fmt.Println("2. git commit -m \"Initial commit\"")
-	// defer fmt.Println("3. git remote add origin [Paste the url you copied from github]")
-	// defer fmt.Println("4. git push -u origin master")
-	// defer fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
 }
 
 func copy(src, dst string) (int64, error) {
