@@ -154,7 +154,17 @@ func rubyBoiler() {
 	defer exec.Command("git", "init").Run()
 }
 
-func isDirectoryExists(directory string) bool {}
+func isDirectoryExists(directory string) bool {
+	_, err := os.Stat(directory)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return true
+}
+
+func getHomeDirectory() string {
+
+}
 
 func copy(src, dst string) (int64, error) {
 	sourceFileStat, err := os.Stat(src)
