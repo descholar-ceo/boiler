@@ -106,15 +106,15 @@ func rubyBoiler() {
 		// checking if a directory exists
 		if isDirectoryExists(workingDir) {
 			wrkDr = getHomeDirectory() + "/" + workingDir + "/" + projectName
+
+			// create a project directory
+			fmt.Printf("\nCreating directory to %s...\n", projectName)
+			os.Mkdir(wrkDr, 0755)
 		} else {
 			fmt.Println("The directory you entered does not exists, your project will be created in the current directory")
 			wrkDr, _ = os.Getwd()
 		}
 	}
-
-	// create a project directory
-	fmt.Printf("\nCreating directory to %s...\n", projectName)
-	os.Mkdir(wrkDr, 0755)
 
 	// initialize rubocop
 	fmt.Printf("\nInitializing rubocop in %s directory...\n", projectName)
