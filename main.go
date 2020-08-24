@@ -125,20 +125,22 @@ func rubyBoiler() {
 		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
 	}
 
-	// initialize github actions
-	fmt.Printf("\nInitializing github actions in %s directory...\n", projectName)
-	os.Mkdir(wrkDr+"/.github", 0755)
-	os.Mkdir(wrkDr+"/.github/workflows", 0755)
-	copy("./lib/.ruby/.github/workflows/linters.yml", wrkDr+"/.github/workflows/linters.yml")
-	copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
+	if isGithub == "y" {
+		// initialize github actions
+		fmt.Printf("\nInitializing github actions in %s directory...\n", projectName)
+		os.Mkdir(wrkDr+"/.github", 0755)
+		os.Mkdir(wrkDr+"/.github/workflows", 0755)
+		copy("./lib/.ruby/.github/workflows/linters.yml", wrkDr+"/.github/workflows/linters.yml")
+		copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
 
-	// create a readme file
-	fmt.Printf("\nCreating README file in %s directory...\n", projectName)
-	copy("./lib/.ruby/README.md", wrkDr+"/README.md")
+		// create a readme file
+		fmt.Printf("\nCreating README file in %s directory...\n", projectName)
+		copy("./lib/.ruby/README.md", wrkDr+"/README.md")
 
-	// create a PR template file
-	fmt.Printf("\nCreating PR template file in %s directory...\n", projectName)
-	copy("./lib/.ruby/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
+		// create a PR template file
+		fmt.Printf("\nCreating PR template file in %s directory...\n", projectName)
+		copy("./lib/.ruby/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
+	}
 
 	// change working dir
 	os.Chdir(wrkDr)
