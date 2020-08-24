@@ -12,6 +12,7 @@ import (
 
 var (
 	workingDir    string
+	wrkDr         string
 	projectName   string
 	language      int
 	isRubocop     string
@@ -104,7 +105,7 @@ func rubyBoiler() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	wrkDr := homeDirectory + "/" + workingDir + "/" + projectName
+	wrkDr = homeDirectory + "/" + workingDir + "/" + projectName
 
 	// create a project directory
 	fmt.Printf("\nCreating directory to %s...\n", projectName)
