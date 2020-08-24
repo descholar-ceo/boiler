@@ -159,7 +159,7 @@ func rubyBoiler() {
 	if isRubocop == "y" {
 		// install rubocop in gems
 		defer fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
-		defer exec.Command("rspec", "--init").Run()
+		defer exec.Command("bundle", "add rubocop").Run()
 	}
 
 	// initialize git
