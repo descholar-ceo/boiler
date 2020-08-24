@@ -152,6 +152,13 @@ func rubyBoiler() {
 	if isTests == "y" {
 		// initialize rspec
 		defer fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
+		defer exec.Command("bundle", "add rspec").Run()
+		defer exec.Command("rspec", "--init").Run()
+	}
+
+	if isRubocop == "y" {
+		// install rubocop in gems
+		defer fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
 		defer exec.Command("rspec", "--init").Run()
 	}
 
