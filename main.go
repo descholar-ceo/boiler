@@ -149,9 +149,11 @@ func rubyBoiler() {
 	defer fmt.Printf("\nInitializing gem in %s directory...\n", projectName)
 	defer exec.Command("bundle", "init").Run()
 
-	// initialize rspec
-	defer fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
-	defer exec.Command("rspec", "--init").Run()
+	if isTests == "y" {
+		// initialize rspec
+		defer fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
+		defer exec.Command("rspec", "--init").Run()
+	}
 
 	// initialize git
 	defer fmt.Printf("\nInitializing git in %s directory...\n", projectName)
