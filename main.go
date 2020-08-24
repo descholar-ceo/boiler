@@ -16,7 +16,7 @@ var (
 	err           error
 	projectName   string
 	language      int
-	isRubocop     int
+	isRubocop     string
 	isTests       string
 	testFramework int
 	isGithub      string
@@ -120,7 +120,7 @@ func rubyBoiler() {
 	os.Mkdir(wrkDr, 0755)
 
 	// initialize rubocop
-	if isRubocop == 1 {
+	if isRubocop == "y" {
 		fmt.Printf("\nInitializing rubocop in %s directory...\n", projectName)
 		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
 	}
