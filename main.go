@@ -104,11 +104,12 @@ func rubyBoiler() {
 		wrkDr, _ = os.Getwd()
 	} else {
 		// checking if a directory exists
-
-		// getting working dir
-		fmt.Printf("\nGetting your home directory")
-
-		wrkDr = getHomeDirectory() + "/" + workingDir + "/" + projectName
+		if isDirectoryExists(workingDir) {
+			wrkDr = getHomeDirectory() + "/" + workingDir + "/" + projectName
+		} else {
+			fmt.Println("The directory you entered does not exists, your project will be created in the current directory")
+			wrkDr, _ = os.Getwd()
+		}
 	}
 
 	// create a project directory
@@ -151,7 +152,7 @@ func rubyBoiler() {
 }
 
 func isDirectoryExists(directory string) bool {
-	_, err := os.Stat(directory)
+	_, err := os.Stat(getHomeDirectory() + "/" + directory)
 	if os.IsNotExist(err) {
 		return false
 	}
