@@ -84,7 +84,7 @@ func rubyBoiler() {
 					break
 				}
 			}
-			fmt.Println("\nThe the testing framework you chose is not supported")
+			fmt.Println("\nThe testing framework you chose is not supported")
 		}
 	}
 
