@@ -165,13 +165,15 @@ func rubyBoiler() {
 
 	if isRubocop == "y" {
 		// install rubocop in gems
-		defer fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
-		defer exec.Command("bundle", "add", "rubocop").Run()
+		defer fmt.Println("\nWriting gems...")
+		defer writeToFile("Gemfile", "gem 'rubocop', '~>0.81.0'")
+		defer writeToFile("Gemfile", "gem 'rspec', '~>3.0'")
 	}
 
 	// initialize git
 	defer fmt.Printf("\nInitializing git in %s directory...\n", projectName)
 	defer exec.Command("git", "init").Run()
+
 }
 
 func writeToFile(file, stringToWrite string) {
