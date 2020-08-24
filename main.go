@@ -174,6 +174,9 @@ func rubyBoiler() {
 	defer fmt.Printf("\nInitializing git in %s directory...\n", projectName)
 	defer exec.Command("git", "init").Run()
 
+	// installing bundler gems
+	defer fmt.Printf("\nInstalling gems %s directory, this might take some minutes, please wait...\n", projectName)
+	defer exec.Command("bundle", "install").Run()
 }
 
 func writeToFile(file, stringToWrite string) {
