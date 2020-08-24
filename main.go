@@ -108,7 +108,7 @@ func rubyBoiler() {
 		// getting working dir
 		fmt.Printf("\nGetting your home directory")
 
-		// wrkDr = homeDirectory + "/" + workingDir + "/" + projectName
+		wrkDr = getHomeDirectory() + "/" + workingDir + "/" + projectName
 	}
 
 	// create a project directory
