@@ -162,6 +162,11 @@ func rubyBoiler() {
 		defer exec.Command("bundle", "add rubocop").Run()
 	}
 
+	defer os.Mkdir("lib", 0755)
+	defer os.Mkdir("bin", 0755)
+	defer os.Create("lib/.gitkeep")
+	defer os.Create("bin/main.rb")
+
 	// initialize git
 	defer fmt.Printf("\nInitializing git in %s directory...\n", projectName)
 	defer exec.Command("git", "init").Run()
