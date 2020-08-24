@@ -36,7 +36,7 @@ func main() {
 	fmt.Scan(&language)
 	if language == 1 {
 		// language is ruby
-		initializeRuby()
+		rubyBoiler()
 	} else {
 
 		// language is not ruby
@@ -63,7 +63,7 @@ func main() {
 	// defer fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
 }
 
-func initializeRuby() {
+func rubyBoiler() {
 
 	fmt.Println("Will you use Rubocop as a linter? Enter y for yes or any other key for no")
 	fmt.Scan(&isRubocop)
