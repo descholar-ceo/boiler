@@ -173,6 +173,8 @@ func rubyBoiler() {
 	defer exec.Command("git", "init").Run()
 }
 
+func writeToFile(file, stringToWrite string) {}
+
 func isDirectoryExists(directory string) bool {
 	_, err := os.Stat(getHomeDirectory() + "/" + directory)
 	if os.IsNotExist(err) {
