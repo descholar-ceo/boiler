@@ -153,30 +153,29 @@ func rubyBoiler() {
 	os.Chdir(wrkDr)
 
 	// initialize gemfile
-	defer fmt.Printf("\nInitializing gem in %s directory...\n", projectName)
-	defer exec.Command("bundle", "init").Run()
+	fmt.Printf("\nInitializing gem in %s directory...\n", projectName)
+	exec.Command("bundle", "init").Run()
 
 	if isTests == "y" {
 		// initialize rspec
-		defer fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
-		defer exec.Command("bundle", "add", "rspec").Run()
-		defer exec.Command("rspec", "--init").Run()
+		fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
+		writeToFile("Gemfile", "gem 'rspec', '~>3.0'")
+		exec.Command("rspec", "--init").Run()
 	}
 
 	if isRubocop == "y" {
 		// install rubocop in gems
-		defer fmt.Println("\nWriting gems...")
-		defer writeToFile("Gemfile", "gem 'rubocop', '~>0.81.0'")
-		defer writeToFile("Gemfile", "gem 'rspec', '~>3.0'")
+		fmt.Println("\nWriting gems...")
+		writeToFile("Gemfile", "gem 'rubocop', '~>0.81.0'")
 	}
 
 	// initialize git
-	defer fmt.Printf("\nInitializing git in %s directory...\n", projectName)
-	defer exec.Command("git", "init").Run()
+	fmt.Printf("\nInitializing git in %s directory...\n", projectName)
+	exec.Command("git", "init").Run()
 
 	// installing bundler gems
-	defer fmt.Printf("\nInstalling gems %s directory, this might take some minutes, please wait...\n", projectName)
-	defer exec.Command("bundle", "install").Run()
+	fmt.Printf("\nInstalling gems %s directory, this might take some minutes, please wait...\n", projectName)
+	exec.Command("bundle", "install").Run()
 }
 
 func writeToFile(file, stringToWrite string) {
