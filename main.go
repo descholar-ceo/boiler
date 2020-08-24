@@ -65,29 +65,29 @@ func main() {
 
 func rubyBoiler() {
 
-	fmt.Println("Will you use Rubocop as a linter? Enter y for yes or any other key for no")
+	fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
 	fmt.Scan(&isRubocop)
 
 	// will you run tests?
-	fmt.Println("Will you write some unit tests for your project? Enter y for yes or any other key for no")
+	fmt.Println("\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
 	fmt.Scan(&isTests)
 	if isTests == "y" || isTests == "Y" {
-		fmt.Println("Choose a number which corresponds to the testing framework you will be using:\n1.RSpec")
+		fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
 		fmt.Scan(&testFramework)
 		if testFramework != 1 {
 			for i := 0; i < 5; i++ {
-				fmt.Println("Choose a number which corresponds to the testing framework you will be using:\n1.RSpec")
+				fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
 				fmt.Scan(&testFramework)
 				if testFramework == 1 {
 					break
 				}
 			}
-			fmt.Println("The the testing framework you chose is not supported")
+			fmt.Println("\nThe the testing framework you chose is not supported")
 		}
 	}
 
 	// will you use github?
-	fmt.Println("Will you use github as a collaboration tool? Enter y for yes or any other key for no")
+	fmt.Println("\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
 	fmt.Scan(&isGithub)
 
 	fmt.Println("\n\n\nThe following are your preferences, we will setup your project depending on your preferences.")
