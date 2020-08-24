@@ -147,6 +147,7 @@ func rubyBoiler() {
 	os.Mkdir(wrkDr+"/bin", 0755)
 	os.Create(wrkDr + "/lib/.gitkeep")
 	os.Create(wrkDr + "/bin/main.rb")
+	writeToFile(wrkDr+"/bin/main.rb", "puts 'Hello from Boiler! Welcome to the new world!'")
 
 	// change working dir
 	os.Chdir(wrkDr)
