@@ -142,6 +142,7 @@ func rubyBoiler() {
 		copy("./lib/.ruby/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
 	}
 
+	// create initial files
 	os.Mkdir(wrkDr+"/lib", 0755)
 	os.Mkdir(wrkDr+"/bin", 0755)
 	os.Create(wrkDr + "/lib/.gitkeep")
