@@ -10,6 +10,7 @@ import (
 )
 
 var (
+	tmpWrkDr      string
 	workingDir    string
 	wrkDr         string
 	err           error
@@ -101,20 +102,22 @@ func rubyBoiler() {
 
 	if workingDir == "." {
 		// create project in current directory
-		wrkDr, _ = os.Getwd()
+		tmpWrkDr, _ = os.Getwd()
+		wrkDr = tmpWrkDr + "/" + projectName
 	} else {
 		// checking if a directory exists
 		if isDirectoryExists(workingDir) {
 			wrkDr = getHomeDirectory() + "/" + workingDir + "/" + projectName
-
-			// create a project directory
-			fmt.Printf("\nCreating directory to %s...\n", projectName)
-			os.Mkdir(wrkDr, 0755)
 		} else {
 			fmt.Println("The directory you entered does not exists, your project will be created in the current directory")
-			wrkDr, _ = os.Getwd()
+			tmpWrkDr, _ = os.Getwd()
+			wrkDr = tmpWrkDr + "/" + projectName
 		}
 	}
+
+	// create a project directory
+	fmt.Printf("\nCreating directory to %s...\n", projectName)
+	os.Mkdir(wrkDr, 0755)
 
 	// initialize rubocop
 	fmt.Printf("\nInitializing rubocop in %s directory...\n", projectName)
