@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io"
-	"log"
 	"os"
 	"os/exec"
 
@@ -108,11 +107,8 @@ func rubyBoiler() {
 
 		// getting working dir
 		fmt.Printf("\nGetting your home directory")
-		homeDirectory, err := homedir.Dir()
-		if err != nil {
-			log.Fatal(err)
-		}
-		wrkDr = homeDirectory + "/" + workingDir + "/" + projectName
+
+		// wrkDr = homeDirectory + "/" + workingDir + "/" + projectName
 	}
 
 	// create a project directory
@@ -163,7 +159,8 @@ func isDirectoryExists(directory string) bool {
 }
 
 func getHomeDirectory() string {
-
+	homeDirectory, _ := homedir.Dir()
+	return homeDirectory
 }
 
 func copy(src, dst string) (int64, error) {
