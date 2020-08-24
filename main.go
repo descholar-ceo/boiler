@@ -150,6 +150,7 @@ func rubyBoiler() {
 	writeToFile(wrkDr+"/bin/main.rb", "puts 'Hello from Boiler! Welcome to the new world!'")
 
 	// change working dir
+	fmt.Println("Checking out your project dir...")
 	os.Chdir(wrkDr)
 
 	// initialize gemfile
