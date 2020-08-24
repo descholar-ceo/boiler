@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io"
-	"log"
 	"os"
 	"os/exec"
 
@@ -11,7 +10,10 @@ import (
 )
 
 var (
+	tmpWrkDr      string
 	workingDir    string
+	wrkDr         string
+	err           error
 	projectName   string
 	language      int
 	isRubocop     string
@@ -65,84 +67,142 @@ func main() {
 
 func rubyBoiler() {
 
-	fmt.Println("Will you use Rubocop as a linter? Enter y for yes or any other key for no")
+	fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
 	fmt.Scan(&isRubocop)
 
 	// will you run tests?
-	fmt.Println("Will you write some unit tests for your project? Enter y for yes or any other key for no")
+	fmt.Println("\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
 	fmt.Scan(&isTests)
 	if isTests == "y" || isTests == "Y" {
-		fmt.Println("Choose a number which corresponds to the testing framework you will be using:\n1.RSpec")
+		fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
 		fmt.Scan(&testFramework)
 		if testFramework != 1 {
 			for i := 0; i < 5; i++ {
-				fmt.Println("Choose a number which corresponds to the testing framework you will be using:\n1.RSpec")
+				fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
 				fmt.Scan(&testFramework)
 				if testFramework == 1 {
 					break
 				}
 			}
-			fmt.Println("The the testing framework you chose is not supported")
+			fmt.Println("\nThe testing framework you chose is not supported")
 		}
 	}
 
 	// will you use github?
-	fmt.Println("Will you use github as a collaboration tool? Enter y for yes or any other key for no")
+	fmt.Println("\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
 	fmt.Scan(&isGithub)
 
 	fmt.Println("\n\n\nThe following are your preferences, we will setup your project depending on your preferences.")
-	fmt.Printf("Working dir : %v\n", workingDir)
+	fmt.Printf("\n\nWorking dir : %v\n", workingDir)
 	fmt.Printf("Project name : %v\n", projectName)
 	fmt.Printf("Language name : %v\n", language)
 	fmt.Printf("Will you write unit test? : %v\n", isTests)
 	fmt.Printf("Testing framework : %v\n", testFramework)
 	fmt.Printf("Will you use github? : %v\n\n", isGithub)
 
-	// changing working dir
-	fmt.Printf("Getting your home directory")
-	homeDirectory, err := homedir.Dir()
-	if err != nil {
-		log.Fatal(err)
+	if workingDir == "." {
+		// create project in current directory
+		tmpWrkDr, _ = os.Getwd()
+		wrkDr = tmpWrkDr + "/" + projectName
+	} else {
+		// checking if a directory exists
+		if isDirectoryExists(workingDir) {
+			wrkDr = getHomeDirectory() + "/" + workingDir + "/" + projectName
+		} else {
+			fmt.Println("The directory you entered does not exists, your project will be created in the current directory")
+			tmpWrkDr, _ = os.Getwd()
+			wrkDr = tmpWrkDr + "/" + projectName
+		}
 	}
-	wrkDr := homeDirectory + "/" + workingDir + "/" + projectName
 
 	// create a project directory
-	fmt.Printf("Creating directory to %s...\n", projectName)
+	fmt.Printf("\nstep 01/15 => Creating directory to %s...\n", projectName)
 	os.Mkdir(wrkDr, 0755)
 
 	// initialize rubocop
-	fmt.Printf("Initializing rubocop in %s directory...\n", projectName)
-	copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
+	if isRubocop == "y" {
+		fmt.Printf("\nstep 02/15 => Initializing rubocop in %s directory...\n", projectName)
+		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
+	}
 
-	// initialize github actions
-	fmt.Printf("Initializing github actions in %s directory...\n", projectName)
-	os.Mkdir(wrkDr+"/.github", 0755)
-	os.Mkdir(wrkDr+"/.github/workflows", 0755)
-	copy("./lib/.ruby/.github/workflows/linters.yml", wrkDr+"/.github/workflows/linters.yml")
-	copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
+	if isGithub == "y" {
+		// initialize github actions
+		fmt.Printf("\nstep 03/15 => Initializing github actions in %s directory...\n", projectName)
+		os.Mkdir(wrkDr+"/.github", 0755)
+		os.Mkdir(wrkDr+"/.github/workflows", 0755)
+		copy("./lib/.ruby/.github/workflows/linters.yml", wrkDr+"/.github/workflows/linters.yml")
+		copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
 
-	// create a readme file
-	fmt.Printf("Creating README file in %s directory...\n", projectName)
-	copy("./lib/.ruby/README.md", wrkDr+"/README.md")
+		// create a readme file
+		fmt.Printf("\nstep 04/15 => Creating README file in %s directory...\n", projectName)
+		copy("./lib/.ruby/README.md", wrkDr+"/README.md")
 
-	// create a PR template file
-	fmt.Printf("Creating PR template file in %s directory...\n", projectName)
-	copy("./lib/.ruby/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
+		// create a PR template file
+		fmt.Printf("\nstep 05/15 => Creating PR template file in %s directory...\n", projectName)
+		copy("./lib/.ruby/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
+	}
+
+	// create initial files
+	fmt.Printf("\nstep 06/15 => Creating lib folder in %s directory...\n", projectName)
+	os.Mkdir(wrkDr+"/lib", 0755)
+
+	fmt.Printf("\nstep 07/15 => Creating bin folder in %s directory...\n", projectName)
+	os.Mkdir(wrkDr+"/bin", 0755)
+
+	fmt.Printf("\nstep 08/15 => Adding .gitkeep file in %s/lib directory...\n", projectName)
+	os.Create(wrkDr + "/lib/.gitkeep")
+
+	fmt.Printf("\nstep 09/15 => Creating main.rb file in %s directory...\n", projectName)
+	os.Create(wrkDr + "/bin/main.rb")
+	writeToFile(wrkDr+"/bin/main.rb", "puts 'Hello from Boiler! Welcome to the new world!'")
 
 	// change working dir
+	fmt.Println("\nstep 10/15 => Checking out your project dir...")
 	os.Chdir(wrkDr)
 
 	// initialize gemfile
-	defer fmt.Printf("Initializing gem in %s directory...\n", projectName)
-	defer exec.Command("bundle", "init").Run()
+	fmt.Printf("\nstep 11/15 => Initializing gem in %s directory...\n", projectName)
+	exec.Command("bundle", "init").Run()
 
-	// initialize rspec
-	defer fmt.Printf("Initializing rspec in %s directory...\n", projectName)
-	defer exec.Command("rspec", "--init").Run()
+	if isTests == "y" {
+		// initialize rspec
+		fmt.Printf("\nstep 12/15 => Initializing rspec in %s directory...\n", projectName)
+		writeToFile("Gemfile", "gem 'rspec', '~>3.0'")
+		exec.Command("rspec", "--init").Run()
+	}
+
+	if isRubocop == "y" {
+		// install rubocop in gems
+		fmt.Println("\nstep 13/15 => Writing gems...")
+		writeToFile("Gemfile", "gem 'rubocop', '~>0.81.0'")
+	}
 
 	// initialize git
-	defer fmt.Printf("Initializing git in %s directory...\n", projectName)
-	defer exec.Command("git", "init").Run()
+	fmt.Printf("\nstep 14/15 => Initializing git in %s directory...\n", projectName)
+	exec.Command("git", "init").Run()
+
+	// installing bundler gems
+	fmt.Printf("\nstep 15/15 => Installing gems %s directory, this might take some minutes, please wait...\n", projectName)
+	exec.Command("bundle", "install").Run()
+}
+
+func writeToFile(file, stringToWrite string) {
+	mFile, _ := os.OpenFile(file, os.O_APPEND|os.O_WRONLY, 0644)
+	fmt.Fprintln(mFile, stringToWrite)
+	mFile.Close()
+}
+
+func isDirectoryExists(directory string) bool {
+	_, err := os.Stat(getHomeDirectory() + "/" + directory)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return true
+}
+
+func getHomeDirectory() string {
+	homeDirectory, _ := homedir.Dir()
+	return homeDirectory
 }
 
 func copy(src, dst string) (int64, error) {
