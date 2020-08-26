@@ -107,24 +107,7 @@ func rubyBoiler() {
 	fmt.Printf("Testing framework : %v\n", testFramework)
 	fmt.Printf("Will you use github? : %v\n\n", isGithub)
 
-	if workingDir == "." {
-		// create project in current directory
-		tmpWrkDr, _ = os.Getwd()
-		wrkDr = tmpWrkDr + "/" + projectName
-	} else {
-		// checking if a directory exists
-		if isDirectoryExists(workingDir) {
-			wrkDr = getHomeDirectory() + "/" + workingDir + "/" + projectName
-		} else {
-			fmt.Println("The directory you entered does not exists, your project will be created in the current directory")
-			tmpWrkDr, _ = os.Getwd()
-			wrkDr = tmpWrkDr + "/" + projectName
-		}
-	}
-
-	// create a project directory
-	fmt.Printf("\nstep 01/15 => Creating directory to %s...\n", projectName)
-	os.Mkdir(wrkDr, 0755)
+	// add the create dir func here
 
 	// initialize rubocop
 	if isRubocop == "y" {
@@ -217,7 +200,26 @@ func getHomeDirectory() string {
 	return homeDirectory
 }
 
-func createProjectDirectory() {}
+func createProjectDirectory() {
+	if workingDir == "." {
+		// create project in current directory
+		tmpWrkDr, _ = os.Getwd()
+		wrkDr = tmpWrkDr + "/" + projectName
+	} else {
+		// checking if a directory exists
+		if isDirectoryExists(workingDir) {
+			wrkDr = getHomeDirectory() + "/" + workingDir + "/" + projectName
+		} else {
+			fmt.Println("The directory you entered does not exists, your project will be created in the current directory")
+			tmpWrkDr, _ = os.Getwd()
+			wrkDr = tmpWrkDr + "/" + projectName
+		}
+	}
+
+	// create a project directory
+	fmt.Printf("\nstep 01/15 => Creating directory to %s...\n", projectName)
+	os.Mkdir(wrkDr, 0755)
+}
 
 func copy(src, dst string) (int64, error) {
 	sourceFileStat, err := os.Stat(src)
