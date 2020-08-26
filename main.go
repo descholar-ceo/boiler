@@ -41,6 +41,10 @@ func main() {
 		rubyBoiler()
 	} else {
 
+	}
+	switch language {
+	case 1: //ruby
+	default:
 		// language is not ruby
 		for i := 0; i < 5; i++ {
 			fmt.Println("Choose a number which correspond to the language you will be using:\n1.Ruby")
