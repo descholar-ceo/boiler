@@ -43,10 +43,11 @@ func main() {
 
 	}
 	switch language {
-	case 1: //ruby
+	case 1: //ruby is chosen
 		rubyBoiler()
+	case 2:
+		rorBoiler()
 	default: // the chosen language is not yet supported
-
 		for i := 0; i < 5; i++ {
 			fmt.Println("Choose a number which correspond to the language you will be using:\n1.Ruby")
 			fmt.Scan(&language)
