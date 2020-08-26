@@ -177,6 +177,9 @@ func rorBoiler() {
 	// ask stylelint
 	fmt.Println("\nWill you Stylelint for your project? Enter y for yes or any other key for no")
 	fmt.Scan(&isStylelint)
+
+	// create a project with rails
+	os.Create(getHomeDirectory() + "/.boilerTmpfile")
 }
 
 func writeToFile(file, stringToWrite string) {
