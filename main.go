@@ -26,8 +26,7 @@ func main() {
 	fmt.Println("Welcome to the Bo!ler cli utility, We will initialize your basic project, \nbut to do so, you will help us with few answers to the following questions.")
 
 	// working directory
-	fmt.Println("Enter the working directory:")
-	fmt.Scan(&workingDir)
+	askWorkingDir()
 
 	// project name
 	fmt.Println("\n\nWhat is the project name you want to use?")
