@@ -107,7 +107,7 @@ func rubyBoiler() {
 	fmt.Printf("Testing framework : %v\n", testFramework)
 	fmt.Printf("Will you use github? : %v\n\n", isGithub)
 
-	// add the create dir func here
+	createProjectDirectory()
 
 	// initialize rubocop
 	if isRubocop == "y" {
