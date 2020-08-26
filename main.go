@@ -26,7 +26,8 @@ func main() {
 	fmt.Println("Welcome to the Bo!ler cli utility, We will initialize your basic project, \nbut to do so, you will help us with few answers to the following questions.")
 
 	// working directory
-	askWorkingDir()
+	fmt.Println("Enter the working directory:")
+	fmt.Scan(&workingDir)
 
 	// project name
 	fmt.Println("\n\nWhat is the project name you want to use?")
@@ -66,11 +67,6 @@ func main() {
 	fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
 }
 
-func askWorkingDir() {
-	fmt.Println("Enter the working directory:")
-	fmt.Scan(&workingDir)
-}
-
 func askRubocop() {
 	fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
 	fmt.Scan(&isRubocop)
@@ -79,8 +75,6 @@ func askGithub() {
 	fmt.Println("\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
 	fmt.Scan(&isGithub)
 }
-
-func askProjectName() {}
 
 // rubyBoiler function
 func rubyBoiler() {
@@ -176,7 +170,7 @@ func rubyBoiler() {
 
 // rorBoiler
 func rorBoiler() {
-	askWorkingDir()
+
 	askGithub()
 	askRubocop()
 }
