@@ -188,6 +188,8 @@ func rubyBoiler() {
 // rorBoiler
 func rorBoiler() {
 	askWorkingDir()
+	askGithub()
+	askRubocop()
 }
 
 func writeToFile(file, stringToWrite string) {
