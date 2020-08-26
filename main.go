@@ -139,7 +139,7 @@ func rubyBoiler() {
 
 		// create a PR template file
 		fmt.Printf("\nstep 05/15 => Creating PR template file in %s directory...\n", projectName)
-		copy("./lib/.ruby/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
+		copy("./lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
 	}
 
 	// create initial files
