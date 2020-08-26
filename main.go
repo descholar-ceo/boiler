@@ -71,6 +71,9 @@ func askWorkingDir() {
 	fmt.Scan(&workingDir)
 }
 
+func askRubocop() {}
+func askGithub()  {}
+
 // rubyBoiler function
 func rubyBoiler() {
 
