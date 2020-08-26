@@ -80,6 +80,8 @@ func askGithub() {
 	fmt.Scan(&isGithub)
 }
 
+func askProjectName() {}
+
 // rubyBoiler function
 func rubyBoiler() {
 
