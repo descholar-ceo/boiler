@@ -71,6 +71,8 @@ func main() {
 	fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
 }
 
+func askWorkingDir() {}
+
 // rubyBoiler function
 func rubyBoiler() {
 
