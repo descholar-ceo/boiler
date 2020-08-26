@@ -71,14 +71,16 @@ func askWorkingDir() {
 	fmt.Scan(&workingDir)
 }
 
-func askRubocop() {}
-func askGithub()  {}
+func askRubocop() {
+	fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
+	fmt.Scan(&isRubocop)
+}
+func askGithub() {}
 
 // rubyBoiler function
 func rubyBoiler() {
 
-	fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
-	fmt.Scan(&isRubocop)
+	// call askRubocop
 
 	// will you run tests?
 	fmt.Println("\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
