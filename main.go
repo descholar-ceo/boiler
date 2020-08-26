@@ -232,6 +232,8 @@ func createProjectDirectory() {
 	os.Mkdir(wrkDr, 0755)
 }
 
+func createGithubActionsDirectory() {}
+
 func copy(src, dst string) (int64, error) {
 	sourceFileStat, err := os.Stat(src)
 	if err != nil {
