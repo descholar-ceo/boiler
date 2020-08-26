@@ -36,12 +36,8 @@ func main() {
 	// choose a language
 	fmt.Println("Choose a number which correspond to the language or framework you will be using:\n1.Ruby\n2.Ruby on Rails (RoR)")
 	fmt.Scan(&language)
-	if language == 1 {
-		// language is ruby
 
-	} else {
-
-	}
+	// different language boilers
 	switch language {
 	case 1: //ruby is chosen
 		rubyBoiler()
@@ -71,7 +67,9 @@ func main() {
 	fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
 }
 
-func askWorkingDir() {}
+func askWorkingDir() {
+
+}
 
 // rubyBoiler function
 func rubyBoiler() {
