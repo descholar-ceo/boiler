@@ -75,12 +75,16 @@ func askRubocop() {
 	fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
 	fmt.Scan(&isRubocop)
 }
-func askGithub() {}
+func askGithub() {
+	fmt.Println("\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
+	fmt.Scan(&isGithub)
+}
 
 // rubyBoiler function
 func rubyBoiler() {
 
-	// call askRubocop
+	// will you use rubocop?
+	askRubocop()
 
 	// will you run tests?
 	fmt.Println("\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
@@ -101,8 +105,7 @@ func rubyBoiler() {
 	}
 
 	// will you use github?
-	fmt.Println("\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
-	fmt.Scan(&isGithub)
+	askGithub()
 
 	fmt.Println("\n\n\nThe following are your preferences, we will setup your project depending on your preferences.")
 	fmt.Printf("\n\nWorking dir : %v\n", workingDir)
