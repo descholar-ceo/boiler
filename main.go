@@ -178,7 +178,7 @@ func rubyBoiler() {
 
 // rorBoiler
 func rorBoiler() {
-	fmt.Println("Hello, this is a rorBoiler function")
+	askWorkingDir()
 }
 
 func writeToFile(file, stringToWrite string) {
