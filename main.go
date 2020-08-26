@@ -34,7 +34,7 @@ func main() {
 	fmt.Scan(&projectName)
 
 	// choose a language
-	fmt.Println("Choose a number which correspond to the language you will be using:\n1.Ruby")
+	fmt.Println("Choose a number which correspond to the language you will be using:\n1.Ruby\nRuby on Rails (RoR)")
 	fmt.Scan(&language)
 	if language == 1 {
 		// language is ruby
