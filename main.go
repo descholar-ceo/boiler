@@ -192,6 +192,8 @@ func rubyBoiler() {
 	exec.Command("bundle", "install").Run()
 }
 
+func rorBoiler() {}
+
 func writeToFile(file, stringToWrite string) {
 	mFile, _ := os.OpenFile(file, os.O_APPEND|os.O_WRONLY, 0644)
 	fmt.Fprintln(mFile, stringToWrite)
