@@ -67,7 +67,8 @@ func main() {
 }
 
 func askWorkingDir() {
-
+	fmt.Println("Enter the working directory:")
+	fmt.Scan(&workingDir)
 }
 
 // rubyBoiler function
