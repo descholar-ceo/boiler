@@ -197,6 +197,7 @@ func rorBoiler() {
 	args := strings.Split(executableStr, " ")
 	exec.Command(args[0], args[1:]...).Run()
 	writeToFile(getHomeDirectory()+"/.boilerTmpfile.sh", "#!/bin/bash")
+	writeToFile(getHomeDirectory()+"/.boilerTmpfile.sh", "cd "+wrkDr)
 	writeToFile(getHomeDirectory()+"/.boilerTmpfile.sh", "rails new "+projectName)
 }
 
