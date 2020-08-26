@@ -119,10 +119,7 @@ func rubyBoiler() {
 	createProjectDirectory()
 
 	// initialize rubocop
-	if isRubocop == "y" {
-		fmt.Printf("\nstep 02/15 => Initializing rubocop in %s directory...\n", projectName)
-		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
-	}
+	createRubocopFile()
 
 	if isGithub == "y" {
 		// initialize github actions
@@ -235,6 +232,13 @@ func createGithubActionsDirectory() {
 		// create a PR template file
 		fmt.Printf("\nstep 05/15 => Creating PR template file in %s directory...\n", projectName)
 		copy("./lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
+	}
+}
+
+func createRubocopFile() {
+	if isRubocop == "y" {
+		fmt.Printf("\nstep 02/15 => Initializing rubocop in %s directory...\n", projectName)
+		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
 	}
 }
 
