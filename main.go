@@ -20,6 +20,7 @@ var (
 	isTests       string
 	testFramework int
 	isGithub      string
+	isStylelint   string
 )
 
 func main() {
@@ -170,9 +171,12 @@ func rubyBoiler() {
 
 // rorBoiler
 func rorBoiler() {
-
 	askGithub()
 	askRubocop()
+
+	// ask stylelint
+	fmt.Println("\nWill you Stylelint for your project? Enter y for yes or any other key for no")
+	fmt.Scan(&isStylelint)
 }
 
 func writeToFile(file, stringToWrite string) {
