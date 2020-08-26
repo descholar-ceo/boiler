@@ -71,6 +71,7 @@ func main() {
 	fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
 }
 
+// rubyBoiler function
 func rubyBoiler() {
 
 	fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
@@ -192,7 +193,10 @@ func rubyBoiler() {
 	exec.Command("bundle", "install").Run()
 }
 
-func rorBoiler() {}
+// rorBoiler
+func rorBoiler() {
+	fmt.Println("Hello, this is a rorBoiler function")
+}
 
 func writeToFile(file, stringToWrite string) {
 	mFile, _ := os.OpenFile(file, os.O_APPEND|os.O_WRONLY, 0644)
