@@ -5,6 +5,7 @@ import (
 	"io"
 	"os"
 	"os/exec"
+	"strings"
 
 	"github.com/mitchellh/go-homedir"
 )
@@ -178,8 +179,25 @@ func rorBoiler() {
 	fmt.Println("\nWill you Stylelint for your project? Enter y for yes or any other key for no")
 	fmt.Scan(&isStylelint)
 
+	// moving to the project dir
+	if workingDir == "." {
+		wrkDr, _ = os.Getwd()
+	} else {
+		if isDirectoryExists(workingDir) {
+			wrkDr = getHomeDirectory() + "/" + workingDir
+		} else {
+			fmt.Printf("%s does not exist, your ruuby on rails project will be created in the current directory\n", workingDir)
+			wrkDr, _ = os.Getwd()
+		}
+	}
+
 	// create a project with rails
 	os.Create(getHomeDirectory() + "/.boilerTmpfile.sh")
+	executableStr := "chmod 755 " + getHomeDirectory() + "/.boilerTmpfile.sh"
+	args := strings.Split(executableStr, " ")
+	exec.Command(args[0], args[1:]...).Run()
+	writeToFile(getHomeDirectory()+"/.boilerTmpfile.sh", "#!/bin/bash")
+	writeToFile(getHomeDirectory()+"/.boilerTmpfile.sh", "rails new "+projectName)
 }
 
 func writeToFile(file, stringToWrite string) {
