@@ -179,7 +179,7 @@ func rorBoiler() {
 	fmt.Scan(&isStylelint)
 
 	// create a project with rails
-	// os.Create(getHomeDirectory() + "/.boilerTmpfile")
+	os.Create(getHomeDirectory() + "/.boilerTmpfile.sh")
 }
 
 func writeToFile(file, stringToWrite string) {
