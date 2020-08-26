@@ -217,6 +217,8 @@ func getHomeDirectory() string {
 	return homeDirectory
 }
 
+func createProjectDirectory() {}
+
 func copy(src, dst string) (int64, error) {
 	sourceFileStat, err := os.Stat(src)
 	if err != nil {
