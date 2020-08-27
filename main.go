@@ -21,7 +21,6 @@ var (
 	isTests       string
 	testFramework int
 	isGithub      string
-	isStylelint   string
 )
 
 func main() {
@@ -175,10 +174,6 @@ func rorBoiler() {
 	askGithub()
 	askRubocop()
 
-	// ask stylelint
-	fmt.Println("\nWill you Stylelint for your project? Enter y for yes or any other key for no")
-	fmt.Scan(&isStylelint)
-
 	// moving to the project dir
 	if workingDir == "." {
 		wrkDr, _ = os.Getwd()
@@ -202,6 +197,10 @@ func rorBoiler() {
 
 	if isGithub == "y" {
 		createGithubActionsDirectory()
+	}
+
+	if isRubocop == "y" {
+
 	}
 
 }
