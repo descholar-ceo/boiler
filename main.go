@@ -196,7 +196,7 @@ func rorBoiler() {
 	exec.Command(args[0], args[1:]...).Run()
 
 	if isGithub == "y" {
-		fmt.Println("")
+		fmt.Println("Setting up your github directory...")
 		createGithubActionsDirectory()
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", "/.github/workflows/linters.yml")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", "/.github/PULL_REQUEST_TEMPLATE.md")
