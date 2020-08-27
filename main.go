@@ -210,14 +210,9 @@ func rorBoiler() {
 		fmt.Println("\nSetting up your github directory...")
 		os.Mkdir(".github", 0755)
 		os.Mkdir(".github/workflows", 0755)
-		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", ".github/workflows/linters.yml")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", ".github/PULL_REQUEST_TEMPLATE.md")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
 
-		fmt.Println("Installing custom linter dependecies...")
-		stylelintStr := "yarn add --dev stylelint stylelint-scss stylelint-config-standard"
-		styleArgs := strings.Split(stylelintStr, " ")
-		exec.Command(styleArgs[0], styleArgs[1:]...).Run()
 	}
 
 	if isRubocop == "y" {
@@ -225,6 +220,14 @@ func rorBoiler() {
 		fmt.Println("\nCreating Rubocop YAML file...")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.rubocop.yml", ".rubocop.yml")
 
+		if isGithub == "y" {
+			copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", ".github/workflows/linters.yml")
+
+			fmt.Println("Installing custom linter dependecies...")
+			stylelintStr := "yarn add --dev stylelint stylelint-scss stylelint-config-standard"
+			styleArgs := strings.Split(stylelintStr, " ")
+			exec.Command(styleArgs[0], styleArgs[1:]...).Run()
+		}
 		fmt.Println("\nCreating the stylelint file for your stylelings...")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.stylelintrc.json", ".stylelintrc.json")
 	}
