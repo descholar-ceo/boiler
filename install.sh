@@ -20,7 +20,8 @@ fi
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/main.go
 # copy all to the installation folder
 echo "Copying installtion files ... "
-cp -r . $HOME/.boiler/boiler
+# cp -r . $HOME/.boiler/boiler
+cp -r `ls | egrep -v '^.git$'` $HOME/.boiler/boiler
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/Makefile
 
 # mkdir lib lib/.ruby
