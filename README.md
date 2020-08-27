@@ -12,24 +12,13 @@ This project is a command line utility, easy to be intalled, and after the insta
 - Setup Ruby on Rails project
 
 ## Built with
-> Built with : // You will specify the technologies you used to build this project such as languages, frameworks, or libararies, ...
+- [GoLang](https://golang.org/)
 
 ## Features
-> Features : // List of features, what a user will be able to do with this project. Eg: a user can signup
+- Start ruby project
+- Start ruby on rails project
 
-## Deployments
-	* Live demo link //The link of deplyoment of your project
-	* Documentation link //Link to documentation of this project
-
-## API Endpoints Specifications
-> If this project is a backend project which exposes some APIs. List all APIs here
-	* Root API
-	* List of all APIs
-
-## Tools
-> Tools : //List of all tools you used building this projects. Example: Code editor, CI/CD tools, Testing tools, deplyoment tools, ...
-
-## Running and testing it locally
+## Installation
 > Elaborate how this project could be tested and run on one's local computer
 
 ### Prerequisites
