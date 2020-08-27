@@ -27,7 +27,7 @@ This project is a command line utility, easy to be intalled, and after the insta
 After you install successfully, run `boiler` on your terminal and follow the instructions
 
 ## Contributions
-NOTE: _I am looking for some other contributors to add more language support_
+### NOTE: _I am looking for some other contributors to add more language support_
 
 ## Acknowledgement (s)
 > If you have used some resources from someone, or instution, or if you got motivations from somewhere, you should show them the acknowlodgement
