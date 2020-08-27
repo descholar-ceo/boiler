@@ -200,6 +200,10 @@ func rorBoiler() {
 	args := strings.Split(railsStr, " ")
 	exec.Command(args[0], args[1:]...).Run()
 
+	if isGithub == "y" {
+		createGithubActionsDirectory()
+	}
+
 }
 
 func writeToFile(file, stringToWrite string) {
