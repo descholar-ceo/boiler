@@ -123,6 +123,14 @@ func rubyBoiler() {
 		createGithubActionsDirectory()
 		copy("./lib/.ruby/.github/workflows/linters.yml", wrkDr+"/.github/workflows/linters.yml")
 		copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
+
+		// create a readme file
+		fmt.Printf("\nstep 04/15 => Creating README file in %s directory...\n", projectName)
+		copy("./lib/.defaults/README.md", wrkDr+"/README.md")
+
+		// create a PR template file
+		fmt.Printf("\nstep 05/15 => Creating PR template file in %s directory...\n", projectName)
+		copy("./lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
 	}
 
 	// create initial files
@@ -205,6 +213,9 @@ func rorBoiler() {
 
 	if isRubocop == "y" {
 		createRubocopFile()
+		fmt.Println("\nCreating Rubocop YAML file...")
+		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.rubocop.yml", ".rubocop.yml")
+
 		fmt.Println("\nCreating the stylelint file for your stylelings...")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.stylelintrc.json", ".stylelintrc.json")
 	}
@@ -256,14 +267,6 @@ func createGithubActionsDirectory() {
 		fmt.Printf("\nstep 03/15 => Initializing github actions in %s directory...\n", projectName)
 		os.Mkdir(wrkDr+"/.github", 0755)
 		os.Mkdir(wrkDr+"/.github/workflows", 0755)
-
-		// create a readme file
-		fmt.Printf("\nstep 04/15 => Creating README file in %s directory...\n", projectName)
-		copy("./lib/.defaults/README.md", wrkDr+"/README.md")
-
-		// create a PR template file
-		fmt.Printf("\nstep 05/15 => Creating PR template file in %s directory...\n", projectName)
-		copy("./lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
 	}
 }
 
