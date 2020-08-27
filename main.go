@@ -104,14 +104,6 @@ func rubyBoiler() {
 	// will you use github?
 	askGithub()
 
-	fmt.Println("\n\n\nThe following are your preferences, we will setup your project depending on your preferences.")
-	fmt.Printf("\n\nWorking dir : %v\n", workingDir)
-	fmt.Printf("Project name : %v\n", projectName)
-	fmt.Printf("Language name : %v\n", language)
-	fmt.Printf("Will you write unit test? : %v\n", isTests)
-	fmt.Printf("Testing framework : %v\n", testFramework)
-	fmt.Printf("Will you use github? : %v\n\n", isGithub)
-
 	// create project dir
 	createProjectDirectory()
 
