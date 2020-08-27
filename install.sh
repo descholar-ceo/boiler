@@ -14,10 +14,7 @@ else
     sudo mkdir $HOME/.boiler $HOME/.boiler/boiler
 fi
 
-
-
-
-# cd $HOME/.boiler/boiler
+cd $HOME/.boiler/boiler
 
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/main.go
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/Makefile
