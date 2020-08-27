@@ -203,7 +203,7 @@ func rorBoiler() {
 	args := strings.Split(railsStr, " ")
 	exec.Command(args[0], args[1:]...).Run()
 
-	fmt.Println("Checkoing out your project workspace...")
+	fmt.Println("Checking out your project workspace...")
 	os.Chdir(projectName)
 
 	if isGithub == "y" {
@@ -213,6 +213,11 @@ func rorBoiler() {
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", ".github/workflows/linters.yml")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", ".github/PULL_REQUEST_TEMPLATE.md")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
+
+		fmt.Println("Installing custom linter dependecies...")
+		stylelintStr := "yarn add --dev stylelint stylelint-scss stylelint-config-standard"
+		styleArgs := strings.Split(stylelintStr, " ")
+		exec.Command(styleArgs[0], styleArgs[1:]...).Run()
 	}
 
 	if isRubocop == "y" {
