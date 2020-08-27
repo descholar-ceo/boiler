@@ -5,6 +5,7 @@ import (
 	"io"
 	"os"
 	"os/exec"
+	"strings"
 
 	"github.com/mitchellh/go-homedir"
 )
@@ -192,6 +193,9 @@ func rorBoiler() {
 
 	// create a project with rails
 	os.Chdir(wrkDr)
+	railsStr := "rails new " + projectName
+	args := strings.Split(railsStr, " ")
+
 }
 
 func writeToFile(file, stringToWrite string) {
