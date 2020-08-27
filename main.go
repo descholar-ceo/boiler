@@ -195,7 +195,7 @@ func rorBoiler() {
 	os.Chdir(wrkDr)
 	railsStr := "rails new " + projectName
 	args := strings.Split(railsStr, " ")
-
+	exec.Command(args[0], args[1:]...).Run()
 }
 
 func writeToFile(file, stringToWrite string) {
