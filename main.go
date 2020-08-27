@@ -5,7 +5,6 @@ import (
 	"io"
 	"os"
 	"os/exec"
-	"strings"
 
 	"github.com/mitchellh/go-homedir"
 )
@@ -192,14 +191,7 @@ func rorBoiler() {
 	}
 
 	// create a project with rails
-	os.Create(getHomeDirectory() + "/.boilerTmpfile.sh")
-	executableStr := "chmod 755 " + getHomeDirectory() + "/.boilerTmpfile.sh"
-	args := strings.Split(executableStr, " ")
-	exec.Command(args[0], args[1:]...).Run()
-	writeToFile(getHomeDirectory()+"/.boilerTmpfile.sh", "#!/bin/bash")
-	writeToFile(getHomeDirectory()+"/.boilerTmpfile.sh", "cd "+wrkDr)
-	writeToFile(getHomeDirectory()+"/.boilerTmpfile.sh", "rails new "+projectName)
-	exec.Command("./" + getHomeDirectory() + "/.boilerTmpfile.sh").Run()
+	os.Chdir(wrkDr)
 }
 
 func writeToFile(file, stringToWrite string) {
