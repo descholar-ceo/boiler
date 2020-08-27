@@ -203,7 +203,7 @@ func rorBoiler() {
 	args := strings.Split(railsStr, " ")
 	exec.Command(args[0], args[1:]...).Run()
 
-	fmt.Println("Checking out your project workspace...")
+	fmt.Println("\nChecking out your project workspace...")
 	os.Chdir(projectName)
 
 	fmt.Println("\nTemplating your README file")
