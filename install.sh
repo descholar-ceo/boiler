@@ -5,8 +5,16 @@ Welcome to Boiler package developed by descholar. This package was developed to 
 while working on the next project"
 
 # CHECKING IF THE .boiler DIRECTORY IS PRESENT IN HOME DIR
+boilerDir = $HOME/.boiler/boiler
+if [ -d $boilerDir ]
+then
+    # boiler is already installed
+else
+    mkdir $HOME/.boiler $boilerDir
+fi
 
-mkdir $HOME/.boiler $HOME/.boiler/boiler 
+
+
 
 cd $HOME/.boiler/boiler
 
