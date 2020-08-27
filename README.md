@@ -1,9 +1,9 @@
 # boiler
-# Project Title
-> Badges : // If your project has some badges such as CI/CD, you will need to insert them here
 
 ## Project vision
-> Vision : // You will give a general vision of the project, what problem you are solving in this project
+Nowadays, programming is taking over the world of computers, almost every programmer thinks of the next project while still working on the current project. Since programming has occupied almost all of the technology we use these days; setting up a new project take us some minutes, or hours.
+
+This project `boiler` is here to make your life very easy while you are planning to work on your new project. We want to make it easy while you bootstrap your project, by running few commands, it will give you the project skeleton set, ready to continue working on your project.
 
 ## Project description
 > Description : //You describe the general logic of the project here
