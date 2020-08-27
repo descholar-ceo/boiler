@@ -8,10 +8,10 @@ while working on the next project\n"
 if [ -d "$HOME/.boiler" ]
 then
     # boiler is already installed, so remove it and recreate it
-    rm -r $HOME/.boiler
-    mkdir $HOME/.boiler $HOME/.boiler/boiler 
+    sudo rm -r $HOME/.boiler
+    sudo mkdir $HOME/.boiler $HOME/.boiler/boiler 
 else
-    mkdir $HOME/.boiler $HOME/.boiler/boiler
+    sudo mkdir $HOME/.boiler $HOME/.boiler/boiler
 fi
 
 
