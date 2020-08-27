@@ -41,16 +41,3 @@ There two ways of contributing to this project:
     7.  Write your codes which fix the issue you found, which add the feature you want to add
     8.  Commit and push the branch you created
     9.  Raise a pull request, comparing your new created branch with our original develop branch [here](https://github.com/descholar-ceo/boiler)
-
-
-## Acknowledgement (s)
-> If you have used some resources from someone, or instution, or if you got motivations from somewhere, you should show them the acknowlodgement
-
-## Author (s)
-> Write your name here and list any other one who helped you during this project
-
-	* [GitHub username](github-link)
-
-	* [LinkedIn username](linkedin-profile-link)
-
-	* [Twitter username](twitter-profile-link)
