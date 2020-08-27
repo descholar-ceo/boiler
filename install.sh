@@ -18,29 +18,29 @@ fi
 
 
 
-cd $HOME/.boiler/boiler
+# cd $HOME/.boiler/boiler
 
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/main.go
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/Makefile
 
-mkdir lib lib/.ruby
+# mkdir lib lib/.ruby
 
-cd lib/.ruby
+# cd lib/.ruby
 
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/lib/.ruby/.rubocop.yml
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/lib/.ruby/README.md
 
-mkdir .github .github/workflows
+# mkdir .github .github/workflows
 
-cd .github/workflows
+# cd .github/workflows
 
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/lib/.ruby/.github/workflows/linters.yml
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/lib/.ruby/.github/workflows/tests.yml
 
-cd $HOME/.boiler/boiler
+# cd $HOME/.boiler/boiler
 
-make build
+# make build
 
-sudo echo PATH=$PATH:$HOME/.boiler/boiler/bin>>$HOME/.bashrc
+# sudo echo PATH=$PATH:$HOME/.boiler/boiler/bin>>$HOME/.bashrc
 
-echo "Everything is set now"
+# echo "Everything is set now"
