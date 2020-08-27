@@ -222,14 +222,14 @@ func rorBoiler() {
 
 		if isGithub == "y" {
 			copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", ".github/workflows/linters.yml")
-
-			fmt.Println("Installing custom linter dependecies...")
-			stylelintStr := "yarn add --dev stylelint stylelint-scss stylelint-config-standard"
-			styleArgs := strings.Split(stylelintStr, " ")
-			exec.Command(styleArgs[0], styleArgs[1:]...).Run()
 		}
 		fmt.Println("\nCreating the stylelint file for your stylelings...")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.stylelintrc.json", ".stylelintrc.json")
+
+		fmt.Println("\nInstalling custom linter dependecies...")
+		stylelintStr := "yarn add --dev stylelint stylelint-scss stylelint-config-standard"
+		styleArgs := strings.Split(stylelintStr, " ")
+		exec.Command(styleArgs[0], styleArgs[1:]...).Run()
 	}
 
 }
