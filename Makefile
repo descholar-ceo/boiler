@@ -3,3 +3,6 @@ run:
 
 build:
 	go build -o bin/boiler main.go
+
+install:
+	./install.sh
