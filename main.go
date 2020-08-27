@@ -117,55 +117,55 @@ func rubyBoiler() {
 		copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
 
 		// create a readme file
-		fmt.Printf("\nstep 04/15 => Creating README file in %s directory...\n", projectName)
+		fmt.Printf("\nCreating README file in %s directory...\n", projectName)
 		copy("./lib/.defaults/README.md", wrkDr+"/README.md")
 
 		// create a PR template file
-		fmt.Printf("\nstep 05/15 => Creating PR template file in %s directory...\n", projectName)
+		fmt.Printf("\nCreating PR template file in %s directory...\n", projectName)
 		copy("./lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
 	}
 
 	// create initial files
-	fmt.Printf("\nstep 06/15 => Creating lib folder in %s directory...\n", projectName)
+	fmt.Printf("\nCreating lib folder in %s directory...\n", projectName)
 	os.Mkdir(wrkDr+"/lib", 0755)
 
-	fmt.Printf("\nstep 07/15 => Creating bin folder in %s directory...\n", projectName)
+	fmt.Printf("\nCreating bin folder in %s directory...\n", projectName)
 	os.Mkdir(wrkDr+"/bin", 0755)
 
-	fmt.Printf("\nstep 08/15 => Adding .gitkeep file in %s/lib directory...\n", projectName)
+	fmt.Printf("\nAdding .gitkeep file in %s/lib directory...\n", projectName)
 	os.Create(wrkDr + "/lib/.gitkeep")
 
-	fmt.Printf("\nstep 09/15 => Creating main.rb file in %s directory...\n", projectName)
+	fmt.Printf("\nCreating main.rb file in %s directory...\n", projectName)
 	os.Create(wrkDr + "/bin/main.rb")
 	writeToFile(wrkDr+"/bin/main.rb", "puts 'Hello from Boiler! Welcome to the new world!'")
 
 	// change working dir
-	fmt.Println("\nstep 10/15 => Checking out your project dir...")
+	fmt.Println("\nChecking out your project dir...")
 	os.Chdir(wrkDr)
 
 	// initialize gemfile
-	fmt.Printf("\nstep 11/15 => Initializing gem in %s directory...\n", projectName)
+	fmt.Printf("\nInitializing gem in %s directory...\n", projectName)
 	exec.Command("bundle", "init").Run()
 
 	if isTests == "y" {
 		// initialize rspec
-		fmt.Printf("\nstep 12/15 => Initializing rspec in %s directory...\n", projectName)
+		fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
 		writeToFile("Gemfile", "gem 'rspec', '~>3.0'")
 		exec.Command("rspec", "--init").Run()
 	}
 
 	if isRubocop == "y" {
 		// install rubocop in gems
-		fmt.Println("\nstep 13/15 => Writing gems...")
+		fmt.Println("\nWriting gems...")
 		writeToFile("Gemfile", "gem 'rubocop', '~>0.81.0'")
 	}
 
 	// initialize git
-	fmt.Printf("\nstep 14/15 => Initializing git in %s directory...\n", projectName)
+	fmt.Printf("\nInitializing git in %s directory...\n", projectName)
 	exec.Command("git", "init").Run()
 
 	// installing bundler gems
-	fmt.Printf("\nstep 15/15 => Installing gems %s directory, this might take some minutes, please wait...\n", projectName)
+	fmt.Printf("\nInstalling gems %s directory, this might take some minutes, please wait...\n", projectName)
 	exec.Command("bundle", "install").Run()
 }
 
@@ -263,13 +263,13 @@ func createProjectDirectory() {
 	}
 
 	// create a project directory
-	fmt.Printf("\nstep 01/15 => Creating directory to %s...\n", projectName)
+	fmt.Printf("\nCreating directory to %s...\n", projectName)
 	os.Mkdir(wrkDr, 0755)
 }
 
 func createGithubActionsDirectory() {
 	if isGithub == "y" {
-		fmt.Printf("\nstep 03/15 => Initializing github actions in %s directory...\n", projectName)
+		fmt.Printf("\nInitializing github actions in %s directory...\n", projectName)
 		os.Mkdir(wrkDr+"/.github", 0755)
 		os.Mkdir(wrkDr+"/.github/workflows", 0755)
 	}
@@ -277,7 +277,7 @@ func createGithubActionsDirectory() {
 
 func createRubocopFile() {
 	if isRubocop == "y" {
-		fmt.Printf("\nstep 02/15 => Initializing rubocop in %s directory...\n", projectName)
+		fmt.Printf("\nInitializing rubocop in %s directory...\n", projectName)
 		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
 	}
 }
