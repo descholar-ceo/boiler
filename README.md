@@ -23,14 +23,8 @@ This project is a command line utility, easy to be intalled, and after the insta
 - Extract it
 - Open terminal in the extracted folder, and run `make install`
 
-### Prerequisites
-> What should I have already to run this project locally?
-
-### Setup
-> How should setup this project on my local computer?
-
 ### Usage
-> How to use it? //Which command should I run or how to start this project?
+After you install successfully, run `boiler` on your terminal and follow the instructions
 
 ### Tests
 > How to run tests locally?
