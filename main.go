@@ -189,7 +189,7 @@ func rorBoiler() {
 		if isDirectoryExists(workingDir) {
 			wrkDr = getHomeDirectory() + "/" + workingDir
 		} else {
-			fmt.Printf("%s does not exist, your ruby on rails project will be created in the current directory\n", workingDir)
+			fmt.Printf("\n%s does not exist, your ruby on rails project will be created in the current directory\n", workingDir)
 			wrkDr, _ = os.Getwd()
 		}
 	}
@@ -203,9 +203,13 @@ func rorBoiler() {
 	args := strings.Split(railsStr, " ")
 	exec.Command(args[0], args[1:]...).Run()
 
+	fmt.Println("Checkoing out your project workspace...")
+	os.Chdir(projectName)
+
 	if isGithub == "y" {
-		fmt.Println("Setting up your github directory...")
-		createGithubActionsDirectory()
+		fmt.Println("\nSetting up your github directory...")
+		os.Mkdir(".github", 0755)
+		os.Mkdir(".github/workflows", 0755)
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", "/.github/workflows/linters.yml")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", "/.github/PULL_REQUEST_TEMPLATE.md")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
