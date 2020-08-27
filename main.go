@@ -25,10 +25,10 @@ var (
 )
 
 func main() {
-	fmt.Println("Welcome to the Bo!ler cli utility, We will initialize your basic project, \nbut to do so, you will help us with few answers to the following questions.")
+	fmt.Println("\nWelcome to the Bo!ler cli utility, We will initialize your basic project, \nbut to do so, you will help us with few answers to the following questions.")
 
 	// working directory
-	fmt.Println("Enter the working directory:")
+	fmt.Println("\nEnter the working directory (Enter a dot (.) for the current directory):")
 	fmt.Scan(&workingDir)
 
 	// project name
@@ -36,7 +36,7 @@ func main() {
 	fmt.Scan(&projectName)
 
 	// choose a language
-	fmt.Println("Choose a number which correspond to the language or framework you will be using:\n1.Ruby\n2.Ruby on Rails (RoR)")
+	fmt.Println("\nChoose a number which correspond to the language or framework you will be using:\n1.Ruby\n2.Ruby on Rails (RoR)")
 	fmt.Scan(&language)
 
 	// different language boilers
@@ -47,13 +47,13 @@ func main() {
 		rorBoiler()
 	default: // the chosen language is not yet supported
 		for i := 0; i < 5; i++ {
-			fmt.Println("Choose a number which correspond to the language you will be using:\n1.Ruby")
+			fmt.Println("\nChoose a number which correspond to the language you will be using:\n1.Ruby")
 			fmt.Scan(&language)
 			if language == 1 {
 				break
 			}
 		}
-		fmt.Println("The language you chose is not supported")
+		fmt.Println("\nThe language you chose is not supported")
 		return
 	}
 
@@ -192,10 +192,10 @@ func rorBoiler() {
 	}
 
 	// create a project with rails
-	fmt.Println("Checking out your working directory")
+	fmt.Println("\nChecking out your working directory")
 	os.Chdir(wrkDr)
 
-	fmt.Println("Generating your Rails project using Rails installed on your machine, This might take several minutes depending on the internet connection you have, please bear with us, and wait...")
+	fmt.Println("\nGenerating your Rails project using Rails installed on your machine, This might take several minutes depending on the internet connection you have, please bear with us, and wait...")
 	railsStr := "rails new " + projectName
 	args := strings.Split(railsStr, " ")
 	exec.Command(args[0], args[1:]...).Run()
