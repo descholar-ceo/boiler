@@ -181,7 +181,7 @@ func rorBoiler() {
 		if isDirectoryExists(workingDir) {
 			wrkDr = getHomeDirectory() + "/" + workingDir
 		} else {
-			fmt.Printf("%s does not exist, your ruuby on rails project will be created in the current directory\n", workingDir)
+			fmt.Printf("%s does not exist, your ruby on rails project will be created in the current directory\n", workingDir)
 			wrkDr, _ = os.Getwd()
 		}
 	}
@@ -196,11 +196,17 @@ func rorBoiler() {
 	exec.Command(args[0], args[1:]...).Run()
 
 	if isGithub == "y" {
+		fmt.Println("")
 		createGithubActionsDirectory()
+		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", "/.github/workflows/linters.yml")
+		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", "/.github/PULL_REQUEST_TEMPLATE.md")
+		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
 	}
 
 	if isRubocop == "y" {
-
+		createRubocopFile()
+		fmt.Println("\nCreating the stylelint file for your stylelings...")
+		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.stylelintrc.json", ".stylelintrc.json")
 	}
 
 }
