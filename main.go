@@ -210,8 +210,8 @@ func rorBoiler() {
 		fmt.Println("\nSetting up your github directory...")
 		os.Mkdir(".github", 0755)
 		os.Mkdir(".github/workflows", 0755)
-		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", "/.github/workflows/linters.yml")
-		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", "/.github/PULL_REQUEST_TEMPLATE.md")
+		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", ".github/workflows/linters.yml")
+		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", ".github/PULL_REQUEST_TEMPLATE.md")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
 	}
 
