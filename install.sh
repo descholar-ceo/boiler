@@ -5,14 +5,13 @@ Welcome to Boiler package developed by descholar. This package was developed to 
 while working on the next project\n"
 
 # CHECKING IF THE .boiler DIRECTORY IS PRESENT IN HOME DIR
-boilerDir = $HOME/.boiler
-if [ -d $boilerDir ]
+if [ -d "$HOME/.boiler" ]
 then
     # boiler is already installed, so remove it and recreate it
-    sudo rm -r $boilerDir
-    mkdir $boilerDir $boilerDir/boiler 
+    rm -r $HOME/.boiler
+    mkdir $HOME/.boiler $HOME/.boiler/boiler 
 else
-    mkdir $boilerDir $boilerDir/boiler
+    mkdir $HOME/.boiler $HOME/.boiler/boiler
 fi
 
 
