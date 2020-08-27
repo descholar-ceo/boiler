@@ -19,7 +19,9 @@ This project is a command line utility, easy to be intalled, and after the insta
 - Start ruby on rails project
 
 ## Installation
-> Elaborate how this project could be tested and run on one's local computer
+- [Click here]() and download a zip file
+- Extract it
+- Open terminal in the extracted folder, and run `make install`
 
 ### Prerequisites
 > What should I have already to run this project locally?
