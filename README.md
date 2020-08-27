@@ -6,10 +6,10 @@ Nowadays, programming is taking over the world of computers, almost every progra
 This project `boiler` is here to make your life very easy while you are planning to work on your new project. We want to make it easy while you bootstrap your project, by running few commands, it will give you the project skeleton set, ready to continue working on your project.
 
 ## Project description
-> Description : //You describe the general logic of the project here
 
-## Screenshot (s)
-> Screenshots: // If your project has some UI, you will link the screenshot of the UI here
+This project is a command line utility, easy to be intalled, and after the installation, you will be able to do the following with it:
+- Setup a basic ruby project
+- Setup Ruby on Rails project
 
 ## Built with
 > Built with : // You will specify the technologies you used to build this project such as languages, frameworks, or libararies, ...
