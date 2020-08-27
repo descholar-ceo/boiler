@@ -15,9 +15,12 @@ else
     mkdir $HOME/.boiler $HOME/.boiler/boiler
 fi
 
-cd $HOME/.boiler/boiler
+# cd $HOME/.boiler/boiler
 
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/main.go
+# copy all to the installation folder
+echo "Copying installtion files ... "
+cp -r . $HOME/.boiler/boiler
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/Makefile
 
 # mkdir lib lib/.ruby
@@ -34,10 +37,10 @@ cd $HOME/.boiler/boiler
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/lib/.ruby/.github/workflows/linters.yml
 # curl -L -O https://raw.githubusercontent.com/descholar-ceo/boiler/develop/lib/.ruby/.github/workflows/tests.yml
 
-# cd $HOME/.boiler/boiler
+cd $HOME/.boiler/boiler
 
-# make build
+make build
 
-# sudo echo PATH=$PATH:$HOME/.boiler/boiler/bin>>$HOME/.bashrc
+sudo echo PATH=$PATH:$HOME/.boiler/boiler/bin>>$HOME/.bashrc
 
-# echo "Everything is set now"
+echo -e "\nEverything is set now\n\nTo use boiler, type boiler in your terminal and follow the instructions."
