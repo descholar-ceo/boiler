@@ -26,11 +26,8 @@ This project is a command line utility, easy to be intalled, and after the insta
 ### Usage
 After you install successfully, run `boiler` on your terminal and follow the instructions
 
-### Tests
-> How to run tests locally?
-
 ## Contributions
-> How should I contribute? //Specify steps to follow inorder to contribute to this project, if it is allowed.
+NOTE: _I am looking for some other contributors to add more language support_
 
 ## Acknowledgement (s)
 > If you have used some resources from someone, or instution, or if you got motivations from somewhere, you should show them the acknowlodgement
