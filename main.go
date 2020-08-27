@@ -223,6 +223,10 @@ func rorBoiler() {
 		stylelintStr := "yarn add --dev stylelint stylelint-scss stylelint-config-standard"
 		styleArgs := strings.Split(stylelintStr, " ")
 		exec.Command(styleArgs[0], styleArgs[1:]...).Run()
+
+		fmt.Println("The linters (Rubocop and stylelint) have been installed successfully!")
+		fmt.Println("To use Rubocop for checking errors: rubocop")
+		fmt.Println("To use Stylelint for checking errors: npx stylelint \"**/*.{css,scss}\"")
 	}
 
 }
