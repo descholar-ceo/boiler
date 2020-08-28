@@ -21,7 +21,7 @@ This project is a command line utility, easy to be intalled, and after the insta
 - Start ruby on rails project
 
 ## Installation
-- [Click here](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0-beta.1) and download a zip file
+- [Click here](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0-beta.2) and download a zip file
 - Extract it
 - Open terminal in the extracted folder, and run `make install`
 
