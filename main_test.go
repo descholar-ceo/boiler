@@ -68,4 +68,6 @@ func TestCreateGithubActionsDirectory(t *testing.T) {
 	projectName = "tmpProject"
 	workingDir = "."
 	createProjectDirectory()
+	currDir, _ := os.Getwd()
+	wrkDr = currDir + "/" + projectName
 }
