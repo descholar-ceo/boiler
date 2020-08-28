@@ -16,6 +16,9 @@ func TestIsDirectoryExists(t *testing.T) {
 		t.Errorf("The isDirectoryExists() should return true if the directory exists, but it returned %v\n", answer)
 	}
 	defer exec.Command("rmdir", tempDirToRemove).Run()
+
+	// when the directory doesn't exist
+	answer = isDirectoryExists("jjjjjjjjjjjaksaaaaaaaaanvvvvvvvvvvvvvvjshdbcbfh")
 }
 
 func TestIsGitHub(t *testing.T) {
