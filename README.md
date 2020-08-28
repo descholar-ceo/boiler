@@ -1,4 +1,5 @@
 # boiler
+[![Build Status](https://travis-ci.org/descholar-ceo/boiler.svg?branch=develop)](https://travis-ci.org/descholar-ceo/boiler)
 
 ## This is a `beta` release
 
