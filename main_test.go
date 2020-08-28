@@ -4,6 +4,8 @@ import (
 	"os"
 	"os/exec"
 	"testing"
+
+	"github.com/mitchellh/go-homedir"
 )
 
 func TestIsDirectoryExists(t *testing.T) {
@@ -23,7 +25,9 @@ func TestIsDirectoryExists(t *testing.T) {
 		t.Errorf("The isDirectoryExists() should return false if the directory does not exists, but it returned %v\n", answer)
 	}
 }
-
 func TestGetHomeDirectory(t *testing.T) {
-
+	homeDirectory, _ := homedir.Dir()
+	if homeDirectory != getHomeDirectory() {
+		t.Errorf("getHomeDirectory() should return a home directory but that failed")
+	}
 }
