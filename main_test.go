@@ -19,8 +19,11 @@ func TestIsDirectoryExists(t *testing.T) {
 
 	// when the directory doesn't exist
 	answer = isDirectoryExists("jjjjjjjjjjjaksaaaaaaaaanvvvvvvvvvvvvvvjshdbcbfh")
+	if answer == true {
+		t.Errorf("The isDirectoryExists() should return false if the directory does not exists, but it returned %v\n", answer)
+	}
 }
 
-func TestIsGitHub(t *testing.T) {
+// func TestIsDirectoryExists(t *testing.T) {
 
-}
+// }
