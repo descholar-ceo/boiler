@@ -31,3 +31,7 @@ func TestGetHomeDirectory(t *testing.T) {
 		t.Errorf("getHomeDirectory() should return a home directory but that failed")
 	}
 }
+
+func TestCreateProjectDirectory(t *testing.T) {
+
+}
