@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"os/exec"
+	"strings"
 	"testing"
 
 	"github.com/mitchellh/go-homedir"
@@ -55,4 +56,9 @@ func TestCreateProjectDirectory(t *testing.T) {
 	if isDirectoryExists(".tmp"+"/"+projectName) == false {
 		t.Errorf("createProjectDirectory() should create a project directory but it failed")
 	}
+
+	exec.Command("rmdir", projectName)
+	strRm := "rm -r " + getHomeDirectory() + "/" + workingDir
+	strRmArgs := strings.Split(strRm, " ")
+	exec.Command(strRmArgs[0], strRmArgs[1:]...).Run()
 }
