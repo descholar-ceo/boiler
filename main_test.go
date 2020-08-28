@@ -62,3 +62,7 @@ func TestCreateProjectDirectory(t *testing.T) {
 	strRmArgs := strings.Split(strRm, " ")
 	exec.Command(strRmArgs[0], strRmArgs[1:]...).Run()
 }
+
+func TestCreateGithubActionsDirectory(t *testing.T) {
+
+}
