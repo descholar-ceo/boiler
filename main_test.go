@@ -7,13 +7,14 @@ import (
 )
 
 func TestIsDirectoryExists(t *testing.T) {
-	tmpDir := getHomeDirectory() + "/.tmp"
-	os.Mkdir(tmpDir, 0755)
+	tmpDir := ".tmp"
+	os.Mkdir(getHomeDirectory()+"/.tmp", 0755)
 	answer := isDirectoryExists(tmpDir)
+	tempDirToRemove := getHomeDirectory() + "/.tmp"
 	if answer == false {
 		t.Errorf("The isDirectoryExists() should return true if the directory exists, but it returned %v\n", answer)
 	}
-	exec.Command("rmdir", tmpDir).Run()
+	defer exec.Command("rmdir", tempDirToRemove).Run()
 }
 
 func TestIsGitHub(t *testing.T) {
