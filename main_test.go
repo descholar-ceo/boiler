@@ -48,4 +48,11 @@ func TestCreateProjectDirectory(t *testing.T) {
 	if os.IsNotExist(err) {
 		t.Errorf("createProjectDirectory() should create a project directory but it failed")
 	}
+
+	os.Mkdir(getHomeDirectory()+"/.tmp", 0755)
+	workingDir = ".tmp"
+	createProjectDirectory()
+	if isDirectoryExists(".tmp"+"/"+projectName) == false {
+		t.Errorf("createProjectDirectory() should create a project directory but it failed")
+	}
 }
