@@ -286,7 +286,7 @@ func createRubocopFile() {
 	}
 }
 
-func copy(src, dst string) (int64, error) {
+func copy(src, dst string) {
 	source, _ := os.Open(src)
 
 	defer source.Close()
@@ -294,6 +294,5 @@ func copy(src, dst string) (int64, error) {
 	destination, _ := os.Create(dst)
 
 	defer destination.Close()
-	nBytes, err := io.Copy(destination, source)
-	return nBytes, err
+	io.Copy(destination, source)
 }
