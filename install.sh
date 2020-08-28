@@ -23,7 +23,7 @@ cd $HOME/.boiler/boiler
 
 sudo echo PATH=$PATH:$HOME/.boiler/boiler/bin>>$HOME/.bashrc
 
-echo -e "\nEverything is set now\n\nTo use boiler, type boiler in your terminal and follow the instructions."
+echo -e "\nEverything is set now\n\nTo use boiler, type boiler in your terminal and follow the instructions.\n"
 
 sleep 1s
 
