@@ -16,4 +16,6 @@ func TestIsDirectoryExists(t *testing.T) {
 	exec.Command("rmdir", tmpDir).Run()
 }
 
-func TestIsGitHub(t *testing.T) {}
+func TestIsGitHub(t *testing.T) {
+
+}
