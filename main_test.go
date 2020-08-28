@@ -88,5 +88,13 @@ func TestCreateRubocopFile(t *testing.T) {
 	createProjectDirectory()
 	currDir, _ := os.Getwd()
 	wrkDr = currDir + "/" + projectName
+	createRubocopFile()
+	_, err := os.Stat(wrkDr + "/.rubocop.yml")
+	if os.IsNotExist(err) {
+		t.Errorf("createRubocopFile() should create a rubocop file but it failed to do so!")
+	}
 
+	rmFilStr := "rm -r " + wrkDr
+	strRmFilArgs := strings.Split(rmFilStr, " ")
+	exec.Command(strRmFilArgs[0], strRmFilArgs[1:]...).Run()
 }
