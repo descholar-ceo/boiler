@@ -41,4 +41,11 @@ func TestCreateProjectDirectory(t *testing.T) {
 	if os.IsNotExist(err) {
 		t.Errorf("createProjectDirectory() should create a project directory but it failed")
 	}
+
+	workingDir = "jjjjjjjjjjjaksaaaaaaaaanvvvvvvvvvvvvvvjshdbcbfh"
+	createProjectDirectory()
+	_, err = os.Stat(currDir + "/" + projectName)
+	if os.IsNotExist(err) {
+		t.Errorf("createProjectDirectory() should create a project directory but it failed")
+	}
 }
