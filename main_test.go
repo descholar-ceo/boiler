@@ -75,4 +75,8 @@ func TestCreateGithubActionsDirectory(t *testing.T) {
 	if os.IsNotExist(err) {
 		t.Errorf("createGithubActionsDirectory() should create github directory but it is failing")
 	}
+
+	strRmTwo := "rm -r " + "/" + wrkDr
+	strRmArgs := strings.Split(strRmTwo, " ")
+	exec.Command(strRmArgs[0], strRmArgs[1:]...).Run()
 }
