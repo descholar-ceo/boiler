@@ -64,5 +64,8 @@ func TestCreateProjectDirectory(t *testing.T) {
 }
 
 func TestCreateGithubActionsDirectory(t *testing.T) {
-
+	isGithub = "y"
+	projectName = "tmpProject"
+	workingDir = "."
+	createProjectDirectory()
 }
