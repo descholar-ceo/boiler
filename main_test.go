@@ -82,5 +82,11 @@ func TestCreateGithubActionsDirectory(t *testing.T) {
 }
 
 func TestCreateRubocopFile(t *testing.T) {
+	isRubocop = "y"
+	projectName = "tmpProject"
+	workingDir = "."
+	createProjectDirectory()
+	currDir, _ := os.Getwd()
+	wrkDr = currDir + "/" + projectName
 
 }
