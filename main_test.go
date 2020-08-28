@@ -70,4 +70,9 @@ func TestCreateGithubActionsDirectory(t *testing.T) {
 	createProjectDirectory()
 	currDir, _ := os.Getwd()
 	wrkDr = currDir + "/" + projectName
+	createGithubActionsDirectory()
+	_, err = os.Stat(wrkDr + "/.github")
+	if os.IsNotExist(err) {
+		t.Errorf("createGithubActionsDirectory() should create github directory but it is failing")
+	}
 }
