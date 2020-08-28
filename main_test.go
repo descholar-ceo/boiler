@@ -33,5 +33,7 @@ func TestGetHomeDirectory(t *testing.T) {
 }
 
 func TestCreateProjectDirectory(t *testing.T) {
-
+	workingDir = "."
+	projectName = "tmpProject"
+	createProjectDirectory()
 }
