@@ -7,6 +7,7 @@ import (
 )
 
 func TestIsDirectoryExists(t *testing.T) {
+	// when the directory exists
 	tmpDir := ".tmp"
 	os.Mkdir(getHomeDirectory()+"/.tmp", 0755)
 	answer := isDirectoryExists(tmpDir)
