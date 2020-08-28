@@ -26,6 +26,17 @@ This project is a command line utility, easy to be intalled, and after the insta
 - Open terminal in the extracted folder, and run `make install`
 
 ### Usage
+#### Pre-requisites
+##### For ruby projects
+- [ ] Ruby should be installed already on your computer
+
+##### For Ruby on Rails project
+To get your project initiated, you should have the following tools already installed on your computer:
+- [ ] Ruby
+- [ ] Ruby on rails
+- [ ] Yarn
+
+#### Running
 After you install successfully, run `boiler` on your terminal and follow the instructions
 
 ## Contributions
