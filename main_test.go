@@ -80,3 +80,7 @@ func TestCreateGithubActionsDirectory(t *testing.T) {
 	strRmArgs := strings.Split(strRmTwo, " ")
 	exec.Command(strRmArgs[0], strRmArgs[1:]...).Run()
 }
+
+func TestCreateRubocopFile(t *testing.T) {
+
+}
