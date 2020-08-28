@@ -6,5 +6,9 @@ import (
 )
 
 func TestIsDirectoryExists(t *testing.T) {
-	os.Mkdir("tmp", 0755)
+	os.Mkdir(".tmp", 0755)
+	answer := isDirectoryExists(".tmp")
+	if !answer {
+
+	}
 }
