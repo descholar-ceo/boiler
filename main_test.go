@@ -24,6 +24,6 @@ func TestIsDirectoryExists(t *testing.T) {
 	}
 }
 
-// func TestIsDirectoryExists(t *testing.T) {
+func TestGetHomeDirectory(t *testing.T) {
 
-// }
+}
