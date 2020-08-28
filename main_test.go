@@ -37,8 +37,8 @@ func TestCreateProjectDirectory(t *testing.T) {
 	projectName = "tmpProject"
 	currDir, _ := os.Getwd()
 	createProjectDirectory()
-	answer := isDirectoryExists(currDir + "/" + projectName)
-	if answer == false {
+	_, err := os.Stat(currDir + "/" + projectName)
+	if os.IsNotExist(err) {
 		t.Errorf("createProjectDirectory() should create a project directory but it failed")
 	}
 }
