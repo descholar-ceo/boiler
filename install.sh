@@ -21,8 +21,10 @@ cp -r `ls | egrep -v '^.git$'` $HOME/.boiler/boiler
 
 cd $HOME/.boiler/boiler
 
-make build
-
 sudo echo PATH=$PATH:$HOME/.boiler/boiler/bin>>$HOME/.bashrc
 
-echo -e "\nEverything is set now\n\nTo use boiler, type boiler in your terminal and follow the instructions."
+echo -e "\nEverything is set now\n\nTo use boiler, type boiler in your terminal and follow the instructions.\n"
+
+sleep 1s
+
+exit
