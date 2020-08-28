@@ -98,3 +98,7 @@ func TestCreateRubocopFile(t *testing.T) {
 	strRmFilArgs := strings.Split(rmFilStr, " ")
 	exec.Command(strRmFilArgs[0], strRmFilArgs[1:]...).Run()
 }
+
+func TestMain(t *testing.T) {
+
+}
