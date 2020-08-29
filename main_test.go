@@ -106,4 +106,5 @@ func TestRubyBoiler(t *testing.T) {
 	testFramework = 1
 	workingDir = "."
 	projectName = "tmpProject"
+	rubyBoiler()
 }
