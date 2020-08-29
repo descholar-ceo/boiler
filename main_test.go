@@ -100,5 +100,9 @@ func TestCreateRubocopFile(t *testing.T) {
 }
 
 func TestMain(t *testing.T) {
-	rubyBoiler()
+	askGithub()
+	isGithub = "y"
+	if isGithub != "y" {
+		t.Errorf("Ask github should change the isGithub function")
+	}
 }
