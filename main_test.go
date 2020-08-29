@@ -112,4 +112,7 @@ func TestRubyBoiler(t *testing.T) {
 	if os.IsNotExist(err) {
 		t.Error("rubyBoiler() should create project in the current dir but it failed")
 	}
+	rmPrStr := "rm -r " + currDir
+	argsRmPrStr := strings.Split(rmPrStr, " ")
+	exec.Command(argsRmPrStr[0], argsRmPrStr[1:]...).Run()
 }
