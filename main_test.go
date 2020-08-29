@@ -100,13 +100,14 @@ func TestCreateRubocopFile(t *testing.T) {
 }
 
 func TestRubyBoiler(t *testing.T) {
+	language = 1
 	isGithub = "y"
 	isRubocop = "y"
 	isTests = "y"
 	testFramework = 1
 	workingDir = "."
 	projectName = "tmpProject"
-	rubyBoiler()
+	main()
 	os.Chdir("../")
 	currDir, _ := os.Getwd()
 	_, err := os.Stat(currDir)
