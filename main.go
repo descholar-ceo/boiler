@@ -89,7 +89,7 @@ func rubyBoiler() {
 	askRubocop()
 
 	// will you run tests?
-	fmt.Println("\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
+	fmt.Println("\n\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
 	fmt.Scan(&isTests)
 	if isTests == "y" || isTests == "Y" {
 		fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
@@ -182,6 +182,8 @@ func rubyBoiler() {
 
 // rorBoiler
 func rorBoiler() {
+	fmt.Println("Make sure that rails and ruby are installed correctly on your system, and is working well, if rails is not installed yet, then this time your project initialization will take some time")
+	fmt.Println("If ruby is not installed yet, please refer to this link for a proper ruby installation: https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming")
 	mStr := "gem install rails"
 	argsMStr := strings.Split(mStr, " ")
 	exec.Command(argsMStr[0], argsMStr[1:]...).Run()
