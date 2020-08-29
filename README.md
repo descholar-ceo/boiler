@@ -24,7 +24,7 @@ This project is a command line utility, easy to be intalled, and after the insta
 ## Installation
 - [Click here](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0-beta.3) and download a zip file
 - Extract it
-- Open terminal in the extracted folder, and run `make install`
+- Open terminal in the extracted folder, and run `./install.sh`
 - Logout from your system and login again or restart your computer
 
 ### Usage
