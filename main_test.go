@@ -99,10 +99,11 @@ func TestCreateRubocopFile(t *testing.T) {
 	exec.Command(strRmFilArgs[0], strRmFilArgs[1:]...).Run()
 }
 
-func TestMain(t *testing.T) {
-	askGithub()
+func TestRubyBoiler(t *testing.T) {
 	isGithub = "y"
-	if isGithub != "y" {
-		t.Errorf("Ask github should change the isGithub function")
-	}
+	isRubocop = "y"
+	isTests = "y"
+	testFramework = 1
+	workingDir = "."
+	projectName = "tmpProject"
 }
