@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/exec"
 	"strings"
@@ -107,30 +108,31 @@ func TestRubyBoiler(t *testing.T) {
 	workingDir = "."
 	projectName = "tmpProject"
 	rubyBoiler()
+	os.Chdir("../")
 	currDir, _ := os.Getwd()
 	_, err := os.Stat(currDir)
 	if os.IsNotExist(err) {
 		t.Error("rubyBoiler() should create project in the current dir but it failed")
 	}
-	rmPrStr := "rm -r " + currDir
+	rmPrStr := "rm -r " + currDir + "/" + projectName
+	fmt.Printf("The currDir is %v\n", currDir)
 	argsRmPrStr := strings.Split(rmPrStr, " ")
 	exec.Command(argsRmPrStr[0], argsRmPrStr[1:]...).Run()
 }
 
-func TestRorBoiler(t *testing.T){
+func TestRorBoiler(t *testing.T) {
 	isGithub = "y"
 	isRubocop = "y"
-	isTests = "y"
-	testFramework = 1
 	workingDir = "."
-	projectName = "tmpProject"
-	rubyBoiler()
+	projectName = "tmpRorProject"
+	rorBoiler()
+	os.Chdir("../")
 	currDir, _ := os.Getwd()
-	_, err := os.Stat(currDir)
+	_, err := os.Stat(currDir + "/" + projectName)
 	if os.IsNotExist(err) {
-		t.Error("rubyBoiler() should create project in the current dir but it failed")
+		t.Error("rorBoiler() should create project in the current dir but it failed")
 	}
-	rmPrStr := "rm -r " + currDir
+	rmPrStr := "rm -r " + currDir + "/" + projectName
 	argsRmPrStr := strings.Split(rmPrStr, " ")
 	exec.Command(argsRmPrStr[0], argsRmPrStr[1:]...).Run()
 }
