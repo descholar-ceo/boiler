@@ -118,12 +118,13 @@ func TestRubyBoiler(t *testing.T) {
 	exec.Command(argsRmPrStr[0], argsRmPrStr[1:]...).Run()
 }
 
-func TestRorBoiler(t *testing.T) {
+func TestMain(t *testing.T) {
+	language = 2
 	isGithub = "y"
 	isRubocop = "y"
 	workingDir = "."
 	projectName = "tmpRorProject"
-	rorBoiler()
+	main()
 	os.Chdir("../")
 	currDir, _ := os.Getwd()
 	_, err := os.Stat(currDir + "/" + projectName)
