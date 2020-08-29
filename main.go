@@ -285,13 +285,6 @@ func createGithubActionsDirectory() {
 	}
 }
 
-// func createRubocopFile() {
-// 	if isRubocop == "y" {
-// 		fmt.Printf("\nInitializing rubocop in %s directory...\n", projectName)
-// 		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
-// 	}
-// }
-
 func copy(src, dst string) {
 	source, _ := os.Open(src)
 
