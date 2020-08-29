@@ -52,6 +52,7 @@ func main() {
 				break
 			}
 		}
+		language = 0
 		fmt.Println("\nThe language you chose is not supported")
 		return
 	}
