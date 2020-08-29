@@ -107,4 +107,9 @@ func TestRubyBoiler(t *testing.T) {
 	workingDir = "."
 	projectName = "tmpProject"
 	rubyBoiler()
+	currDir, _ := os.Getwd()
+	_, err := os.Stat(currDir)
+	if os.IsNotExist(err) {
+		t.Error("rubyBoiler() should create project in the current dir but it failed")
+	}
 }
