@@ -171,3 +171,8 @@ func TestRorBoiler(t *testing.T) {
 	argsRmPrStr := strings.Split(rmPrStr, " ")
 	exec.Command(argsRmPrStr[0], argsRmPrStr[1:]...).Run()
 }
+
+func TestMain(t *testing.T) {
+	language = 5
+	main()
+}
