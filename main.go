@@ -52,6 +52,7 @@ func main() {
 				break
 			}
 		}
+		language = 0
 		fmt.Println("\nThe language you chose is not supported")
 		return
 	}
@@ -108,7 +109,10 @@ func rubyBoiler() {
 	createProjectDirectory()
 
 	// initialize rubocop
-	createRubocopFile()
+	if isRubocop == "y" {
+		fmt.Printf("\nInitializing rubocop in %s directory...\n", projectName)
+		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
+	}
 
 	if isGithub == "y" {
 		// initialize github actions
@@ -150,6 +154,9 @@ func rubyBoiler() {
 	if isTests == "y" {
 		// initialize rspec
 		fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
+		str := "gem install rspec"
+		argsRspec := strings.Split(str, " ")
+		exec.Command(argsRspec[0], argsRspec[1:]...).Run()
 		writeToFile("Gemfile", "gem 'rspec', '~>3.0'")
 		exec.Command("rspec", "--init").Run()
 	}
@@ -171,6 +178,10 @@ func rubyBoiler() {
 
 // rorBoiler
 func rorBoiler() {
+	mStr := "gem install rails"
+	argsMStr := strings.Split(mStr, " ")
+	exec.Command(argsMStr[0], argsMStr[1:]...).Run()
+
 	askGithub()
 	askRubocop()
 
@@ -209,7 +220,6 @@ func rorBoiler() {
 	}
 
 	if isRubocop == "y" {
-		createRubocopFile()
 		fmt.Println("\nCreating Rubocop YAML file...")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.rubocop.yml", ".rubocop.yml")
 
@@ -279,34 +289,13 @@ func createGithubActionsDirectory() {
 	}
 }
 
-func createRubocopFile() {
-	if isRubocop == "y" {
-		fmt.Printf("\nInitializing rubocop in %s directory...\n", projectName)
-		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
-	}
-}
+func copy(src, dst string) {
+	source, _ := os.Open(src)
 
-func copy(src, dst string) (int64, error) {
-	sourceFileStat, err := os.Stat(src)
-	if err != nil {
-		return 0, err
-	}
-
-	if !sourceFileStat.Mode().IsRegular() {
-		return 0, fmt.Errorf("%s is not a regular file", src)
-	}
-
-	source, err := os.Open(src)
-	if err != nil {
-		return 0, err
-	}
 	defer source.Close()
 
-	destination, err := os.Create(dst)
-	if err != nil {
-		return 0, err
-	}
+	destination, _ := os.Create(dst)
+
 	defer destination.Close()
-	nBytes, err := io.Copy(destination, source)
-	return nBytes, err
+	io.Copy(destination, source)
 }
