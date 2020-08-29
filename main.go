@@ -108,7 +108,10 @@ func rubyBoiler() {
 	createProjectDirectory()
 
 	// initialize rubocop
-	createRubocopFile()
+	if isRubocop == "y" {
+		fmt.Printf("\nInitializing rubocop in %s directory...\n", projectName)
+		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
+	}
 
 	if isGithub == "y" {
 		// initialize github actions
@@ -213,7 +216,6 @@ func rorBoiler() {
 	}
 
 	if isRubocop == "y" {
-		createRubocopFile()
 		fmt.Println("\nCreating Rubocop YAML file...")
 		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.rubocop.yml", ".rubocop.yml")
 
@@ -283,12 +285,12 @@ func createGithubActionsDirectory() {
 	}
 }
 
-func createRubocopFile() {
-	if isRubocop == "y" {
-		fmt.Printf("\nInitializing rubocop in %s directory...\n", projectName)
-		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
-	}
-}
+// func createRubocopFile() {
+// 	if isRubocop == "y" {
+// 		fmt.Printf("\nInitializing rubocop in %s directory...\n", projectName)
+// 		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
+// 	}
+// }
 
 func copy(src, dst string) {
 	source, _ := os.Open(src)
