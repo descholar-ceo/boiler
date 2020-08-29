@@ -153,6 +153,9 @@ func rubyBoiler() {
 	if isTests == "y" {
 		// initialize rspec
 		fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
+		str := "gem install rspec"
+		argsRspec := strings.Split(str, " ")
+		exec.Command(argsRspec[0], argsRspec[1:]...).Run()
 		writeToFile("Gemfile", "gem 'rspec', '~>3.0'")
 		exec.Command("rspec", "--init").Run()
 	}
