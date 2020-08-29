@@ -171,6 +171,10 @@ func rubyBoiler() {
 
 // rorBoiler
 func rorBoiler() {
+	mStr := "gem install rails"
+	argsMStr := strings.Split(mStr, " ")
+	exec.Command(argsMStr[0], argsMStr[1:]...).Run()
+
 	askGithub()
 	askRubocop()
 
