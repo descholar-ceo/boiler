@@ -1,5 +1,5 @@
 # boiler
-[![Maintainability](https://api.codeclimate.com/v1/badges/0ef5f6e9398a22c4b5ee/maintainability)](https://codeclimate.com/github/descholar-ceo/boiler/maintainability) [![Build Status](https://travis-ci.org/descholar-ceo/boiler.svg?branch=develop)](https://travis-ci.org/descholar-ceo/boiler)  [![Coverage Status](https://coveralls.io/repos/github/descholar-ceo/boiler/badge.svg?branch=develop)](https://coveralls.io/github/descholar-ceo/boiler?branch=develop)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0ef5f6e9398a22c4b5ee/maintainability)](https://codeclimate.com/github/descholar-ceo/boiler/maintainability) [![Build Status](https://travis-ci.org/descholar-ceo/boiler.svg?branch=develop)](https://travis-ci.org/descholar-ceo/boiler)  [![Coverage Status](https://coveralls.io/repos/github/descholar-ceo/boiler/badge.svg?branch=develop)](https://coveralls.io/github/descholar-ceo/boiler?branch=develop)  [![Test Coverage](https://api.codeclimate.com/v1/badges/0ef5f6e9398a22c4b5ee/test_coverage)](https://codeclimate.com/github/descholar-ceo/boiler/test_coverage)
 
 ## This is a `beta` release
 
