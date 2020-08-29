@@ -81,23 +81,6 @@ func TestCreateGithubActionsDirectory(t *testing.T) {
 	exec.Command(strRmArgs[0], strRmArgs[1:]...).Run()
 }
 
-// func TestCreateRubocopFile(t *testing.T) {
-// 	isRubocop = "y"
-// 	projectName = "tmpProject"
-// 	workingDir = "."
-// 	createProjectDirectory()
-// 	currDir, _ := os.Getwd()
-// 	wrkDr = currDir + "/" + projectName
-// 	createRubocopFile()
-// 	_, err := os.Stat(wrkDr + "/.rubocop.yml")
-// 	if os.IsNotExist(err) {
-// 		t.Errorf("createRubocopFile() should create a rubocop file but it failed to do so!")
-// 	}
-// 	rmFilStr := "rm -r " + wrkDr
-// 	strRmFilArgs := strings.Split(rmFilStr, " ")
-// 	exec.Command(strRmFilArgs[0], strRmFilArgs[1:]...).Run()
-// }
-
 func TestRubyBoiler(t *testing.T) {
 	language = 1
 	isGithub = "y"
