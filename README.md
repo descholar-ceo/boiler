@@ -31,12 +31,14 @@ This project is a command line utility, easy to be intalled, and after the insta
 #### Pre-requisites
 ##### For ruby projects
 - [ ] Ruby should be installed already on your computer
+- [ ] Bundler
 
 ##### For Ruby on Rails project
 To get your project initiated, you should have the following tools already installed on your computer:
-- [ ] Ruby
-- [ ] Ruby on rails
+- [ ] Ruby (Installed and well working)
+- [ ] Ruby on rails (Installed and well working)
 - [ ] Yarn
+- [ ] Bundler
 
 #### Running
 After you install successfully, run `boiler` on your terminal and follow the instructions
