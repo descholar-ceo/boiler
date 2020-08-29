@@ -81,6 +81,10 @@ func askGithub() {
 // rubyBoiler function
 func rubyBoiler() {
 
+	// informing a user about the ruby installation
+	fmt.Println("Make sure that ruby is well installed, and your bundler is working well,")
+	fmt.Println("If it is not the case please refer to this link for ruby installation guides: https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming")
+
 	// will you use rubocop?
 	askRubocop()
 
