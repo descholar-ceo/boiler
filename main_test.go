@@ -93,7 +93,6 @@ func TestCreateRubocopFile(t *testing.T) {
 	if os.IsNotExist(err) {
 		t.Errorf("createRubocopFile() should create a rubocop file but it failed to do so!")
 	}
-
 	rmFilStr := "rm -r " + wrkDr
 	strRmFilArgs := strings.Split(rmFilStr, " ")
 	exec.Command(strRmFilArgs[0], strRmFilArgs[1:]...).Run()
@@ -111,28 +110,53 @@ func TestRubyBoiler(t *testing.T) {
 	os.Chdir("../")
 	currDir, _ := os.Getwd()
 	_, err := os.Stat(currDir)
+	_, err1 := os.Stat(currDir + "/" + projectName + "/lib")
+	_, err2 := os.Stat(currDir + "/" + projectName + "/bin")
+	_, err3 := os.Stat(currDir + "/" + projectName + "/spec")
+	_, err4 := os.Stat(currDir + "/" + projectName + "/Gemfile")
+	_, err5 := os.Stat(currDir + "/" + projectName + "/.github")
+	_, err6 := os.Stat(currDir + "/" + projectName + "/.rspec")
 	if os.IsNotExist(err) {
 		t.Error("rubyBoiler() should create project in the current dir but it failed")
 	}
+	if os.IsNotExist(err1) {
+		t.Error("rubyBoiler() should create lib folder in the project dir but it failed")
+	}
+	if os.IsNotExist(err2) {
+		t.Error("rubyBoiler() should create bin folder in the current dir but it failed")
+	}
+	if os.IsNotExist(err3) {
+		t.Error("rubyBoiler() should create spec folder in the project dir but it failed")
+	}
+	if os.IsNotExist(err4) {
+		t.Error("rubyBoiler() should create gemfile in the the project dir but it failed")
+	}
+	if os.IsNotExist(err5) {
+		t.Error("rubyBoiler() should create .github folder in the project dir but it failed")
+	}
+	if os.IsNotExist(err6) {
+		t.Error("rubyBoiler() should create .rspec file in the project dir but it failed")
+	}
+
 	rmPrStr := "rm -r " + currDir + "/" + projectName
 	argsRmPrStr := strings.Split(rmPrStr, " ")
 	exec.Command(argsRmPrStr[0], argsRmPrStr[1:]...).Run()
 }
 
-func TestMain(t *testing.T) {
-	language = 2
-	isGithub = "y"
-	isRubocop = "y"
-	workingDir = "."
-	projectName = "tmpRorProject"
-	main()
-	os.Chdir("../")
-	currDir, _ := os.Getwd()
-	_, err := os.Stat(currDir + "/" + projectName)
-	if os.IsNotExist(err) {
-		t.Error("rorBoiler() should create project in the current dir but it failed")
-	}
-	rmPrStr := "rm -r " + currDir + "/" + projectName
-	argsRmPrStr := strings.Split(rmPrStr, " ")
-	exec.Command(argsRmPrStr[0], argsRmPrStr[1:]...).Run()
-}
+// func TestRorBoiler(t *testing.T) {
+// 	language = 2
+// 	isGithub = "y"
+// 	isRubocop = "y"
+// 	workingDir = "."
+// 	projectName = "tmpRorProject"
+// 	main()
+// 	os.Chdir("../")
+// 	currDir, _ := os.Getwd()
+// 	_, err := os.Stat(currDir + "/" + projectName)
+// 	if os.IsNotExist(err) {
+// 		t.Error("rorBoiler() should create project in the current dir but it failed")
+// 	}
+// 	rmPrStr := "rm -r " + currDir + "/" + projectName
+// 	argsRmPrStr := strings.Split(rmPrStr, " ")
+// 	exec.Command(argsRmPrStr[0], argsRmPrStr[1:]...).Run()
+// }
