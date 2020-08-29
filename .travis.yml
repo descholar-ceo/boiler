@@ -1,10 +1,19 @@
+env:
+  global:
+    secure: lX3hRqgJPyjuiECSxvowE8NUepaX4O4vo/xj/RixK8H/8onFe3AV5xQoTpi5VJmq8vp510/vtwsagUNQXA1gvAJFT4nBwm6Y+iiKzJxRuDl5rPP5sxI6+mGUi/PCqm8M4ymAWJF1pIOoGwDQ40VJmlMbgOX+FnELyoP8Jb10dMGT/CBO1GiBCNF/eJMYlE4xPCiXqZJjWzuEvMduKNYjeJN8+/nxx6vNrATd2aC/M40UvisOE7nXhcYjZ7eV3QJ5n4F1iAD2UNenWfi7Y2AuuJrjIepOfKa4i+jYrZHT56mhqFg8F/kKEHjaJ45nx3a0QmdRYFzzuRxScpRaBEII6R1CrqHU4ouyplTD12rYe+8CcmSShMJwRJ+amzQRiHc76TG5g1HUJ17GggwVLtCRfiRLzLpeRrhqAARAK9EGL/j0gk11ofERKRLyi7Uqv+YuZ6lZVBFJAViQ7NE7GpR2F7G3aqwxdYJ9khpHg/GsoPxqUhRzYWdmirK9CxCIQlMTl4bW59RMRa27NW6G9Z2EZI85CZiKiFc9i/rvY6MFd2tvsRXFdOTaYopK1ecbRxyXMIjHXt29yEeaU7Mosw64TM/EceGkoVo0NWddh15DrI70C+siYqBg6mkmo7XsknKQ0gYiH7P1wHLPLQbGtRt5LJzZYkeK1LRgj5SlZDB7A7A=
+
 language: go
+
 go:
   - 1.15.x
-install:
-  - go get golang.org/x/tools/cmd/cover
-  - go get github.com/mattn/goveralls
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 script:
-- go test -v -covermode=count -coverprofile=coverage.out
-- "$HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken $COVERALLS_TOKEN"
+  - go test -coverprofile c.out ./...
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
