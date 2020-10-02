@@ -40,7 +40,11 @@ To get your project initiated, you should have the following tools already insta
 - [ ] Yarn
 - [ ] Bundler
 
- ###### When you want to use `mysql` as your database, make sure that you have MySQL client already installed on your machine, if you are not sure run `sudo apt-get install libmysqlclient-dev` which will install it if you don't have it or update it if the version you have is obsolete
+ ###### 1. When you want to use `mysql` as your database, make sure that you have MySQL client already installed on your machine, if you are not sure run `sudo apt-get install libmysqlclient-dev` which will install it if you don't have it or update it if the version you have is obsolete
+
+ ###### 2. Other databases which need special setup
+    1. Oracle ===> requires you to have ruby-oci8 installed, and to install it, requires you to have oracle environment installed properly on your computer
+    2. 
 
 #### Running
 After you install successfully, run `boiler` on your terminal and follow the instructions
