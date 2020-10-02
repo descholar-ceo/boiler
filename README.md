@@ -40,6 +40,8 @@ To get your project initiated, you should have the following tools already insta
 - [ ] Yarn
 - [ ] Bundler
 
+ ###### When you want to use `mysql` as your database, make sure that you have MySQL client already installed on your machine, if you are not sure run `sudo apt-get install libmysqlclient-dev` which will install it if you don't have it or update it if the version you have is obsolete
+
 #### Running
 After you install successfully, run `boiler` on your terminal and follow the instructions
 
