@@ -52,6 +52,8 @@ To get your project initiated, you should have the following tools already insta
 1. Sqlserver: requires you to have pre-installed `freeTDS` on your system, 
 if you are not sure run `sudo apt-get install freetds-dev` which will install it if you don't have it or update it if the version you have is obsolete
 
+1. jdbcmysql, jdbcsqlite3, jdbcpostgresql,: are for use with [JRuby](https://www.jruby.org/) only
+
 #### Running
 After you install successfully, run `boiler` on your terminal and follow the instructions
 
