@@ -21,6 +21,7 @@ var (
 	isTests       string
 	testFramework int
 	isGithub      string
+	database      string
 )
 
 func main() {
