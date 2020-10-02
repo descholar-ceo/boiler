@@ -45,7 +45,7 @@ To get your project initiated, you should have the following tools already insta
  ###### 2. Other databases which need special setup
     1. Oracle: requires you to have ruby-oci8 installed, and to install it, requires you to have oracle environment installed properly on your computer
     2. [Frontbase](http://www.frontbase.com/cgi-bin/WebObjects/FBWebSite): requires you to be a MacOS user
-    3. 
+    3. For [ibm_db](https://www.ibm.com/support/knowledgecenter/hr/SSEPGG_9.7.0/com.ibm.db2.luw.qb.server.doc/doc/t0008875.html): requires you to have `db2` server installed on your computer
 
 #### Running
 After you install successfully, run `boiler` on your terminal and follow the instructions
