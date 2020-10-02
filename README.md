@@ -40,9 +40,8 @@ To get your project initiated, you should have the following tools already insta
 - [ ] Yarn
 - [ ] Bundler
 
- ###### 1. When you want to use `mysql` as your database, make sure that you have MySQL client already installed on your machine, if you are not sure run `sudo apt-get install libmysqlclient-dev` which will install it if you don't have it or update it if the version you have is obsolete
-
- ###### 2. Other databases which need special setup
+ # NOTE: DATABASES REQUIREMENTS
+    1. MySQL requires you to have pre-installed `libmysqlclient-dev`, on your system, if you are not sure run `sudo apt-get install libmysqlclient-dev` which will install it if you don't have it or update it if the version you have is obsolete
     1. Oracle: requires you to have ruby-oci8 installed, and to install it, requires you to have oracle environment installed properly on your computer
     2. [Frontbase](http://www.frontbase.com/cgi-bin/WebObjects/FBWebSite): requires you to be a MacOS user
     3. For [ibm_db](https://www.ibm.com/support/knowledgecenter/hr/SSEPGG_9.7.0/com.ibm.db2.luw.qb.server.doc/doc/t0008875.html): requires you to have `db2` server installed on your computer
