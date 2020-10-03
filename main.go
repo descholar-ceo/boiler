@@ -78,6 +78,9 @@ func askGithub() {
 	fmt.Println("\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
 	fmt.Scan(&isGithub)
 }
+func askDatabase() {
+
+}
 
 // rubyBoiler function
 func rubyBoiler() {
