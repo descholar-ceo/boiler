@@ -79,7 +79,8 @@ func askGithub() {
 	fmt.Scan(&isGithub)
 }
 func askDatabase() {
-
+	fmt.Println("\nSelect Enter the number corresponding to the database you want to use: ")
+	fmt.Println("\n1.sqlite3\n2.posrgresql\n3.mysql\n4.oracle\n5.")
 }
 
 // rubyBoiler function
