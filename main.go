@@ -81,13 +81,13 @@ func askGithub() {
 func askDatabase() {
 	var tmpDb int
 	fmt.Println("\nSelect Enter the number corresponding to the database you want to use: ")
-	fmt.Println("\n1.sqlite3\n2.posrgresql\n3.mysql\n4.oracle\n5.frontbase\n6.db2(ibm_db)\n7.sqlserver\n8.jdbcmysql\n9.jdbcpostgresql\n10.jdbcsqlite3\n11.jdbc")
+	fmt.Println("\n1.sqlite3\n2.postgresql\n3.mysql\n4.oracle\n5.frontbase\n6.db2(ibm_db)\n7.sqlserver\n8.jdbcmysql\n9.jdbcpostgresql\n10.jdbcsqlite3\n11.jdbc")
 	fmt.Scan(&tmpDb)
 	switch tmpDb {
 	case 1:
 		database = "sqlite3"
 	case 2:
-		database = "posrgresql"
+		database = "postgresql"
 	case 3:
 		database = "mysql"
 	case 4:
@@ -244,7 +244,7 @@ func rorBoiler() {
 	os.Chdir(wrkDr)
 
 	fmt.Println("\nGenerating your Rails project using Rails installed on your machine, This might take several minutes depending on the internet connection you have, please bear with us, and wait...")
-	railsStr := "rails new " + projectName + " --database=" + database
+	railsStr := "rails new " + projectName + " --database=" + strings.Trim(database, "\"")
 	args := strings.Split(railsStr, " ")
 	exec.Command(args[0], args[1:]...).Run()
 
