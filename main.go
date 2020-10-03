@@ -244,7 +244,7 @@ func rorBoiler() {
 	os.Chdir(wrkDr)
 
 	fmt.Println("\nGenerating your Rails project using Rails installed on your machine, This might take several minutes depending on the internet connection you have, please bear with us, and wait...")
-	railsStr := "rails new " + projectName
+	railsStr := "rails new " + projectName + " --database=" + database
 	args := strings.Split(railsStr, " ")
 	exec.Command(args[0], args[1:]...).Run()
 
