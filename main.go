@@ -107,7 +107,8 @@ func askDatabase() {
 	case 11:
 		database = "jdbc"
 	default:
-		fmt.Println("The database you choose is not supported by rails yet!")
+		fmt.Println("The database you choose is not supported by rails yet! So, I will create for you a rails app with a default database which is sqlite3")
+		database = "sqlite3"
 	}
 }
 
