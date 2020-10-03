@@ -21,6 +21,7 @@ var (
 	isTests       string
 	testFramework int
 	isGithub      string
+	database      string
 )
 
 func main() {
@@ -76,6 +77,39 @@ func askRubocop() {
 func askGithub() {
 	fmt.Println("\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
 	fmt.Scan(&isGithub)
+}
+func askDatabase() {
+	var tmpDb int
+	fmt.Println("\nSelect Enter the number corresponding to the database you want to use: ")
+	fmt.Println("\n1.sqlite3\n2.postgresql\n3.mysql\n4.oracle\n5.frontbase\n6.db2(ibm_db)\n7.sqlserver\n8.jdbcmysql\n9.jdbcpostgresql\n10.jdbcsqlite3\n11.jdbc")
+	fmt.Scan(&tmpDb)
+	switch tmpDb {
+	case 1:
+		database = "sqlite3"
+	case 2:
+		database = "postgresql"
+	case 3:
+		database = "mysql"
+	case 4:
+		database = "oracle"
+	case 5:
+		database = "frontbase"
+	case 6:
+		database = "ibm_db"
+	case 7:
+		database = "sqlserver"
+	case 8:
+		database = "jdbcmysql"
+	case 9:
+		database = "jdbcpostgresql"
+	case 10:
+		database = "jdbcsqlite3"
+	case 11:
+		database = "jdbc"
+	default:
+		fmt.Println("The database you choose is not supported by rails yet! So, I will create for you a rails app with a default database which is sqlite3")
+		database = "sqlite3"
+	}
 }
 
 // rubyBoiler function
@@ -191,6 +225,7 @@ func rorBoiler() {
 
 	askGithub()
 	askRubocop()
+	askDatabase()
 
 	// moving to the project dir
 	if workingDir == "." {
@@ -209,7 +244,7 @@ func rorBoiler() {
 	os.Chdir(wrkDr)
 
 	fmt.Println("\nGenerating your Rails project using Rails installed on your machine, This might take several minutes depending on the internet connection you have, please bear with us, and wait...")
-	railsStr := "rails new " + projectName
+	railsStr := "rails new " + projectName + " --database=" + strings.Trim(database, "\"")
 	args := strings.Split(railsStr, " ")
 	exec.Command(args[0], args[1:]...).Run()
 

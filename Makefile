@@ -6,3 +6,6 @@ build:
 
 install:
 	./install.sh
+
+test:
+	go test

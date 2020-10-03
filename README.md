@@ -40,6 +40,20 @@ To get your project initiated, you should have the following tools already insta
 - [ ] Yarn
 - [ ] Bundler
 
+ # NOTE: DATABASES REQUIREMENTS
+1. MySQL: requires you to have pre-installed `libmysqlclient-dev`, on your system, if you are not sure run `sudo apt-get install libmysqlclient-dev` which will install it if you don't have it or update it if the version you have is obsolete
+
+1. Oracle: requires you to have ruby-oci8 installed, and to install it, requires you to have oracle environment installed properly on your computer
+
+1. [Frontbase](http://www.frontbase.com/cgi-bin/WebObjects/FBWebSite): requires you to be a MacOS user
+
+1. [ibm_db](https://www.ibm.com/support/knowledgecenter/hr/SSEPGG_9.7.0/com.ibm.db2.luw.qb.server.doc/doc/t0008875.html): requires you to have `db2` server installed on your computer
+
+1. Sqlserver: requires you to have pre-installed `freeTDS` on your system, 
+if you are not sure run `sudo apt-get install freetds-dev` which will install it if you don't have it or update it if the version you have is obsolete
+
+1. jdbcmysql, jdbcsqlite3, jdbcpostgresql,: are for use with [JRuby](https://www.jruby.org/) only
+
 #### Running
 After you install successfully, run `boiler` on your terminal and follow the instructions
 
