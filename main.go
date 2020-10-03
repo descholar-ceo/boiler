@@ -224,6 +224,7 @@ func rorBoiler() {
 
 	askGithub()
 	askRubocop()
+	askDatabase()
 
 	// moving to the project dir
 	if workingDir == "." {
