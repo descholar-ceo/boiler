@@ -11,6 +11,8 @@ import (
 
 // Boiler function which will provide a bilerplate of the ruby project
 func Boiler() {
+
+	// declaration and initialization of variables
 	var isTests string
 	var testFramework int
 	var wrkDr string
@@ -20,8 +22,11 @@ func Boiler() {
 	isRubocop := utils.AskRubocop()
 
 	// informing a user about the ruby installation
-	fmt.Println("Make sure that ruby is well installed, and your bundler is working well,")
-	fmt.Println("If it is not the case please refer to this link for ruby installation guides: https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming")
+	fmt.Println(`
+	Make sure that ruby is well installed, and your bundler is working well. If it is not the case 
+	please refer to this link for ruby installation guides: 
+	https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming
+	`)
 
 	// will you run tests?
 	fmt.Println("\n\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
