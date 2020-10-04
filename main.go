@@ -138,7 +138,7 @@ func rubyBoiler() {
 
 	fmt.Printf("\nCreating main.rb file in %s directory...\n", projectName)
 	os.Create(wrkDr + "/bin/main.rb")
-	writeToFile(wrkDr+"/bin/main.rb", "puts 'Hello from Boiler! Welcome to the new world!'")
+	utils.WriteToFile(wrkDr+"/bin/main.rb", "puts 'Hello from Boiler! Welcome to the new world!'")
 
 	// change working dir
 	fmt.Println("\nChecking out your project dir...")
@@ -154,14 +154,14 @@ func rubyBoiler() {
 		str := "gem install rspec"
 		argsRspec := strings.Split(str, " ")
 		exec.Command(argsRspec[0], argsRspec[1:]...).Run()
-		writeToFile("Gemfile", "gem 'rspec', '~>3.0'")
+		utils.WriteToFile("Gemfile", "gem 'rspec', '~>3.0'")
 		exec.Command("rspec", "--init").Run()
 	}
 
 	if isRubocop == "y" {
 		// install rubocop in gems
 		fmt.Println("\nWriting gems...")
-		writeToFile("Gemfile", "gem 'rubocop', '~>0.81.0'")
+		utils.WriteToFile("Gemfile", "gem 'rubocop', '~>0.81.0'")
 	}
 
 	// initialize git
@@ -240,12 +240,6 @@ func rorBoiler() {
 		fmt.Println("To use Stylelint for checking errors: npx stylelint \"**/*.{css,scss}\"")
 	}
 
-}
-
-func writeToFile(file, stringToWrite string) {
-	mFile, _ := os.OpenFile(file, os.O_APPEND|os.O_WRONLY, 0644)
-	fmt.Fprintln(mFile, stringToWrite)
-	mFile.Close()
 }
 
 func isDirectoryExists(directory string) bool {

@@ -71,3 +71,10 @@ func Copy(src, dst string) {
 	defer destination.Close()
 	io.Copy(destination, source)
 }
+
+// WriteToFile is a function which used to write to file
+func WriteToFile(file, stringToWrite string) {
+	mFile, _ := os.OpenFile(file, os.O_APPEND|os.O_WRONLY, 0644)
+	fmt.Fprintln(mFile, stringToWrite)
+	mFile.Close()
+}
