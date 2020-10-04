@@ -28,10 +28,10 @@ var (
 func main() {
 	fmt.Println("\nWelcome to the Bo!ler cli utility, We will initialize your basic project, \nbut to do so, you will help us with few answers to the following questions.")
 	// working dir
-	workingDir = utils.AskWorkingDirectory()
+	// workingDir = utils.AskWorkingDirectory()
 
 	// project name
-	projectName = utils.AskProjectName()
+	// projectName = utils.AskProjectName()
 
 	// choose a language
 	fmt.Println("\nChoose a number which correspond to the language or framework you will be using:\n1.Ruby\n2.Ruby on Rails (RoR)")
@@ -40,7 +40,7 @@ func main() {
 	// different language boilers
 	switch language {
 	case 1: //ruby is chosen
-		ruby.RubyBoiler()
+		ruby.Boiler()
 	case 2:
 		rorBoiler()
 	default: // the chosen language is not yet supported
