@@ -13,12 +13,12 @@ import (
 func Boiler() {
 
 	// declaration and initialization of variables
-	var isTests string
 	var wrkDr string
 	workingDir := utils.AskWorkingDirectory()
 	projectName := utils.AskProjectName()
 	isGithub := utils.AskGithub()
 	isRubocop := utils.AskRubocop()
+	testFramework, isTests := utils.AskTests()
 
 	// informing a user about the ruby installation
 	fmt.Println(`
@@ -26,9 +26,6 @@ func Boiler() {
 	please refer to this link for ruby installation guides: 
 	https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming
 	`)
-
-	// asking a user if they will write some tests
-	_, isTests = utils.AskTests()
 
 	// create project dir
 	utils.CreateProjectDirectory(workingDir, wrkDr, projectName)
@@ -76,7 +73,7 @@ func Boiler() {
 	fmt.Printf("\nInitializing gem in %s directory...\n", projectName)
 	exec.Command("bundle", "init").Run()
 
-	if isTests == "y" {
+	if isTests == "y" && testFramework == "rspec" {
 		// initialize rspec
 		fmt.Printf("\nInitializing rspec in %s directory...\n", projectName)
 		str := "gem install rspec"
