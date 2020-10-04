@@ -31,8 +31,7 @@ func main() {
 	workingDir = utils.AskWorkingDirectory()
 
 	// project name
-	fmt.Println("\n\nWhat is the project name you want to use?")
-	fmt.Scan(&projectName)
+	projectName = utils.AskProjectName()
 
 	// choose a language
 	fmt.Println("\nChoose a number which correspond to the language or framework you will be using:\n1.Ruby\n2.Ruby on Rails (RoR)")

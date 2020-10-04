@@ -15,6 +15,8 @@ func RubyBoiler() {
 	var isTests string
 	var testFramework int
 	workingDir := utils.AskWorkingDirectory()
+	var wrkDr string
+	projectName := utils.AskProjectName()
 
 	// informing a user about the ruby installation
 	fmt.Println("Make sure that ruby is well installed, and your bundler is working well,")
@@ -45,7 +47,7 @@ func RubyBoiler() {
 	isGithub := utils.AskGithub()
 
 	// create project dir
-	utils.CreateProjectDirectory(workingDir, tmpWrkDr, wrkDr, projectName)
+	utils.CreateProjectDirectory(workingDir, wrkDr, projectName)
 
 	// initialize rubocop
 	if isRubocop == "y" {

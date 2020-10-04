@@ -71,6 +71,14 @@ func AskDatabase() string {
 	return database
 }
 
+// AskProjectName function
+func AskProjectName() string {
+	var projectName string
+	fmt.Println("\n\nWhat is the project name you want to use?")
+	fmt.Scan(&projectName)
+	return projectName
+}
+
 // Copy function to copy files
 func Copy(src, dst string) {
 	source, _ := os.Open(src)
@@ -115,7 +123,8 @@ func CreateGithubActionsDirectory(isGithub, wrkDr, projectName string) {
 }
 
 // CreateProjectDirectory function is to create projec
-func CreateProjectDirectory(workingDir, tmpWrkDr, wrkDr, projectName string) {
+func CreateProjectDirectory(workingDir, wrkDr, projectName string) {
+	var tmpWrkDr string
 	if workingDir == "." {
 		// create project in current directory
 		tmpWrkDr, _ = os.Getwd()
