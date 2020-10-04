@@ -101,7 +101,7 @@ func rubyBoiler() {
 	isGithub := utils.AskGithub()
 
 	// create project dir
-	createProjectDirectory()
+	utils.CreateProjectDirectory(workingDir, tmpWrkDr, wrkDr, projectName)
 
 	// initialize rubocop
 	if isRubocop == "y" {
@@ -238,25 +238,4 @@ func rorBoiler() {
 		fmt.Println("To use Stylelint for checking errors: npx stylelint \"**/*.{css,scss}\"")
 	}
 
-}
-
-func createProjectDirectory() {
-	if workingDir == "." {
-		// create project in current directory
-		tmpWrkDr, _ = os.Getwd()
-		wrkDr = tmpWrkDr + "/" + projectName
-	} else {
-		// checking if a directory exists
-		if utils.IsDirectoryExists(workingDir) {
-			wrkDr = utils.GetHomeDirectory() + "/" + workingDir + "/" + projectName
-		} else {
-			fmt.Println("The directory you entered does not exists, your project will be created in the current directory")
-			tmpWrkDr, _ = os.Getwd()
-			wrkDr = tmpWrkDr + "/" + projectName
-		}
-	}
-
-	// create a project directory
-	fmt.Printf("\nCreating directory to %s...\n", projectName)
-	os.Mkdir(wrkDr, 0755)
 }

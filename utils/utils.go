@@ -104,3 +104,25 @@ func CreateGithubActionsDirectory(isGithub, wrkDr, projectName string) {
 		os.Mkdir(wrkDr+"/.github/workflows", 0755)
 	}
 }
+
+// CreateProjectDirectory function is to create projec
+func CreateProjectDirectory(workingDir, tmpWrkDr, wrkDr, projectName string) {
+	if workingDir == "." {
+		// create project in current directory
+		tmpWrkDr, _ = os.Getwd()
+		wrkDr = tmpWrkDr + "/" + projectName
+	} else {
+		// checking if a directory exists
+		if IsDirectoryExists(workingDir) {
+			wrkDr = GetHomeDirectory() + "/" + workingDir + "/" + projectName
+		} else {
+			fmt.Println("The directory you entered does not exists, your project will be created in the current directory")
+			tmpWrkDr, _ = os.Getwd()
+			wrkDr = tmpWrkDr + "/" + projectName
+		}
+	}
+
+	// create a project directory
+	fmt.Printf("\nCreating directory to %s...\n", projectName)
+	os.Mkdir(wrkDr, 0755)
+}
