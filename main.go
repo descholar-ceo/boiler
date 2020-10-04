@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"os"
 	"os/exec"
 	"strings"
@@ -80,7 +79,7 @@ func rubyBoiler() {
 	fmt.Println("If it is not the case please refer to this link for ruby installation guides: https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming")
 
 	// will you use rubocop?
-	isRubocop := utils.AskGithub()
+	isRubocop := utils.AskRubocop()
 
 	// will you run tests?
 	fmt.Println("\n\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
@@ -109,22 +108,22 @@ func rubyBoiler() {
 	// initialize rubocop
 	if isRubocop == "y" {
 		fmt.Printf("\nInitializing rubocop in %s directory...\n", projectName)
-		copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
+		utils.Copy("./lib/.ruby/.rubocop.yml", wrkDr+"/.rubocop.yml")
 	}
 
 	if isGithub == "y" {
 		// initialize github actions
 		createGithubActionsDirectory()
-		copy("./lib/.ruby/.github/workflows/linters.yml", wrkDr+"/.github/workflows/linters.yml")
-		copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
+		utils.Copy("./lib/.ruby/.github/workflows/linters.yml", wrkDr+"/.github/workflows/linters.yml")
+		utils.Copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
 
 		// create a readme file
 		fmt.Printf("\nCreating README file in %s directory...\n", projectName)
-		copy("./lib/.defaults/README.md", wrkDr+"/README.md")
+		utils.Copy("./lib/.defaults/README.md", wrkDr+"/README.md")
 
 		// create a PR template file
 		fmt.Printf("\nCreating PR template file in %s directory...\n", projectName)
-		copy("./lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
+		utils.Copy("./lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
 	}
 
 	// create initial files
@@ -212,24 +211,24 @@ func rorBoiler() {
 	os.Chdir(projectName)
 
 	fmt.Println("\nTemplating your README file")
-	copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
+	utils.Copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
 
 	if isGithub == "y" {
 		fmt.Println("\nSetting up your github directory...")
 		os.Mkdir(".github", 0755)
 		os.Mkdir(".github/workflows", 0755)
-		copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", ".github/PULL_REQUEST_TEMPLATE.md")
+		utils.Copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", ".github/PULL_REQUEST_TEMPLATE.md")
 	}
 
 	if isRubocop == "y" {
 		fmt.Println("\nCreating Rubocop YAML file...")
-		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.rubocop.yml", ".rubocop.yml")
+		utils.Copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.rubocop.yml", ".rubocop.yml")
 
 		if isGithub == "y" {
-			copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", ".github/workflows/linters.yml")
+			utils.Copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", ".github/workflows/linters.yml")
 		}
 		fmt.Println("\nCreating the stylelint file for your stylelings...")
-		copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.stylelintrc.json", ".stylelintrc.json")
+		utils.Copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.stylelintrc.json", ".stylelintrc.json")
 
 		fmt.Println("\nInstalling custom linter dependecies...")
 		stylelintStr := "yarn add --dev stylelint stylelint-scss stylelint-config-standard"
@@ -289,15 +288,4 @@ func createGithubActionsDirectory() {
 		os.Mkdir(wrkDr+"/.github", 0755)
 		os.Mkdir(wrkDr+"/.github/workflows", 0755)
 	}
-}
-
-func copy(src, dst string) {
-	source, _ := os.Open(src)
-
-	defer source.Close()
-
-	destination, _ := os.Create(dst)
-
-	defer destination.Close()
-	io.Copy(destination, source)
 }

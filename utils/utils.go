@@ -1,6 +1,10 @@
 package utils
 
-import "fmt"
+import (
+	"fmt"
+	"io"
+	"os"
+)
 
 // AskRubocop is a function which asks a user if they will use rubocop and then returns the answer of the user
 func AskRubocop() string {
@@ -54,4 +58,16 @@ func AskDatabase() string {
 	}
 
 	return database
+}
+
+// Copy function to copy files
+func Copy(src, dst string) {
+	source, _ := os.Open(src)
+
+	defer source.Close()
+
+	destination, _ := os.Create(dst)
+
+	defer destination.Close()
+	io.Copy(destination, source)
 }
