@@ -8,6 +8,15 @@ import (
 	"github.com/mitchellh/go-homedir"
 )
 
+// AskWorkingDirectory function
+func AskWorkingDirectory() string {
+	var workingDir string
+	// working directory
+	fmt.Println("\nEnter the working directory (Enter a dot (.) for the current directory):")
+	fmt.Scan(&workingDir)
+	return workingDir
+}
+
 // AskRubocop is a function which asks a user if they will use rubocop and then returns the answer of the user
 func AskRubocop() string {
 	var isRubocop string
