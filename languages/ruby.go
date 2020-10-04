@@ -11,19 +11,17 @@ import (
 
 // Boiler function which will provide a bilerplate of the ruby project
 func Boiler() {
-
 	var isTests string
 	var testFramework int
 	var wrkDr string
 	projectName := utils.AskProjectName()
 	workingDir := utils.AskWorkingDirectory()
+	isGithub := utils.AskGithub()
+	isRubocop := utils.AskRubocop()
 
 	// informing a user about the ruby installation
 	fmt.Println("Make sure that ruby is well installed, and your bundler is working well,")
 	fmt.Println("If it is not the case please refer to this link for ruby installation guides: https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming")
-
-	// will you use rubocop?
-	isRubocop := utils.AskRubocop()
 
 	// will you run tests?
 	fmt.Println("\n\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
@@ -42,9 +40,6 @@ func Boiler() {
 			fmt.Println("\nThe testing framework you chose is not supported")
 		}
 	}
-
-	// will you use github?
-	isGithub := utils.AskGithub()
 
 	// create project dir
 	utils.CreateProjectDirectory(workingDir, wrkDr, projectName)
