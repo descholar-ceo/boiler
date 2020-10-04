@@ -16,8 +16,8 @@ func Boiler() {
 	var isTests string
 	var testFramework int
 	var wrkDr string
-	projectName := utils.AskProjectName()
 	workingDir := utils.AskWorkingDirectory()
+	projectName := utils.AskProjectName()
 	isGithub := utils.AskGithub()
 	isRubocop := utils.AskRubocop()
 
