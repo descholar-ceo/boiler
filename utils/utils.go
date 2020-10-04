@@ -95,3 +95,12 @@ func IsDirectoryExists(directory string) bool {
 	}
 	return true
 }
+
+// CreateGithubActionsDirectory is a function which creates github actions directory
+func CreateGithubActionsDirectory(isGithub, wrkDr, projectName string) {
+	if isGithub == "y" {
+		fmt.Printf("\nInitializing github actions in %s directory...\n", projectName)
+		os.Mkdir(wrkDr+"/.github", 0755)
+		os.Mkdir(wrkDr+"/.github/workflows", 0755)
+	}
+}

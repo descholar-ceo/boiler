@@ -111,7 +111,7 @@ func rubyBoiler() {
 
 	if isGithub == "y" {
 		// initialize github actions
-		createGithubActionsDirectory()
+		utils.CreateGithubActionsDirectory(isGithub, wrkDr, projectName)
 		utils.Copy("./lib/.ruby/.github/workflows/linters.yml", wrkDr+"/.github/workflows/linters.yml")
 		utils.Copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
 
@@ -259,12 +259,4 @@ func createProjectDirectory() {
 	// create a project directory
 	fmt.Printf("\nCreating directory to %s...\n", projectName)
 	os.Mkdir(wrkDr, 0755)
-}
-
-func createGithubActionsDirectory() {
-	if isGithub == "y" {
-		fmt.Printf("\nInitializing github actions in %s directory...\n", projectName)
-		os.Mkdir(wrkDr+"/.github", 0755)
-		os.Mkdir(wrkDr+"/.github/workflows", 0755)
-	}
 }
