@@ -9,14 +9,14 @@ import (
 	"github.com/descholar-ceo/boiler/utils"
 )
 
-// RubyBoiler function
-func RubyBoiler() {
+// Boiler function which will provide a bilerplate of the ruby project
+func Boiler() {
 
 	var isTests string
 	var testFramework int
-	workingDir := utils.AskWorkingDirectory()
 	var wrkDr string
 	projectName := utils.AskProjectName()
+	workingDir := utils.AskWorkingDirectory()
 
 	// informing a user about the ruby installation
 	fmt.Println("Make sure that ruby is well installed, and your bundler is working well,")
