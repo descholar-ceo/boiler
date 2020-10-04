@@ -144,3 +144,31 @@ func CreateProjectDirectory(workingDir, wrkDr, projectName string) {
 	fmt.Printf("\nCreating directory to %s...\n", projectName)
 	os.Mkdir(wrkDr, 0755)
 }
+
+// AskTests is a function which asks if a user will use tests
+func AskTests() (string, string) {
+	var isTests string
+	var testFrameworkNumber int
+	var testFramework string
+	fmt.Println("\n\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
+	fmt.Scan(&isTests)
+	if isTests == "y" || isTests == "Y" {
+		fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
+		fmt.Scan(&testFrameworkNumber)
+		if testFrameworkNumber != 1 {
+			for i := 0; i < 5; i++ {
+				fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
+				fmt.Scan(&testFrameworkNumber)
+				if testFrameworkNumber == 1 {
+					break
+				}
+			}
+			fmt.Println("\nThe testing framework you chose is not supported")
+		}
+	}
+	switch testFrameworkNumber {
+	case 1:
+		testFramework = "rspec"
+	}
+	return testFramework, isTests
+}

@@ -14,7 +14,6 @@ func Boiler() {
 
 	// declaration and initialization of variables
 	var isTests string
-	var testFramework int
 	var wrkDr string
 	workingDir := utils.AskWorkingDirectory()
 	projectName := utils.AskProjectName()
@@ -28,23 +27,8 @@ func Boiler() {
 	https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming
 	`)
 
-	// will you run tests?
-	fmt.Println("\n\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
-	fmt.Scan(&isTests)
-	if isTests == "y" || isTests == "Y" {
-		fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
-		fmt.Scan(&testFramework)
-		if testFramework != 1 {
-			for i := 0; i < 5; i++ {
-				fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
-				fmt.Scan(&testFramework)
-				if testFramework == 1 {
-					break
-				}
-			}
-			fmt.Println("\nThe testing framework you chose is not supported")
-		}
-	}
+	// asking a user if they will write some tests
+	_, isTests = utils.AskTests()
 
 	// create project dir
 	utils.CreateProjectDirectory(workingDir, wrkDr, projectName)
