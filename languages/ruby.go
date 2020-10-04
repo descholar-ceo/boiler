@@ -13,7 +13,6 @@ import (
 func Boiler() {
 
 	// declaration and initialization of variables
-	var wrkDr string
 	workingDir := utils.AskWorkingDirectory()
 	projectName := utils.AskProjectName()
 	isGithub := utils.AskGithub()
@@ -28,7 +27,7 @@ func Boiler() {
 	`)
 
 	// create project dir
-	utils.CreateProjectDirectory(workingDir, wrkDr, projectName)
+	wrkDr := utils.CreateProjectDirectory(workingDir, projectName)
 
 	// initialize rubocop
 	if isRubocop == "y" {

@@ -123,8 +123,8 @@ func CreateGithubActionsDirectory(isGithub, wrkDr, projectName string) {
 }
 
 // CreateProjectDirectory function is to create projec
-func CreateProjectDirectory(workingDir, wrkDr, projectName string) {
-	var tmpWrkDr string
+func CreateProjectDirectory(workingDir, projectName string) string {
+	var tmpWrkDr, wrkDr string
 	if workingDir == "." {
 		// create project in current directory
 		tmpWrkDr, _ = os.Getwd()
@@ -143,6 +143,8 @@ func CreateProjectDirectory(workingDir, wrkDr, projectName string) {
 	// create a project directory
 	fmt.Printf("\nCreating directory to %s...\n", projectName)
 	os.Mkdir(wrkDr, 0755)
+
+	return wrkDr
 }
 
 // AskTests is a function which asks if a user will use tests
