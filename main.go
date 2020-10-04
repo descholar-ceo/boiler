@@ -7,8 +7,6 @@ import (
 	"strings"
 
 	"github.com/descholar-ceo/boiler/utils"
-
-	"github.com/mitchellh/go-homedir"
 )
 
 var (
@@ -190,8 +188,8 @@ func rorBoiler() {
 	if workingDir == "." {
 		wrkDr, _ = os.Getwd()
 	} else {
-		if isDirectoryExists(workingDir) {
-			wrkDr = getHomeDirectory() + "/" + workingDir
+		if utils.IsDirectoryExists(workingDir) {
+			wrkDr = utils.GetHomeDirectory() + "/" + workingDir
 		} else {
 			fmt.Printf("\n%s does not exist, your ruby on rails project will be created in the current directory\n", workingDir)
 			wrkDr, _ = os.Getwd()
@@ -211,24 +209,24 @@ func rorBoiler() {
 	os.Chdir(projectName)
 
 	fmt.Println("\nTemplating your README file")
-	utils.Copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
+	utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
 
 	if isGithub == "y" {
 		fmt.Println("\nSetting up your github directory...")
 		os.Mkdir(".github", 0755)
 		os.Mkdir(".github/workflows", 0755)
-		utils.Copy(getHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", ".github/PULL_REQUEST_TEMPLATE.md")
+		utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", ".github/PULL_REQUEST_TEMPLATE.md")
 	}
 
 	if isRubocop == "y" {
 		fmt.Println("\nCreating Rubocop YAML file...")
-		utils.Copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.rubocop.yml", ".rubocop.yml")
+		utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.ror/.rubocop.yml", ".rubocop.yml")
 
 		if isGithub == "y" {
-			utils.Copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", ".github/workflows/linters.yml")
+			utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", ".github/workflows/linters.yml")
 		}
 		fmt.Println("\nCreating the stylelint file for your stylelings...")
-		utils.Copy(getHomeDirectory()+"/.boiler/boiler/lib/.ror/.stylelintrc.json", ".stylelintrc.json")
+		utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.ror/.stylelintrc.json", ".stylelintrc.json")
 
 		fmt.Println("\nInstalling custom linter dependecies...")
 		stylelintStr := "yarn add --dev stylelint stylelint-scss stylelint-config-standard"
@@ -242,19 +240,6 @@ func rorBoiler() {
 
 }
 
-func isDirectoryExists(directory string) bool {
-	_, err := os.Stat(getHomeDirectory() + "/" + directory)
-	if os.IsNotExist(err) {
-		return false
-	}
-	return true
-}
-
-func getHomeDirectory() string {
-	homeDirectory, _ := homedir.Dir()
-	return homeDirectory
-}
-
 func createProjectDirectory() {
 	if workingDir == "." {
 		// create project in current directory
@@ -262,8 +247,8 @@ func createProjectDirectory() {
 		wrkDr = tmpWrkDr + "/" + projectName
 	} else {
 		// checking if a directory exists
-		if isDirectoryExists(workingDir) {
-			wrkDr = getHomeDirectory() + "/" + workingDir + "/" + projectName
+		if utils.IsDirectoryExists(workingDir) {
+			wrkDr = utils.GetHomeDirectory() + "/" + workingDir + "/" + projectName
 		} else {
 			fmt.Println("The directory you entered does not exists, your project will be created in the current directory")
 			tmpWrkDr, _ = os.Getwd()

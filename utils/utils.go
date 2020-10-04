@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"io"
 	"os"
+
+	"github.com/mitchellh/go-homedir"
 )
 
 // AskRubocop is a function which asks a user if they will use rubocop and then returns the answer of the user
@@ -77,4 +79,19 @@ func WriteToFile(file, stringToWrite string) {
 	mFile, _ := os.OpenFile(file, os.O_APPEND|os.O_WRONLY, 0644)
 	fmt.Fprintln(mFile, stringToWrite)
 	mFile.Close()
+}
+
+// GetHomeDirectory is used to get home directory
+func GetHomeDirectory() string {
+	homeDirectory, _ := homedir.Dir()
+	return homeDirectory
+}
+
+// IsDirectoryExists function is used to prove if a passed string stands for a directory
+func IsDirectoryExists(directory string) bool {
+	_, err := os.Stat(GetHomeDirectory() + "/" + directory)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return true
 }
