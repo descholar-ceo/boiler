@@ -81,24 +81,5 @@ func rorBoiler() {
 
 
 
-	if isRubocop == "y" {
-		fmt.Println("\nCreating Rubocop YAML file...")
-		utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.ror/.rubocop.yml", ".rubocop.yml")
-
-		if isGithub == "y" {
-			utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.ror/.github/workflows/linters.yml", ".github/workflows/linters.yml")
-		}
-		fmt.Println("\nCreating the stylelint file for your stylelings...")
-		utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.ror/.stylelintrc.json", ".stylelintrc.json")
-
-		fmt.Println("\nInstalling custom linter dependecies...")
-		stylelintStr := "yarn add --dev stylelint stylelint-scss stylelint-config-standard"
-		styleArgs := strings.Split(stylelintStr, " ")
-		exec.Command(styleArgs[0], styleArgs[1:]...).Run()
-
-		fmt.Println("\nThe linters (Rubocop and stylelint) have been installed successfully!")
-		fmt.Println("To use Rubocop for checking errors: rubocop")
-		fmt.Println("To use Stylelint for checking errors: npx stylelint \"**/*.{css,scss}\"")
-	}
 
 }
