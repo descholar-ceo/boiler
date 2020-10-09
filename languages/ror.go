@@ -2,6 +2,7 @@ package languages
 
 import (
 	"fmt"
+	"os"
 	"os/exec"
 	"strings"
 
@@ -11,6 +12,7 @@ import (
 // RorBoiler is a boilerplate generator for ror
 func RorBoiler() {
 	workingDir := utils.AskWorkingDirectory()
+	var wrkDr string
 	projectName := utils.AskProjectName()
 	isGithub := utils.AskGithub()
 	isRubocop := utils.AskRubocop()
@@ -26,4 +28,21 @@ func RorBoiler() {
 	mStr := "gem install rails"
 	argsMStr := strings.Split(mStr, " ")
 	exec.Command(argsMStr[0], argsMStr[1:]...).Run()
+
+	// moving to the project dir
+	if workingDir == "." {
+		wrkDr, _ = os.Getwd()
+	} else {
+		if utils.IsDirectoryExists(workingDir) {
+			wrkDr = utils.GetHomeDirectory() + "/" + workingDir
+		} else {
+			fmt.Printf("\n%s does not exist, your ruby on rails project will be created in the current directory\n",
+				workingDir)
+			wrkDr, _ = os.Getwd()
+		}
+	}
+
+	// create a project with rails
+	fmt.Println("\nChecking out your working directory")
+	os.Chdir(wrkDr)
 }

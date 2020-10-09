@@ -75,21 +75,8 @@ func rorBoiler() {
 	// isRubocop := utils.AskRubocop()
 	// database := utils.AskDatabase()
 
-	// moving to the project dir
-	if workingDir == "." {
-		wrkDr, _ = os.Getwd()
-	} else {
-		if utils.IsDirectoryExists(workingDir) {
-			wrkDr = utils.GetHomeDirectory() + "/" + workingDir
-		} else {
-			fmt.Printf("\n%s does not exist, your ruby on rails project will be created in the current directory\n", workingDir)
-			wrkDr, _ = os.Getwd()
-		}
-	}
+	
 
-	// create a project with rails
-	fmt.Println("\nChecking out your working directory")
-	os.Chdir(wrkDr)
 
 	fmt.Println("\nGenerating your Rails project using Rails installed on your machine, This might take several minutes depending on the internet connection you have, please bear with us, and wait...")
 	railsStr := "rails new " + projectName + " --database=" + strings.Trim(database, "\"")
