@@ -62,12 +62,3 @@ func main() {
 	fmt.Println("4. git push -u origin master")
 	fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
 }
-
-// rorBoiler
-func rorBoiler() {
-
-	// isGithub := utils.AskGithub()
-	// isRubocop := utils.AskRubocop()
-	// database := utils.AskDatabase()
-
-}
