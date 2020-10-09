@@ -1,4 +1,4 @@
-package ruby
+package languages
 
 import (
 	"fmt"
@@ -9,8 +9,8 @@ import (
 	"github.com/descholar-ceo/boiler/utils"
 )
 
-// Boiler function which will provide a bilerplate of the ruby project
-func Boiler() {
+// RubyBoiler function which will provide a bilerplate of the ruby project
+func RubyBoiler() {
 
 	// declaration and initialization of variables
 	workingDir := utils.AskWorkingDirectory()

@@ -6,7 +6,7 @@ import (
 	"os/exec"
 	"strings"
 
-	ruby "github.com/descholar-ceo/boiler/languages"
+	"github.com/descholar-ceo/boiler/languages"
 
 	"github.com/descholar-ceo/boiler/utils"
 )
@@ -40,7 +40,7 @@ func main() {
 	// different language boilers
 	switch language {
 	case 1: //ruby is chosen
-		ruby.Boiler()
+		languages.RubyBoiler()
 	case 2:
 		rorBoiler()
 	default: // the chosen language is not yet supported
