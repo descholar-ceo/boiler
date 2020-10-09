@@ -57,4 +57,8 @@ func RorBoiler() {
 	// changing current dir
 	fmt.Println("\nChecking out your project workspace...")
 	os.Chdir(projectName)
+
+	// tempalting the README file
+	fmt.Println("\nTemplating your README file")
+	utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
 }

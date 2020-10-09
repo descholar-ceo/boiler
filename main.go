@@ -79,8 +79,6 @@ func rorBoiler() {
 
 
 
-	fmt.Println("\nTemplating your README file")
-	utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
 
 	if isGithub == "y" {
 		fmt.Println("\nSetting up your github directory...")
