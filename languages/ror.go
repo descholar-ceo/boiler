@@ -61,4 +61,11 @@ func RorBoiler() {
 	// tempalting the README file
 	fmt.Println("\nTemplating your README file")
 	utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.defaults/README.md", "README.md")
+
+	if isGithub == "y" {
+		fmt.Println("\nSetting up your github directory...")
+		os.Mkdir(".github", 0755)
+		os.Mkdir(".github/workflows", 0755)
+		utils.Copy(utils.GetHomeDirectory()+"/.boiler/boiler/lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", ".github/PULL_REQUEST_TEMPLATE.md")
+	}
 }
