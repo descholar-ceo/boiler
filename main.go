@@ -70,16 +70,10 @@ func main() {
 
 // rorBoiler
 func rorBoiler() {
-	fmt.Println("Make sure that rails and ruby are installed correctly on your system, and is working well, if rails is not installed yet, then this time your project initialization will take some time")
-	fmt.Println("If ruby is not installed yet, please refer to this link for a proper ruby installation: https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming")
-	fmt.Println("\n\nChecking Rails installation on your computer...")
-	mStr := "gem install rails"
-	argsMStr := strings.Split(mStr, " ")
-	exec.Command(argsMStr[0], argsMStr[1:]...).Run()
 
-	isGithub := utils.AskGithub()
-	isRubocop := utils.AskRubocop()
-	database := utils.AskDatabase()
+	// isGithub := utils.AskGithub()
+	// isRubocop := utils.AskRubocop()
+	// database := utils.AskDatabase()
 
 	// moving to the project dir
 	if workingDir == "." {
