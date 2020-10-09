@@ -2,13 +2,8 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"os/exec"
-	"strings"
 
 	"github.com/descholar-ceo/boiler/languages"
-
-	"github.com/descholar-ceo/boiler/utils"
 )
 
 var (
@@ -42,7 +37,7 @@ func main() {
 	case 1: //ruby is chosen
 		languages.RubyBoiler()
 	case 2:
-		rorBoiler()
+		languages.RorBoiler()
 	default: // the chosen language is not yet supported
 		for i := 0; i < 5; i++ {
 			fmt.Println("\nChoose a number which correspond to the language you will be using:\n1.Ruby")
@@ -74,12 +69,5 @@ func rorBoiler() {
 	// isGithub := utils.AskGithub()
 	// isRubocop := utils.AskRubocop()
 	// database := utils.AskDatabase()
-
-	
-
-
-
-
-
 
 }
