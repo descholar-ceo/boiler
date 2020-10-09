@@ -53,4 +53,8 @@ func RorBoiler() {
 	railsStr := "rails new " + projectName + " --database=" + strings.Trim(database, "\"")
 	args := strings.Split(railsStr, " ")
 	exec.Command(args[0], args[1:]...).Run()
+
+	// changing current dir
+	fmt.Println("\nChecking out your project workspace...")
+	os.Chdir(projectName)
 }
