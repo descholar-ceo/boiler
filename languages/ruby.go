@@ -41,14 +41,14 @@ func RubyBoiler() {
 		utils.Copy("./lib/.ruby/.github/workflows/linters.yml", wrkDr+"/.github/workflows/linters.yml")
 		utils.Copy("./lib/.ruby/.github/workflows/tests.yml", wrkDr+"/.github/workflows/tests.yml")
 
-		// create a readme file
-		fmt.Printf("\nCreating README file in %s directory...\n", projectName)
-		utils.Copy("./lib/.defaults/README.md", wrkDr+"/README.md")
-
 		// create a PR template file
 		fmt.Printf("\nCreating PR template file in %s directory...\n", projectName)
 		utils.Copy("./lib/.defaults/.github/PULL_REQUEST_TEMPLATE.md", wrkDr+"/.github/PULL_REQUEST_TEMPLATE.md")
 	}
+
+	// create a readme file
+	fmt.Printf("\nCreating README file in %s directory...\n", projectName)
+	utils.Copy("./lib/.defaults/README.md", wrkDr+"/README.md")
 
 	// create initial files
 	fmt.Printf("\nCreating lib folder in %s directory...\n", projectName)
