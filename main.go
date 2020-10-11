@@ -35,7 +35,7 @@ func main() {
 		languages.RorBoiler()
 	default: // the chosen language is not yet supported
 		for i := 0; i < 5; i++ {
-			fmt.Println("\nChoose a number which correspond to the language you will be using:\n1.Ruby")
+			fmt.Println("\nChoose a number which correspond to the language you will be using:\n1.Ruby\n2.Ruby on Rails")
 			fmt.Scan(&language)
 			if language == 1 {
 				break

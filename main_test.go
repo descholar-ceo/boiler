@@ -2,13 +2,6 @@ package main
 
 import "testing"
 
-// import (
-// 	"os"
-// 	"os/exec"
-// 	"strings"
-// 	"testing"
-// )
-
 func TestMain(t *testing.T) {
 	language = 5
 	main()
