@@ -3,6 +3,7 @@ package utils
 import (
 	"os"
 	"os/exec"
+	"strings"
 	"testing"
 
 	"github.com/mitchellh/go-homedir"
@@ -30,4 +31,34 @@ func TestIsDirectoryExists(t *testing.T) {
 	if answer == true {
 		t.Errorf("The isDirectoryExists() should return false if the directory does not exists, but it returned %v\n", answer)
 	}
+}
+
+func TestCreateProjectDirectory(t *testing.T) {
+	workingDir := "."
+	projectName := "tmpProject"
+	currDir, _ := os.Getwd()
+	CreateProjectDirectory(workingDir, projectName)
+	_, err := os.Stat(currDir + "/" + projectName)
+	if os.IsNotExist(err) {
+		t.Errorf("createProjectDirectory() should create a project directory but it failed")
+	}
+
+	workingDir = "jjjjjjjjjjjaksaaaaaaaaanvvvvvvvvvvvvvvjshdbcbfh"
+	CreateProjectDirectory(workingDir, projectName)
+	_, err = os.Stat(currDir + "/" + projectName)
+	if os.IsNotExist(err) {
+		t.Errorf("createProjectDirectory() should create a project directory but it failed")
+	}
+
+	os.Mkdir(GetHomeDirectory()+"/.tmp", 0755)
+	workingDir = ".tmp"
+	CreateProjectDirectory(workingDir, projectName)
+	if IsDirectoryExists(".tmp"+"/"+projectName) == false {
+		t.Errorf("createProjectDirectory() should create a project directory but it failed")
+	}
+
+	exec.Command("rmdir", projectName)
+	strRm := "rm -r " + GetHomeDirectory() + "/" + workingDir
+	strRmArgs := strings.Split(strRm, " ")
+	exec.Command(strRmArgs[0], strRmArgs[1:]...).Run()
 }

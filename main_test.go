@@ -7,35 +7,7 @@ import (
 	"testing"
 )
 
-func TestCreateProjectDirectory(t *testing.T) {
-	workingDir = "."
-	projectName = "tmpProject"
-	currDir, _ := os.Getwd()
-	createProjectDirectory()
-	_, err := os.Stat(currDir + "/" + projectName)
-	if os.IsNotExist(err) {
-		t.Errorf("createProjectDirectory() should create a project directory but it failed")
-	}
 
-	workingDir = "jjjjjjjjjjjaksaaaaaaaaanvvvvvvvvvvvvvvjshdbcbfh"
-	createProjectDirectory()
-	_, err = os.Stat(currDir + "/" + projectName)
-	if os.IsNotExist(err) {
-		t.Errorf("createProjectDirectory() should create a project directory but it failed")
-	}
-
-	os.Mkdir(getHomeDirectory()+"/.tmp", 0755)
-	workingDir = ".tmp"
-	createProjectDirectory()
-	if isDirectoryExists(".tmp"+"/"+projectName) == false {
-		t.Errorf("createProjectDirectory() should create a project directory but it failed")
-	}
-
-	exec.Command("rmdir", projectName)
-	strRm := "rm -r " + getHomeDirectory() + "/" + workingDir
-	strRmArgs := strings.Split(strRm, " ")
-	exec.Command(strRmArgs[0], strRmArgs[1:]...).Run()
-}
 
 func TestCreateGithubActionsDirectory(t *testing.T) {
 	isGithub = "y"
