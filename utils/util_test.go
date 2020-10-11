@@ -62,3 +62,21 @@ func TestCreateProjectDirectory(t *testing.T) {
 	strRmArgs := strings.Split(strRm, " ")
 	exec.Command(strRmArgs[0], strRmArgs[1:]...).Run()
 }
+
+func TestCreateGithubActionsDirectory(t *testing.T) {
+	isGithub := "y"
+	projectName := "tmpProject"
+	workingDir := "."
+	CreateProjectDirectory(workingDir, projectName)
+	currDir, _ := os.Getwd()
+	wrkDr := currDir + "/" + projectName
+	CreateGithubActionsDirectory(isGithub, wrkDr, projectName)
+	_, err := os.Stat(wrkDr + "/.github")
+	if os.IsNotExist(err) {
+		t.Errorf("createGithubActionsDirectory() should create github directory but it is failing")
+	}
+
+	strRmTwo := "rm -r " + "/" + wrkDr
+	strRmArgs := strings.Split(strRmTwo, " ")
+	exec.Command(strRmArgs[0], strRmArgs[1:]...).Run()
+}

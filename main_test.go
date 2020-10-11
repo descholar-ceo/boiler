@@ -9,23 +9,6 @@ import (
 
 
 
-func TestCreateGithubActionsDirectory(t *testing.T) {
-	isGithub = "y"
-	projectName = "tmpProject"
-	workingDir = "."
-	createProjectDirectory()
-	currDir, _ := os.Getwd()
-	wrkDr = currDir + "/" + projectName
-	createGithubActionsDirectory()
-	_, err = os.Stat(wrkDr + "/.github")
-	if os.IsNotExist(err) {
-		t.Errorf("createGithubActionsDirectory() should create github directory but it is failing")
-	}
-
-	strRmTwo := "rm -r " + "/" + wrkDr
-	strRmArgs := strings.Split(strRmTwo, " ")
-	exec.Command(strRmArgs[0], strRmArgs[1:]...).Run()
-}
 
 func TestRubyBoiler(t *testing.T) {
 	language = 1
