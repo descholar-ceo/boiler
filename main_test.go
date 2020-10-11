@@ -7,9 +7,6 @@ import (
 	"testing"
 )
 
-
-
-
 func TestRubyBoiler(t *testing.T) {
 	language = 1
 	isGithub = "y"
