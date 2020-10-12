@@ -7,17 +7,18 @@ import (
 )
 
 var (
-	tmpWrkDr      string
-	workingDir    string
-	wrkDr         string
-	err           error
-	projectName   string
-	language      int
-	isRubocop     string
-	isTests       string
-	testFramework int
-	isGithub      string
-	database      string
+	// 	tmpWrkDr      string
+	// 	workingDir    string
+	// 	wrkDr         string
+	// 	err           error
+	projectName string
+	language    int
+
+// 	isRubocop     string
+// 	isTests       string
+// 	testFramework int
+// 	isGithub      string
+// 	database      string
 )
 
 func main() {
