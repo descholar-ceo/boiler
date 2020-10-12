@@ -13,11 +13,11 @@ import (
 func RubyBoiler() {
 
 	// declaration and initialization of variables
-	workingDir := utils.AskWorkingDirectory()
-	projectName := utils.AskProjectName()
-	isGithub := utils.AskGithub()
-	isRubocop := utils.AskRubocop()
-	testFramework, isTests := utils.AskTests()
+	workingDir = utils.AskWorkingDirectory()
+	projectName = utils.AskProjectName()
+	isGithub = utils.AskGithub()
+	isRubocop = utils.AskRubocop()
+	testFramework, isTests = utils.AskTests()
 
 	// informing a user about the ruby installation
 	fmt.Println(`

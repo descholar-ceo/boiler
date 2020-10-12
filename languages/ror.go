@@ -11,12 +11,12 @@ import (
 
 // RorBoiler is a boilerplate generator for ror
 func RorBoiler() {
-	workingDir := utils.AskWorkingDirectory()
+	workingDir = utils.AskWorkingDirectory()
 	var wrkDr string
-	projectName := utils.AskProjectName()
-	isGithub := utils.AskGithub()
-	isRubocop := utils.AskRubocop()
-	database := utils.AskDatabase()
+	projectName = utils.AskProjectName()
+	isGithub = utils.AskGithub()
+	isRubocop = utils.AskRubocop()
+	database = utils.AskDatabase()
 
 	// checking the Rails installation
 	fmt.Println(`Make sure that rails and ruby are installed correctly on your system, and is working well, 
