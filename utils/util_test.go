@@ -82,5 +82,6 @@ func TestCreateGithubActionsDirectory(t *testing.T) {
 }
 
 func TestAskWorkingDirectory(t *testing.T) {
+	workingDir := "dir"
 
 }
