@@ -29,7 +29,6 @@ func AskRubocop(in *os.File) string {
 	}
 	var isRubocop string
 	fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
-	// fmt.Scan(&isRubocop)
 	if _, err := fmt.Fscanf(in, "%s", &isRubocop); err != nil {
 		panic(err)
 	}
