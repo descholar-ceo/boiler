@@ -104,12 +104,7 @@ func TestAskWorkingDirectory(t *testing.T) {
 		t.Errorf("The AskWorkingDirectory is not working!")
 	}
 }
-func TestAskWorkingDirectoryWrong(t *testing.T) {
-	workingDir := "directory"
-	if workingDir != AskWorkingDirectory(nil) {
-		t.Errorf("The AskWorkingDirectory is not working!")
-	}
-}
+
 func TestAskRubocop(t *testing.T) {
 	in, err := ioutil.TempFile("", "")
 	if err != nil {
