@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"io"
 	"io/ioutil"
 	"os"
@@ -472,6 +473,24 @@ func TestWriteToFile(t *testing.T) {
 	exec.Command(args[0], args[1:]...).Run()
 }
 
-func TestDisplayLastCommands() {
+func TestDisplayLastCommands(t *testing.T) {
+	mStr := `
 
+==============================================
+
+Your project has been initialized successfully
+The remaining task is to go on github and create a repository and copy its url
+Come back in the root directory of this project and 
+Run the following commands respectifully
+
+1. git remote add .
+2. git commit -m "Initial commit"
+3. git remote add origin [Paste the url you copied from github]"
+4. git push -u origin master"
+
+Congratulations and good luck for your new project`
+
+	if fmt.Sprintf("%s", mStr) != fmt.Sprintf("%s", DisplayLastCommands()) {
+		t.Errorf("The display last command function failed")
+	}
 }

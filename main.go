@@ -39,5 +39,5 @@ func main() {
 		return
 	}
 
-	utils.DisplayLastCommands()
+	fmt.Println(utils.DisplayLastCommands())
 }

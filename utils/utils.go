@@ -216,8 +216,8 @@ func AskTests(in *os.File) (string, string) {
 }
 
 // DisplayLastCommands func shows a user next steps
-func DisplayLastCommands() {
-	fmt.Println(`
+func DisplayLastCommands() string {
+	return `
 
 ==============================================
 
@@ -231,5 +231,5 @@ Run the following commands respectifully
 3. git remote add origin [Paste the url you copied from github]"
 4. git push -u origin master"
 
-Congratulations and good luck for your new project`)
+Congratulations and good luck for your new project`
 }
