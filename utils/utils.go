@@ -93,10 +93,16 @@ func AskDatabase(in *os.File) string {
 }
 
 // AskProjectName function
-func AskProjectName() string {
+func AskProjectName(in *os.File) string {
+	if in == nil {
+		in = os.Stdin
+	}
 	var projectName string
 	fmt.Println("\n\nWhat is the project name you want to use?")
-	fmt.Scan(&projectName)
+	// fmt.Scan(&projectName)
+	if _, err := fmt.Fscanf(in, "%s", &projectName); err != nil {
+		panic(err)
+	}
 	return projectName
 }
 
