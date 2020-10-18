@@ -15,7 +15,7 @@ func RorBoiler() {
 	var wrkDr string
 	projectName = utils.AskProjectName()
 	isGithub = utils.AskGithub()
-	isRubocop = utils.AskRubocop()
+	isRubocop = utils.AskRubocop(nil)
 	database = utils.AskDatabase()
 
 	// checking the Rails installation

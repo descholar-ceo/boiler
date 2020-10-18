@@ -16,7 +16,7 @@ func RubyBoiler() {
 	workingDir = utils.AskWorkingDirectory(nil)
 	projectName = utils.AskProjectName()
 	isGithub = utils.AskGithub()
-	isRubocop = utils.AskRubocop()
+	isRubocop = utils.AskRubocop(nil)
 	testFramework, isTests = utils.AskTests()
 
 	// informing a user about the ruby installation
