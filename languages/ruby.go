@@ -9,6 +9,10 @@ import (
 	"github.com/descholar-ceo/boiler/utils"
 )
 
+func questions() {
+
+}
+
 // RubyBoiler function which will provide a bilerplate of the ruby project
 func RubyBoiler() {
 
