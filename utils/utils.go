@@ -23,7 +23,10 @@ func AskWorkingDirectory(in *os.File) string {
 }
 
 // AskRubocop is a function which asks a user if they will use rubocop and then returns the answer of the user
-func AskRubocop() string {
+func AskRubocop(in *os.File) string {
+	if in == nil {
+		in = os.Stdin
+	}
 	var isRubocop string
 	fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
 	fmt.Scan(&isRubocop)
