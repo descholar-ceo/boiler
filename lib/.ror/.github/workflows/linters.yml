@@ -17,7 +17,7 @@ jobs:
       - name: Setup Rubocop
         run: |
           gem install --no-document rubocop:'~>0.81.0' # https://docs.rubocop.org/en/stable/installation/
-          [ -f .rubocop.yml ] || wget https://raw.githubusercontent.com/microverseinc/linters-config/master/ror/.rubocop.yml
+          [ -f .rubocop.yml ] || wget https://raw.githubusercontent.com/nezago/nezago-guidelines/development/nezago-default-configs/ruby-on-rails/.rubocop.yml
       - name: Rubocop Report
         run: rubocop --color
   stylelint:
