@@ -21,9 +21,9 @@ func RubyBoiler() {
 
 	// informing a user about the ruby installation
 	fmt.Println(`
-	Make sure that ruby is well installed, and your bundler is working well. If it is not the case 
-	please refer to this link for ruby installation guides: 
-	https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming
+Make sure that ruby is well installed, and your bundler is working well. If it is not the case 
+please refer to this link for ruby installation guides: 
+https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming
 	`)
 
 	// create project dir
