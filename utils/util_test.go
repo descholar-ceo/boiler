@@ -243,6 +243,26 @@ func TestAskDatabaseOption5(t *testing.T) {
 		t.Errorf("The AskDatabase is not working!")
 	}
 }
+func TestAskDatabaseOption6(t *testing.T) {
+	in, err := ioutil.TempFile("", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer in.Close()
+
+	_, err = io.WriteString(in, "6")
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = in.Seek(0, os.SEEK_SET)
+	if err != nil {
+		t.Fatal(err)
+	}
+	workingDir := AskDatabase(in)
+	if workingDir != "ibm_db" {
+		t.Errorf("The AskDatabase is not working!")
+	}
+}
 
 func TestAskProjectName(t *testing.T) {
 	in, err := ioutil.TempFile("", "")
