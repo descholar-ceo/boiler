@@ -182,7 +182,10 @@ func AskTests(in *os.File) (string, string) {
 	var testFrameworkNumber int
 	var testFramework string
 	fmt.Println("\n\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
-	fmt.Scan(&isTests)
+	// fmt.Scan(&isTests)
+	if _, err := fmt.Fscanf(in, "%s", &isTests); err != nil {
+		panic(err)
+	}
 	if isTests == "y" || isTests == "Y" {
 		fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
 		fmt.Scan(&testFrameworkNumber)
