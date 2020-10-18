@@ -17,7 +17,7 @@ func RubyBoiler() {
 	projectName = utils.AskProjectName(nil)
 	isGithub = utils.AskGithub(nil)
 	isRubocop = utils.AskRubocop(nil)
-	testFramework, isTests = utils.AskTests()
+	testFramework, isTests = utils.AskTests(nil)
 
 	// informing a user about the ruby installation
 	fmt.Println(`
