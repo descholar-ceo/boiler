@@ -184,3 +184,23 @@ func TestAskProjectName(t *testing.T) {
 		t.Errorf("The AskProjectName is not working!")
 	}
 }
+func TestAskTests(t *testing.T) {
+	in, err := ioutil.TempFile("", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer in.Close()
+
+	_, err = io.WriteString(in, "y"+"1\n")
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = in.Seek(0, os.SEEK_SET)
+	if err != nil {
+		t.Fatal(err)
+	}
+	testFramework, isTests := AskTests(in)
+	if testFramework != "rspec" || isTests != "y" {
+		t.Errorf("The AskTests is not working, we should have testframework = %s and isTest = %s", testFramework, isTests)
+	}
+}

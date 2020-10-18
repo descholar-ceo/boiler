@@ -192,7 +192,10 @@ func AskTests(in *os.File) (string, string) {
 		if testFrameworkNumber != 1 {
 			for i := 0; i < 5; i++ {
 				fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
-				fmt.Scan(&testFrameworkNumber)
+				// fmt.Scan(&testFrameworkNumber)
+				if _, err := fmt.Fscanf(in, "%d", &testFrameworkNumber); err != nil {
+					panic(err)
+				}
 				if testFrameworkNumber == 1 {
 					break
 				}
