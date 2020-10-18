@@ -13,7 +13,7 @@ import (
 func RorBoiler() {
 	workingDir = utils.AskWorkingDirectory(nil)
 	var wrkDr string
-	projectName = utils.AskProjectName()
+	projectName = utils.AskProjectName(nil)
 	isGithub = utils.AskGithub(nil)
 	isRubocop = utils.AskRubocop(nil)
 	database = utils.AskDatabase(nil)
