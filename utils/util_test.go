@@ -206,5 +206,9 @@ func TestAskTests(t *testing.T) {
 }
 
 func TestCopy(t *testing.T) {
+	os.Mkdir("./.mTemp1", 0755)
+	os.Mkdir("./.mTemp2", 0755)
+	exec.Command("touch", "./.mTemp1/.gitkeep").Run()
+	Copy("./.mTemp1/.gitkeep", "./.mTemp2/.gitkeep")
 
 }

@@ -114,7 +114,9 @@ func Copy(src, dst string) {
 	destination, _ := os.Create(dst)
 
 	defer destination.Close()
-	io.Copy(destination, source)
+	if _, err := io.Copy(destination, source); err != nil {
+		panic(err)
+	}
 }
 
 // WriteToFile is a function which used to write to file
