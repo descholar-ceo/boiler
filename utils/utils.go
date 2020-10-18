@@ -217,9 +217,10 @@ func AskTests(in *os.File) (string, string) {
 
 // DisplayLastCommands func shows a user next steps
 func DisplayLastCommands() {
-	// Displaying last commands
-	fmt.Println("\n\n...........................")
 	fmt.Println(`
+
+==============================================
+
 Your project has been initialized successfully
 The remaining task is to go on github and create a repository and copy its url
 Come back in the root directory of this project and 
@@ -228,6 +229,7 @@ Run the following commands respectifully
 1. git remote add .
 2. git commit -m "Initial commit"
 3. git remote add origin [Paste the url you copied from github]"
-4. git push -u origin master"`)
-	fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
+4. git push -u origin master"
+
+Congratulations and good luck for your new project`)
 }
