@@ -446,6 +446,26 @@ func TestAskTestsWithYesAndNot1(t *testing.T) {
 		t.Errorf("The AskTests is not working, we should have testframework = %s and isTest = %s", testFramework, isTests)
 	}
 }
+func TestAskTestsWithYesAndNot1But1InTheMiddle(t *testing.T) {
+	in, err := ioutil.TempFile("", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer in.Close()
+
+	_, err = io.WriteString(in, "y\n"+"5\n"+"3\n"+"10\n"+"11\n"+"1\n")
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = in.Seek(0, os.SEEK_SET)
+	if err != nil {
+		t.Fatal(err)
+	}
+	testFramework, isTests := AskTests(in)
+	if testFramework != "rspec" || isTests != "y" {
+		t.Errorf("The AskTests is not working, we should have testframework = %s and isTest = %s", testFramework, isTests)
+	}
+}
 
 func TestCopy(t *testing.T) {
 	os.Mkdir("./.mTemp1", 0755)
