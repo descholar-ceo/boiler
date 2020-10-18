@@ -49,12 +49,14 @@ func AskGithub(in *os.File) string {
 }
 
 // AskDatabase is a function which asks a user which database they will use and returns the answer
-func AskDatabase() string {
+func AskDatabase(in *os.File) string {
 	var database string
 	var tmpDb int
 	fmt.Println("\nSelect Enter the number corresponding to the database you want to use: ")
 	fmt.Println("\n1.sqlite3\n2.postgresql\n3.mysql\n4.oracle\n5.frontbase\n6.db2(ibm_db)\n7.sqlserver\n8.jdbcmysql\n9.jdbcpostgresql\n10.jdbcsqlite3\n11.jdbc")
-	fmt.Scan(&tmpDb)
+	if _, err := fmt.Fscanf(in, "%d", &tmpDb); err != nil {
+		panic(err)
+	}
 	switch tmpDb {
 	case 1:
 		database = "sqlite3"
