@@ -15,7 +15,7 @@ func RubyBoiler() {
 	// declaration and initialization of variables
 	workingDir = utils.AskWorkingDirectory(nil)
 	projectName = utils.AskProjectName()
-	isGithub = utils.AskGithub()
+	isGithub = utils.AskGithub(nil)
 	isRubocop = utils.AskRubocop(nil)
 	testFramework, isTests = utils.AskTests()
 
