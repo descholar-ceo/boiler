@@ -28,12 +28,7 @@ func askBasicQuestions(in *os.File, variable string, textToAsk string) string {
 
 // AskWorkingDirectory function
 func AskWorkingDirectory(in *os.File) string {
-	// in = generateStdin(in)
 	var workingDir string
-	// fmt.Println("\nEnter the working directory (Enter a dot (.) for the current directory):")
-	// if _, err := fmt.Fscanf(in, "%s", &workingDir); err != nil {
-	// 	panic(err)
-	// }
 	return askBasicQuestions(in, workingDir, "\nEnter the working directory (Enter a dot (.) for the current directory):")
 }
 
