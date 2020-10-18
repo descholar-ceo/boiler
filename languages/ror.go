@@ -9,17 +9,19 @@ import (
 	"github.com/descholar-ceo/boiler/utils"
 )
 
-func mQustions() {}
-
-// RorBoiler is a boilerplate generator for ror
-func RorBoiler() {
+func mQuestions() (string, string, string, string, string) {
 	workingDir = utils.AskWorkingDirectory(nil)
-	var wrkDr string
 	projectName = utils.AskProjectName(nil)
 	isGithub = utils.AskGithub(nil)
 	isRubocop = utils.AskRubocop(nil)
 	database = utils.AskDatabase(nil)
+	return workingDir, projectName, isGithub, isRubocop, database
+}
 
+// RorBoiler is a boilerplate generator for ror
+func RorBoiler() {
+	var wrkDr string
+	workingDir, projectName, isGithub, isRubocop, database = mQuestions()
 	// checking the Rails installation
 	fmt.Println(`Make sure that rails and ruby are installed correctly on your system, and is working well, 
 	if rails is not installed yet, then this time your project initialization will take some time. 
