@@ -123,3 +123,23 @@ func TestAskRubocop(t *testing.T) {
 		t.Errorf("The AskRubocop is not working!")
 	}
 }
+func TestAskGithub(t *testing.T) {
+	in, err := ioutil.TempFile("", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer in.Close()
+
+	_, err = io.WriteString(in, "y")
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = in.Seek(0, os.SEEK_SET)
+	if err != nil {
+		t.Fatal(err)
+	}
+	workingDir := AskGithub(in)
+	if workingDir != "y" {
+		t.Errorf("The AskGithub is not working!")
+	}
+}
