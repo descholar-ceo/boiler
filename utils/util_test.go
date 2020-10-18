@@ -220,5 +220,14 @@ func TestCopy(t *testing.T) {
 }
 
 func TestWriteToFile(t *testing.T) {
-
+	os.Mkdir("./.mTemp1", 0755)
+	exec.Command("touch", "./.mTemp1/.gitkeep").Run()
+	WriteToFile("./.mTemp1/.gitkeep", "This project")
+	_, err := os.Stat("./.mTemp1/.gitkeep")
+	if os.IsNotExist(err) {
+		t.Errorf("The writetofile function is not working")
+	}
+	str := "rm -rf .mTemp1"
+	args := strings.Split(str, " ")
+	exec.Command(args[0], args[1:]...).Run()
 }
