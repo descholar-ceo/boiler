@@ -191,7 +191,7 @@ func TestAskTests(t *testing.T) {
 	}
 	defer in.Close()
 
-	_, err = io.WriteString(in, "y"+"1\n")
+	_, err = io.WriteString(in, "y\n"+"1\n")
 	if err != nil {
 		t.Fatal(err)
 	}
