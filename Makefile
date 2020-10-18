@@ -8,4 +8,4 @@ install:
 	./install.sh
 
 test:
-	go test
+	go test -tags integration ./...

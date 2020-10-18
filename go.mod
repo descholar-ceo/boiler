@@ -1,4 +1,4 @@
-module boiler-mod
+module github.com/descholar-ceo/boiler
 
 go 1.15
 
