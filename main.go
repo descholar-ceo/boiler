@@ -7,18 +7,8 @@ import (
 )
 
 var (
-	// 	tmpWrkDr      string
-	// 	workingDir    string
-	// 	wrkDr         string
-	// 	err           error
 	projectName string
 	language    int
-
-// 	isRubocop     string
-// 	isTests       string
-// 	testFramework int
-// 	isGithub      string
-// 	database      string
 )
 
 func main() {
@@ -48,13 +38,16 @@ func main() {
 	}
 
 	// Displaying last commands
-	fmt.Println("\n\nYour project has been initialized successfully")
-	fmt.Println("The remaining task is to go on github and create a repository and copy its url")
-	fmt.Printf("Come back in the root directory of %s\n", projectName)
-	fmt.Println("\nRun the following commands respectifuly")
-	fmt.Println("1. git remote add .")
-	fmt.Println("2. git commit -m \"Initial commit\"")
-	fmt.Println("3. git remote add origin [Paste the url you copied from github]")
-	fmt.Println("4. git push -u origin master")
+	fmt.Println("\n\n...........................")
+	fmt.Println(`
+Your project has been initialized successfully
+The remaining task is to go on github and create a repository and copy its url
+Come back in the root directory of this project and 
+Run the following commands respectifully
+
+1. git remote add .
+2. git commit -m "Initial commit"
+3. git remote add origin [Paste the url you copied from github]"
+4. git push -u origin master"`)
 	fmt.Print("\n\nCongratulations and good luck for your new project\n\n\n")
 }
