@@ -15,7 +15,6 @@ func AskWorkingDirectory(in *os.File) string {
 	}
 	var workingDir string
 	fmt.Println("\nEnter the working directory (Enter a dot (.) for the current directory):")
-	// fmt.Scan(&workingDir)
 	_, err := fmt.Fscanf(in, "%s", &workingDir)
 	if err != nil {
 		panic(err)
