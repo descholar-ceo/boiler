@@ -23,11 +23,6 @@ func RorBoiler() {
 	var wrkDr string
 	workingDir, projectName, isGithub, isRubocop, database = mQuestions()
 	// checking the Rails installation
-	fmt.Println(`Make sure that rails and ruby are installed correctly on your system, and is working well, 
-	if rails is not installed yet, then this time your project initialization will take some time. 
-	If ruby is not installed yet, please refer to this link for a proper ruby installation: 
-	https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming`)
-
 	fmt.Println("\n\nChecking Rails installation on your computer...")
 	mStr := "gem install rails"
 	argsMStr := strings.Split(mStr, " ")
