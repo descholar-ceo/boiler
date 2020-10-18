@@ -174,7 +174,10 @@ func CreateProjectDirectory(workingDir, projectName string) string {
 }
 
 // AskTests is a function which asks if a user will use tests
-func AskTests() (string, string) {
+func AskTests(in *os.File) (string, string) {
+	if in == nil {
+		in = os.Stdin
+	}
 	var isTests string
 	var testFrameworkNumber int
 	var testFramework string
