@@ -1,6 +1,8 @@
 package utils
 
 import (
+	"io"
+	"io/ioutil"
 	"os"
 	"os/exec"
 	"strings"
@@ -82,6 +84,22 @@ func TestCreateGithubActionsDirectory(t *testing.T) {
 }
 
 func TestAskWorkingDirectory(t *testing.T) {
-	workingDir := "dir"
+	in, err := ioutil.TempFile("", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer in.Close()
 
+	_, err = io.WriteString(in, "directory")
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = in.Seek(0, os.SEEK_SET)
+	if err != nil {
+		t.Fatal(err)
+	}
+	workingDir := AskWorkingDirectory(in)
+	if workingDir != "directory" {
+		t.Errorf("The AskWorkingDirectory is not working!")
+	}
 }

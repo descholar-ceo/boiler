@@ -11,7 +11,7 @@ import (
 
 // RorBoiler is a boilerplate generator for ror
 func RorBoiler() {
-	workingDir = utils.AskWorkingDirectory()
+	workingDir = utils.AskWorkingDirectory(nil)
 	var wrkDr string
 	projectName = utils.AskProjectName()
 	isGithub = utils.AskGithub()

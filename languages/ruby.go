@@ -13,7 +13,7 @@ import (
 func RubyBoiler() {
 
 	// declaration and initialization of variables
-	workingDir = utils.AskWorkingDirectory()
+	workingDir = utils.AskWorkingDirectory(nil)
 	projectName = utils.AskProjectName()
 	isGithub = utils.AskGithub()
 	isRubocop = utils.AskRubocop()
