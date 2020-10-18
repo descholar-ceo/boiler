@@ -210,5 +210,11 @@ func TestCopy(t *testing.T) {
 	os.Mkdir("./.mTemp2", 0755)
 	exec.Command("touch", "./.mTemp1/.gitkeep").Run()
 	Copy("./.mTemp1/.gitkeep", "./.mTemp2/.gitkeep")
-
+	_, err := os.Stat("./.mTemp2/.gitkeep")
+	if os.IsNotExist(err) {
+		t.Errorf("The copy function is not working, we should see the .gitkeep file in .mTemp2 but this error %s occured", err)
+	}
+	str := "rm -rf .mTemp2 .mTemp1"
+	args := strings.Split(str, " ")
+	exec.Command(args[0], args[1:]...).Run()
 }
