@@ -9,6 +9,8 @@ import (
 	"github.com/descholar-ceo/boiler/utils"
 )
 
+func mQustions() {}
+
 // RorBoiler is a boilerplate generator for ror
 func RorBoiler() {
 	workingDir = utils.AskWorkingDirectory(nil)
