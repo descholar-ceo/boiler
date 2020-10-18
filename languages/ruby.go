@@ -9,20 +9,19 @@ import (
 	"github.com/descholar-ceo/boiler/utils"
 )
 
-func questions() {
-
-}
-
-// RubyBoiler function which will provide a bilerplate of the ruby project
-func RubyBoiler() {
-
+func questions() (string, string, string, string, string) {
 	// declaration and initialization of variables
 	workingDir = utils.AskWorkingDirectory(nil)
 	projectName = utils.AskProjectName(nil)
 	isGithub = utils.AskGithub(nil)
 	isRubocop = utils.AskRubocop(nil)
 	testFramework, isTests = utils.AskTests(nil)
+	return workingDir, projectName, isGithub, isRubocop, testFramework
+}
 
+// RubyBoiler function which will provide a bilerplate of the ruby project
+func RubyBoiler() {
+	workingDir, projectName, isGithub, isRubocop, testFramework = questions()
 	// informing a user about the ruby installation
 	fmt.Println(`
 Make sure that ruby is well installed, and your bundler is working well. If it is not the case 
