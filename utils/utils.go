@@ -8,24 +8,13 @@ import (
 	"github.com/mitchellh/go-homedir"
 )
 
+// RE-USABLE FUNCTIONS
 func generateStdin(in *os.File) *os.File {
 	if in == nil {
 		in = os.Stdin
 	}
 	return in
 
-}
-
-// AskWorkingDirectory function
-func AskWorkingDirectory(in *os.File) string {
-	in = generateStdin(in)
-	var workingDir string
-	fmt.Println("\nEnter the working directory (Enter a dot (.) for the current directory):")
-	_, err := fmt.Fscanf(in, "%s", &workingDir)
-	if err != nil {
-		panic(err)
-	}
-	return workingDir
 }
 
 func askBasicQuestions(in *os.File, variable string, textToAsk string) string {
@@ -35,6 +24,17 @@ func askBasicQuestions(in *os.File, variable string, textToAsk string) string {
 		panic(err)
 	}
 	return variable
+}
+
+// AskWorkingDirectory function
+func AskWorkingDirectory(in *os.File) string {
+	// in = generateStdin(in)
+	var workingDir string
+	// fmt.Println("\nEnter the working directory (Enter a dot (.) for the current directory):")
+	// if _, err := fmt.Fscanf(in, "%s", &workingDir); err != nil {
+	// 	panic(err)
+	// }
+	return askBasicQuestions(in, workingDir, "\nEnter the working directory (Enter a dot (.) for the current directory):")
 }
 
 // AskRubocop is a function which asks a user if they will use rubocop and then returns the answer of the user
