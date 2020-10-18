@@ -143,7 +143,7 @@ func TestAskGithub(t *testing.T) {
 		t.Errorf("The AskGithub is not working!")
 	}
 }
-func TestAskDatabase(t *testing.T) {
+func TestAskDatabaseOption1(t *testing.T) {
 	in, err := ioutil.TempFile("", "")
 	if err != nil {
 		t.Fatal(err)
@@ -160,6 +160,26 @@ func TestAskDatabase(t *testing.T) {
 	}
 	workingDir := AskDatabase(in)
 	if workingDir != "sqlite3" {
+		t.Errorf("The AskDatabase is not working!")
+	}
+}
+func TestAskDatabaseOption2(t *testing.T) {
+	in, err := ioutil.TempFile("", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer in.Close()
+
+	_, err = io.WriteString(in, "2")
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = in.Seek(0, os.SEEK_SET)
+	if err != nil {
+		t.Fatal(err)
+	}
+	workingDir := AskDatabase(in)
+	if workingDir != "postgresql" {
 		t.Errorf("The AskDatabase is not working!")
 	}
 }
