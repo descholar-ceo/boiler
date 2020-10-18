@@ -14,7 +14,6 @@ func generateStdin(in *os.File) *os.File {
 		in = os.Stdin
 	}
 	return in
-
 }
 
 func askBasicQuestions(in *os.File, variable string, textToAsk string) string {
