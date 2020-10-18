@@ -36,10 +36,15 @@ func AskRubocop(in *os.File) string {
 }
 
 // AskGithub is a function which asks a user if they will use github
-func AskGithub() string {
+func AskGithub(in *os.File) string {
+	if in == nil {
+		in = os.Stdin
+	}
 	var isGithub string
 	fmt.Println("\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
-	fmt.Scan(&isGithub)
+	if _, err := fmt.Fscanf(in, "%s", &isGithub); err != nil {
+		panic(err)
+	}
 	return isGithub
 }
 
