@@ -218,3 +218,7 @@ func TestCopy(t *testing.T) {
 	args := strings.Split(str, " ")
 	exec.Command(args[0], args[1:]...).Run()
 }
+
+func TestWriteToFile(t *testing.T) {
+
+}
