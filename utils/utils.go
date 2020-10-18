@@ -8,11 +8,17 @@ import (
 	"github.com/mitchellh/go-homedir"
 )
 
-// AskWorkingDirectory function
-func AskWorkingDirectory(in *os.File) string {
+func generateStdin(in *os.File) *os.File {
 	if in == nil {
 		in = os.Stdin
 	}
+	return in
+
+}
+
+// AskWorkingDirectory function
+func AskWorkingDirectory(in *os.File) string {
+	in = generateStdin(in)
 	var workingDir string
 	fmt.Println("\nEnter the working directory (Enter a dot (.) for the current directory):")
 	_, err := fmt.Fscanf(in, "%s", &workingDir)
@@ -24,9 +30,7 @@ func AskWorkingDirectory(in *os.File) string {
 
 // AskRubocop is a function which asks a user if they will use rubocop and then returns the answer of the user
 func AskRubocop(in *os.File) string {
-	if in == nil {
-		in = os.Stdin
-	}
+	in = generateStdin(in)
 	var isRubocop string
 	fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
 	if _, err := fmt.Fscanf(in, "%s", &isRubocop); err != nil {
@@ -37,9 +41,7 @@ func AskRubocop(in *os.File) string {
 
 // AskGithub is a function which asks a user if they will use github
 func AskGithub(in *os.File) string {
-	if in == nil {
-		in = os.Stdin
-	}
+	in = generateStdin(in)
 	var isGithub string
 	fmt.Println("\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
 	if _, err := fmt.Fscanf(in, "%s", &isGithub); err != nil {
@@ -50,9 +52,7 @@ func AskGithub(in *os.File) string {
 
 // AskDatabase is a function which asks a user which database they will use and returns the answer
 func AskDatabase(in *os.File) string {
-	if in == nil {
-		in = os.Stdin
-	}
+	in = generateStdin(in)
 	var database string
 	var tmpDb int
 	fmt.Println("\nSelect Enter the number corresponding to the database you want to use: ")
@@ -94,9 +94,7 @@ func AskDatabase(in *os.File) string {
 
 // AskProjectName function
 func AskProjectName(in *os.File) string {
-	if in == nil {
-		in = os.Stdin
-	}
+	in = generateStdin(in)
 	var projectName string
 	fmt.Println("\n\nWhat is the project name you want to use?")
 	if _, err := fmt.Fscanf(in, "%s", &projectName); err != nil {
@@ -177,9 +175,7 @@ func CreateProjectDirectory(workingDir, projectName string) string {
 
 // AskTests is a function which asks if a user will use tests
 func AskTests(in *os.File) (string, string) {
-	if in == nil {
-		in = os.Stdin
-	}
+	in = generateStdin(in)
 	var isTests string
 	var testFrameworkNumber int
 	var testFramework string
