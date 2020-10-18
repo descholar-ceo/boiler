@@ -150,7 +150,7 @@ func TestAskDatabase(t *testing.T) {
 	}
 	defer in.Close()
 
-	_, err = io.WriteString(in, "2")
+	_, err = io.WriteString(in, "1")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -159,7 +159,7 @@ func TestAskDatabase(t *testing.T) {
 		t.Fatal(err)
 	}
 	workingDir := AskDatabase(in)
-	if workingDir != "postgresql" {
+	if workingDir != "sqlite3" {
 		t.Errorf("The AskDatabase is not working!")
 	}
 }
