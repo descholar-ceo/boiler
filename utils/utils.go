@@ -50,6 +50,9 @@ func AskGithub(in *os.File) string {
 
 // AskDatabase is a function which asks a user which database they will use and returns the answer
 func AskDatabase(in *os.File) string {
+	if in == nil {
+		in = os.Stdin
+	}
 	var database string
 	var tmpDb int
 	fmt.Println("\nSelect Enter the number corresponding to the database you want to use: ")
