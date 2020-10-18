@@ -28,26 +28,35 @@ func AskWorkingDirectory(in *os.File) string {
 	return workingDir
 }
 
-// AskRubocop is a function which asks a user if they will use rubocop and then returns the answer of the user
-func AskRubocop(in *os.File) string {
+func askBasicQuestions(in *os.File, variable string, textToAsk string) string {
 	in = generateStdin(in)
-	var isRubocop string
-	fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
-	if _, err := fmt.Fscanf(in, "%s", &isRubocop); err != nil {
+	fmt.Println(textToAsk)
+	if _, err := fmt.Fscanf(in, "%s", &variable); err != nil {
 		panic(err)
 	}
-	return isRubocop
+	return variable
+}
+
+// AskRubocop is a function which asks a user if they will use rubocop and then returns the answer of the user
+func AskRubocop(in *os.File) string {
+	// var isRubocop string
+	// fmt.Println("\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
+	// if _, err := fmt.Fscanf(in, "%s", &isRubocop); err != nil {
+	// 	panic(err)
+	// }
+	var isRubocop string
+	return askBasicQuestions(in, isRubocop, "\nWill you use Rubocop as a linter? Enter y for yes or any other key for no")
 }
 
 // AskGithub is a function which asks a user if they will use github
 func AskGithub(in *os.File) string {
-	in = generateStdin(in)
+	// in = generateStdin(in)
 	var isGithub string
-	fmt.Println("\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
-	if _, err := fmt.Fscanf(in, "%s", &isGithub); err != nil {
-		panic(err)
-	}
-	return isGithub
+	// fmt.Println("\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
+	// if _, err := fmt.Fscanf(in, "%s", &isGithub); err != nil {
+	// 	panic(err)
+	// }
+	return askBasicQuestions(in, isGithub, "\nWill you use github as a collaboration tool? Enter y for yes or any other key for no")
 }
 
 // AskDatabase is a function which asks a user which database they will use and returns the answer
