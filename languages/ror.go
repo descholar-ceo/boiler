@@ -16,7 +16,7 @@ func RorBoiler() {
 	projectName = utils.AskProjectName()
 	isGithub = utils.AskGithub(nil)
 	isRubocop = utils.AskRubocop(nil)
-	database = utils.AskDatabase()
+	database = utils.AskDatabase(nil)
 
 	// checking the Rails installation
 	fmt.Println(`Make sure that rails and ruby are installed correctly on your system, and is working well, 
