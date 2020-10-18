@@ -204,3 +204,7 @@ func TestAskTests(t *testing.T) {
 		t.Errorf("The AskTests is not working, we should have testframework = %s and isTest = %s", testFramework, isTests)
 	}
 }
+
+func TestCopy(t *testing.T) {
+
+}
