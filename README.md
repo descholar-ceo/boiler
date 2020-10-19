@@ -3,15 +3,15 @@
 
 __boiler__ is an application that helps you to generate a project's boilerplate very easily. You don't need to waste your first hours of development in setting up the project. It gives you the first setup of your project so that you can focus on writing your codes.
 
-## Built with
-- [GoLang](https://golang.org/)
+## Why do we need boiler?
+I have noticed that when you have a project idea, it can take you between 4 - 8 hours setting up the project boilerplate, (project skeleton), depending on the technologies you are going to use. So, that's why I developed this tool which will save you those first hours.
 
 ## How to use it?
 
-### Note:Before using it, please make sure that you read and your system adhere to all pre-requisites
+##### Note: Before using it, please make sure that you read and your system adhere to all pre-requisites
 
-#### Pre-requisites
-##### For ruby projects
+### Pre-requisites
+#### For ruby projects
 - [ ] Ruby should be installed already on your computer
 - [ ] Bundler
 
@@ -42,6 +42,9 @@ if you are not sure run `sudo apt-get install freetds-dev` which will install it
 - Extract it
 - Open terminal in the extracted folder, and run `./install.sh`
 - Close your current terminal and open another one and run `boiler` ===> there you go!
+
+## Built with
+[GoLang](https://golang.org/)
 
 ## Languages
 The current version [v1.0.0]() can generate:
