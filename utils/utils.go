@@ -3,6 +3,7 @@ package utils
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
 
 	"github.com/mitchellh/go-homedir"
@@ -20,7 +21,7 @@ func askBasicQuestions(in *os.File, variable string, textToAsk string) string {
 	in = generateStdin(in)
 	fmt.Println(textToAsk)
 	if _, err := fmt.Fscanf(in, "%s", &variable); err != nil {
-		panic(`
+		log.Fatal(`
 
 |=====================Error message===================|
 ||    Empty response, please enter a value!          ||
@@ -57,7 +58,7 @@ func AskDatabase(in *os.File) string {
 	fmt.Println("\nSelect Enter the number corresponding to the database you want to use: ")
 	fmt.Println("\n1.sqlite3\n2.postgresql\n3.mysql\n4.oracle\n5.frontbase\n6.db2(ibm_db)\n7.sqlserver\n8.jdbcmysql\n9.jdbcpostgresql\n10.jdbcsqlite3\n11.jdbc")
 	if _, err := fmt.Fscanf(in, "%d", &tmpDb); err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	switch tmpDb {
 	case 1:
@@ -107,7 +108,7 @@ func Copy(src, dst string) {
 
 	defer destination.Close()
 	if _, err := io.Copy(destination, source); err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 }
 
@@ -175,18 +176,18 @@ func AskTests(in *os.File) (string, string) {
 	var testFramework string
 	fmt.Println("\n\nWill you write some unit tests for your project? Enter y for yes or any other key for no")
 	if _, err := fmt.Fscanf(in, "%s", &isTests); err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	if isTests == "y" || isTests == "Y" {
 		fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
 		if _, err := fmt.Fscanf(in, "%d", &testFrameworkNumber); err != nil {
-			panic(err)
+			log.Fatal(err)
 		}
 		if testFrameworkNumber != 1 {
 			for i := 0; i < 5; i++ {
 				fmt.Println("\nChoose a number which corresponds to the testing framework you will be using:\n1.RSpec")
 				if _, err := fmt.Fscanf(in, "%d", &testFrameworkNumber); err != nil {
-					panic(err)
+					log.Fatal(err)
 				}
 				if testFrameworkNumber == 1 {
 					break
