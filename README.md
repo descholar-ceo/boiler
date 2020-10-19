@@ -58,5 +58,4 @@ if you are not sure run `sudo apt-get install freetds-dev` which will install it
 After you install successfully, run `boiler` on your terminal and follow the instructions
 
 ## Contributions
-### NOTE: _I am looking for some other contributors to add more language support_
-
+### NOTE: Please follow [this contribution guide](https://github.com/descholar-ceo/boiler/blob/make-a-new-release/CONTRIBUTING.md)
