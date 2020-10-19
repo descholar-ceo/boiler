@@ -15,7 +15,7 @@ else
     mkdir $HOME/.boiler $HOME/.boiler/boiler
 fi
 
-echo "Copying installtion files ... "
+echo "Copying installation files ... "
 
 cp -r `ls | egrep -v '^.git$'` $HOME/.boiler/boiler
 
