@@ -44,7 +44,7 @@ if you are not sure run `sudo apt-get install freetds-dev` which will install it
 - Close your current terminal and open another one and run `boiler` :point_right: :point_right: :point_right: there you go!
 
 ### How to get a help? :pray:
-Please join our community on [Gitter](https://gitter.im/boiler-community/community) and post whichever your blocker
+Please join our community on [Gitter](https://gitter.im/boiler-community/community) and post any question you have about this project.
 
 ## Built with
 [Golang](https://golang.org/)
@@ -53,6 +53,7 @@ Please join our community on [Gitter](https://gitter.im/boiler-community/communi
 1. The current version [v1.0.0](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0) can generate:
    - Basic ruby Projects
    - Ruby on Rails Projects
+   - :warning: Other languages are coming soon in later versions
 
 1. The current version [v1.0.0](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0) support linux systems (Ubuntu/debian) based OS. :point_right: We welcome whoever who can add some other system support, your contribution is welcomed!
 
