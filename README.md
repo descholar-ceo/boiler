@@ -57,7 +57,7 @@ Please join our community on [Gitter](https://gitter.im/boiler-community/communi
    - Ruby on Rails Projects
    - :warning: Other languages are coming soon in later versions
 
-1. The current version [v1.0.0](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0) support linux systems (Ubuntu/debian) based OS. :point_right: We welcome whoever who can add some other system support, your contribution is welcomed!
+1. The current version [v1.0.0](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0) support linux systems (Ubuntu/debian) based OS that use [Bash](https://www.gnu.org/software/bash/) as their command line shell. :point_right: We welcome whoever who can add some other system support, your contributions are welcomed!
 
 ## Contributions
 Please follow [this contribution guide](https://github.com/descholar-ceo/boiler/blob/make-a-new-release/CONTRIBUTING.md)
