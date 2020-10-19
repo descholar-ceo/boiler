@@ -7,12 +7,9 @@ __boiler__ is an application that helps you to generate a project's boilerplate 
 - [GoLang](https://golang.org/)
 
 ## How to use it?
-- [Click here](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0-beta.3) and download a zip file
-- Extract it
-- Open terminal in the extracted folder, and run `./install.sh`
-- Close your current terminal and open another one and run `boiler` ===> there you go!
 
-### Usage
+### Note:Before using it, please make sure that you read and your system adhere to all pre-requisites
+
 #### Pre-requisites
 ##### For ruby projects
 - [ ] Ruby should be installed already on your computer
@@ -20,8 +17,8 @@ __boiler__ is an application that helps you to generate a project's boilerplate 
 
 ##### For Ruby on Rails project
 To get your project initiated, you should have the following tools already installed on your computer:
-- [ ] Ruby (Installed and well working)
-- [ ] Ruby on rails (Installed and well working)
+- [ ] Ruby (Installed and working well)
+- [ ] Ruby on rails (Installed and working well)
 - [ ] Yarn
 - [ ] Bundler
 - [ ] And checkout the database of your choice requirements below
@@ -40,13 +37,16 @@ if you are not sure run `sudo apt-get install freetds-dev` which will install it
 
 1. jdbcmysql, jdbcsqlite3, jdbcpostgresql,: are for use with [JRuby](https://www.jruby.org/) only
 
-#### Installation && Usage
-- Click [here to download]() boiler zip file
-- After successfull download, unzip the downloaded file to any directory of your choice
-- Run `./install.sh`
-- After a successful installation, exit the terminal
-- Open a new terminal, and then run __`boiler`__ and there you go, follow all the rules to generate your project
+## Installation
+- [Click here](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0-beta.3) and download a zip file
+- Extract it
+- Open terminal in the extracted folder, and run `./install.sh`
+- Close your current terminal and open another one and run `boiler` ===> there you go!
 
+## Languages
+The current version [v1.0.0]() can generate:
+- Basic ruby Projects
+- Ruby on Rails Projects
 
 ## Contributions
-### NOTE: Please follow [this contribution guide](https://github.com/descholar-ceo/boiler/blob/make-a-new-release/CONTRIBUTING.md)
+Please follow [this contribution guide](https://github.com/descholar-ceo/boiler/blob/make-a-new-release/CONTRIBUTING.md)
