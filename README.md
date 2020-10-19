@@ -40,8 +40,13 @@ if you are not sure run `sudo apt-get install freetds-dev` which will install it
 
 1. jdbcmysql, jdbcsqlite3, jdbcpostgresql,: are for use with [JRuby](https://www.jruby.org/) only
 
-#### Running
-After you install successfully, run `boiler` on your terminal and follow the instructions
+#### Installation && Usage
+- Click [here to download]() boiler zip file
+- After successfull download, unzip the downloaded file to any directory of your choice
+- Run `./install.sh`
+- After a successful installation, exit the terminal
+- Open a new terminal, and then run __`boiler`__ and there you go, follow all the rules to generate your project
+
 
 ## Contributions
 ### NOTE: Please follow [this contribution guide](https://github.com/descholar-ceo/boiler/blob/make-a-new-release/CONTRIBUTING.md)
