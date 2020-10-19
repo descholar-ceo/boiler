@@ -38,8 +38,8 @@ if you are not sure run `sudo apt-get install freetds-dev` which will install it
 1. jdbcmysql, jdbcsqlite3, jdbcpostgresql,: are for use with [JRuby](https://www.jruby.org/) only
 
 ## Installation
-- [Click here](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0-beta.3) and download a zip file
-- Extract it
+- [Click here](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0) and download a zip file
+- Extract it wherever you wish
 - Open terminal in the extracted folder, and run `./install.sh`
 - Close your current terminal and open another one and run `boiler` ===> there you go!
 
@@ -47,7 +47,7 @@ if you are not sure run `sudo apt-get install freetds-dev` which will install it
 [GoLang](https://golang.org/)
 
 ## Languages
-The current version [v1.0.0]() can generate:
+The current version [v1.0.0](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0) can generate:
 - Basic ruby Projects
 - Ruby on Rails Projects
 
