@@ -22,11 +22,6 @@ func mQuestions() (string, string, string, string, string) {
 func RorBoiler() {
 	var wrkDr string
 	workingDir, projectName, isGithub, isRubocop, database = mQuestions()
-	// checking the Rails installation
-	fmt.Println("\n\nChecking Rails installation on your computer...")
-	mStr := "gem install rails"
-	argsMStr := strings.Split(mStr, " ")
-	exec.Command(argsMStr[0], argsMStr[1:]...).Run()
 
 	// moving to the project dir
 	if workingDir == "." {
