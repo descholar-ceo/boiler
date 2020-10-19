@@ -23,7 +23,7 @@ To get your project initiated, you should have the following tools already insta
 - [ ] Ruby on rails (Installed and working well)
 - [ ] Yarn
 - [ ] Bundler
-- [ ] And checkout the database of your choice requirements below
+- [ ] And checkout the database of your choice requirements below :point_down: :point_down: :point_down:
 
  ##### NOTE: DATABASES REQUIREMENTS
 1. [MySQL](https://www.mysql.com/): requires you to have pre-installed `libmysqlclient-dev`, on your system, if you are not sure run `sudo apt-get install libmysqlclient-dev` which will install it if you don't have it or update it if the version you have is obsolete
