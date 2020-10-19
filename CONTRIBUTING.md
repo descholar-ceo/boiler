@@ -1,8 +1,8 @@
 #Contribution guide
 
-There two ways of contributing to this project:
+There are two ways of contributing to this project:
 
-1.  If you are requesting a feature which is not already in this project, or If you see something wrong or not working, please check [the issue tracker section](https://github.com/descholar-ceo/boiler/issues), if that problem you met is not in already opened issues then open the issue by click on issue button
+1.  If you are requesting a feature which is not already in this project, or If you see something wrong or not working, please check [the issue tracker section](https://github.com/descholar-ceo/boiler/issues), if that problem you met is not in already opened issues then open the issue by clicking on `new issue` button
 
 2.  If you have a solution to that, and willing to work on it, follow the below steps to contribute:
     1.  Fork this repository
