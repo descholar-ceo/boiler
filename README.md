@@ -23,7 +23,7 @@ To get your project initiated, you should have the following tools already insta
 - [ ] Bundler
 - [ ] And checkout the database of your choice requirements below
 
- # NOTE: DATABASES REQUIREMENTS
+ ##### NOTE: DATABASES REQUIREMENTS
 1. [MySQL](https://www.mysql.com/): requires you to have pre-installed `libmysqlclient-dev`, on your system, if you are not sure run `sudo apt-get install libmysqlclient-dev` which will install it if you don't have it or update it if the version you have is obsolete
 
 1. [Oracle](https://www.oracle.com/database/technologies/): requires you to have ruby-oci8 installed, and to install it, requires you to have oracle environment installed properly on your computer
@@ -42,6 +42,9 @@ if you are not sure run `sudo apt-get install freetds-dev` which will install it
 - Extract it wherever you wish
 - Open terminal in the extracted folder, and run `./install.sh`
 - Close your current terminal and open another one and run `boiler` ===> there you go!
+
+### How to get a help?
+Please join our community on [Gitter](https://gitter.im/boiler-community/community) and post whichever your blocker
 
 ## Built with
 [GoLang](https://golang.org/)
