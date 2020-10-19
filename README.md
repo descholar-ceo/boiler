@@ -1,16 +1,12 @@
 # boiler
 [![Maintainability](https://api.codeclimate.com/v1/badges/0ef5f6e9398a22c4b5ee/maintainability)](https://codeclimate.com/github/descholar-ceo/boiler/maintainability) [![Build Status](https://travis-ci.org/descholar-ceo/boiler.svg?branch=develop)](https://travis-ci.org/descholar-ceo/boiler)  [![Coverage Status](https://coveralls.io/repos/github/descholar-ceo/boiler/badge.svg?branch=develop)](https://coveralls.io/github/descholar-ceo/boiler?branch=develop) [![Join the chat at https://gitter.im/boiler-community/community](https://badges.gitter.im/boiler-community/community.svg)](https://gitter.im/boiler-community/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-__boiler:__ Is an application which helps you to generate project boilerplate very easily. You don't need to hassle creating all of the project's files and directories, It gives you the first setup of your project so that you can focus on writing your codes.
+__boiler__ is an application that helps you to generate a project's boilerplate very easily. You don't need to waste your first hours of development in setting up the project. It gives you the first setup of your project so that you can focus on writing your codes.
 
 ## Built with
 - [GoLang](https://golang.org/)
 
-## Features
-- Start ruby project
-- Start ruby on rails project
-
-## Installation
+## How to use it?
 - [Click here](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0-beta.3) and download a zip file
 - Extract it
 - Open terminal in the extracted folder, and run `./install.sh`
