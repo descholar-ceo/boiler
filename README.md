@@ -4,7 +4,7 @@
 __boiler__ is an application that helps you to generate a project's boilerplate very easily. You don't need to waste your first hours of development in setting up the project. It gives you the first setup of your project so that you can focus on writing your codes.
 
 ## Why do we need boiler?
-I have noticed that when you have a project idea, it can take you between 4 - 8 hours setting up the project boilerplate, (project skeleton), depending on the technologies you are going to use. So, that's why I developed this tool which will save you those first hours.
+I have noticed that when you start working on a new project, it can take you between 4 - 8 hours setting up the project boilerplate, (project skeleton), depending on the technologies you are going to use. So, that's why I developed this tool that will save you time.
 
 ## How to use it?
 
