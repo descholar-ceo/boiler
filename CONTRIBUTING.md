@@ -12,3 +12,6 @@ There are two ways of contributing to this project:
     5.  Write your codes which fix the issue you found, or which add the feature you want to add
     6.  Commit and push the branch you created
     7.  Open a pull request, comparing your new created branch with our original develop branch [here](https://github.com/descholar-ceo/boiler/tree/master)
+
+##NOTE:
+__After your Pull Request get merged please add yourself to [AUTHORS FILE](https://github.com/descholar-ceo/boiler/blob/master/AUTHORS.md)__
