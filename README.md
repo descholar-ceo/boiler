@@ -6,7 +6,7 @@ __boiler__ is an application that helps you to generate a project's boilerplate 
 ## Why do we need boiler?
 - I have noticed that when you start working on a new project, it can take you between 4 - 8 hours setting up the project boilerplate, (project skeleton), depending on the technologies you are going to use. So, that's why I developed this tool that will save you time.
 
-- Even thought some frameworks like [Ruby on Rails](https://rubyonrails.org/) or [Express.js](https://expressjs.com/) have their commands to initialize a project, but I found them as not complete, because there are some cases you need to use some more technologies than what you are given by running those commands, so this tool will save you in that case as well. It will do everything for you.
+- Even though some frameworks like [Ruby on Rails](https://rubyonrails.org/) or [Express.js](https://expressjs.com/) have their commands to initialize a project, but I found them as not complete, because there are some cases you need to use some more technologies than what you are given by running those commands, so this tool will save you in that case as well. It will do everything for you.
 
 ## How to use it?
 
