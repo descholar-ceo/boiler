@@ -10,7 +10,7 @@ __boiler__ is an application that helps you to generate a project's boilerplate 
 
 ## How to use it?
 
-##### Note: Before using it, please make sure that you read and your system adhere to all pre-requisites
+##### Note: Before using it, please make sure that you read all pre-requisites and your system adhere to them
 
 ### Pre-requisites
 #### For ruby projects
