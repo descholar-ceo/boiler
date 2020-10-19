@@ -2,6 +2,7 @@ package languages
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"os/exec"
 	"strings"
@@ -46,7 +47,9 @@ Generating your Rails project using Rails installed on your machine, This might 
 minutes depending on the internet connection you have, please bear with us, and wait...`)
 	railsStr := "rails new " + projectName + " --database=" + strings.Trim(database, "\"")
 	args := strings.Split(railsStr, " ")
-	exec.Command(args[0], args[1:]...).Run()
+	if err := exec.Command(args[0], args[1:]...).Run(); err != nil {
+		log.Fatal(err)
+	}
 
 	// changing current dir
 	fmt.Println("\nChecking out your project workspace...")
