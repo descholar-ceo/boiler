@@ -1,1 +1,1 @@
-Mugirase Emmanuel <emmamugira@gmail.com>
+:man: Mugirase Emmanuel <emmanuellamugi@gmail.com>
