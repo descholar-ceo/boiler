@@ -22,11 +22,9 @@ func askBasicQuestions(in *os.File, variable string, textToAsk string) string {
 	fmt.Println(textToAsk)
 	if _, err := fmt.Fscanf(in, "%s", &variable); err != nil {
 		log.Fatal(`
-
 |=====================Error message===================|
 ||    Empty response, please enter a value!          ||
 |=====================================================|
-
 `)
 	}
 	return variable
