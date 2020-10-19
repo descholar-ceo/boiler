@@ -37,22 +37,24 @@ if you are not sure run `sudo apt-get install freetds-dev` which will install it
 
 1. jdbcmysql, jdbcsqlite3, jdbcpostgresql,: are for use with [JRuby](https://www.jruby.org/) only
 
-## Installation
+## Installation :electric_plug:
 - [Click here](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0) and download a zip file
 - Extract it wherever you wish
 - Open terminal in the extracted folder, and run `./install.sh`
-- Close your current terminal and open another one and run `boiler` ===> there you go!
+- Close your current terminal and open another one and run `boiler` :point_right: :point_right: :point_right: there you go!
 
-### How to get a help?
+### How to get a help? :pray:
 Please join our community on [Gitter](https://gitter.im/boiler-community/community) and post whichever your blocker
 
 ## Built with
-[GoLang](https://golang.org/)
+[Golang](https://golang.org/)
 
-## Languages
-The current version [v1.0.0](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0) can generate:
-- Basic ruby Projects
-- Ruby on Rails Projects
+## Languages and systems
+1. The current version [v1.0.0](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0) can generate:
+   - Basic ruby Projects
+   - Ruby on Rails Projects
+
+1. The current version [v1.0.0](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0) support linux systems (Ubuntu/debian) based OS. :point_right: We welcome whoever who can add some other system support, your contribution is welcomed!
 
 ## Contributions
 Please follow [this contribution guide](https://github.com/descholar-ceo/boiler/blob/make-a-new-release/CONTRIBUTING.md)
