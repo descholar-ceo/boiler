@@ -1,5 +1,5 @@
 # boiler
-[![Maintainability](https://api.codeclimate.com/v1/badges/0ef5f6e9398a22c4b5ee/maintainability)](https://codeclimate.com/github/descholar-ceo/boiler/maintainability) [![Build Status](https://travis-ci.org/descholar-ceo/boiler.svg?branch=develop)](https://travis-ci.org/descholar-ceo/boiler)  [![Coverage Status](https://coveralls.io/repos/github/descholar-ceo/boiler/badge.svg?branch=develop)](https://coveralls.io/github/descholar-ceo/boiler?branch=develop) [![Join the chat at https://gitter.im/boiler-community/community](https://badges.gitter.im/boiler-community/community.svg)](https://gitter.im/boiler-community/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0ef5f6e9398a22c4b5ee/maintainability)](https://codeclimate.com/github/descholar-ceo/boiler/maintainability) [![Build Status](https://travis-ci.org/descholar-ceo/boiler.svg?branch=main)](https://travis-ci.org/descholar-ceo/boiler)  [![Coverage Status](https://coveralls.io/repos/github/descholar-ceo/boiler/badge.svg?branch=main)](https://coveralls.io/github/descholar-ceo/boiler?branch=main) [![Join the chat at https://gitter.im/boiler-community/community](https://badges.gitter.im/boiler-community/community.svg)](https://gitter.im/boiler-community/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 __boiler__ is an application that helps you to generate a project's boilerplate very easily. You don't need to waste your first hours of development in setting up the project. It gives you the first setup of your project so that you can focus on writing your codes.
 
@@ -60,4 +60,4 @@ Please join our community on [Gitter](https://gitter.im/boiler-community/communi
 1. The current version [v1.0.0](https://github.com/descholar-ceo/boiler/releases/tag/v1.0.0) support linux systems (Ubuntu/debian) based OS that use [Bash](https://www.gnu.org/software/bash/) as their command line shell. :point_right: We welcome whoever who can add some other system support, your contributions are welcomed!
 
 ## Contributions
-Please follow [this contribution guide](https://github.com/descholar-ceo/boiler/blob/make-a-new-release/CONTRIBUTING.md)
+Please follow [this contribution guide](https://github.com/descholar-ceo/boiler/blob/main/CONTRIBUTING.md)

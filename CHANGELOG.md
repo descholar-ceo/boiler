@@ -1,4 +1,4 @@
-### v1.0.0 - October 19, 2020
+### v1.0.0 - October 20, 2020
 This is the first version of Boiler
 
 #### Features
